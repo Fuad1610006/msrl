@@ -2,97 +2,104 @@
 @section('content')
 @include('frontend.layout.nav')
 
-<section class="contact-hero">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 d-flex align-items-center justify-content-center">
-        <div class="d-flex flex-wrap justify-content-center">
-          <div class="col-md-auto m-2">
-            <i class="fa fa-envelope fa-3x"></i>
-          </div>
-          <div class="col-md-auto m-2">
-            <i class="fa fa-at fa-3x"></i>
-          </div>
-          <div class="col-md-auto m-2">
-            <i class="fa fa-phone fa-3x"></i>
-          </div>
-          <div class="col-md-auto m-2">
-            <i class="fa fa-comments fa-3x"></i>
-          </div>
-          <div class="col-md-auto m-2">
-            <i class="fa fa-globe fa-3x"></i>
-          </div>
-          <div class="col-md-auto m-2">
-            <i class="fa fa-map-marker fa-3x"></i>
-          </div>
+<section class="conact-page-top">
+      <div class="overlay">
+        <div class="container pt-5 d-flex align-items-end">
+          <p><span>C</span>ontact Us</p>
         </div>
       </div>
-    </div>
-    <h1 class="text-center fs-big">Contact Us</h1>
-  </div>
-</section>
+    </section>
+    <!-- page top View end -->
+    <!-- Contact Page Body start -->
+    <section class="container my-4 brand-text-color">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="p-3 shadow mb-4 rounded">
+            <div class="addressnicon contact-body my-4">
+              <p>Connect with us</p>
+              <div class="mb-4">
+                <i class="fas fa-map-marker-alt pe-2"></i>
+                <span >North Khulshi, Chittagong, Bangladesh</span>
+              </div>
+              <div class="mb-4">
+                <i class="fas fa-envelope pe-2"></i>
+                <span> info@admin.com </span>
+              </div>
+              <div class="mb-4">
+                <i class="fas fa-phone pe-2"></i> <span> +880123456789</span>
+              </div>
+            </div>
+          </div>
 
-<section class="contact-info">
-  <img src="{{asset('asset/images/screw-background.png')}}" alt="screw-background" class="img-fluid background-screw" width="680px">
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col-md-6 d-flex flex-column justify-content-between">
-        <div class="contact-details">
-          <div class="d-flex align-items-center mb-4">
-            <i class="fa fa-phone fa-2x"></i>
-            <div class="ms-3">
-              <p>+1 (555) 555-5555</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center mb-4">
-            <i class="fa fa-envelope fa-2x"></i>
-            <div class="ms-3">
-              <p>info@example.com</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center mb-4">
-            <i class="fa fa-globe fa-2x"></i>
-            <div class="ms-3">
-              <p>www.example.com</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center">
-            <i class="fa fa-map-marker fa-2x"></i>
-            <div class="ms-3">
-              <p>123 Main Street, Anytown, CA 12345</p>
-            </div>
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22761.971551991017!2d91.79998021180442!3d22.360108883587724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8f2cb4ce22d%3A0x7fc7dd4029e3698b!2z4KaW4KeB4Kay4Ka24KeAIOCmn-CmvuCmieCmqCDgprjgp4fgpqjgp43gpp_gpr7gprA!5e0!3m2!1sbn!2sbd!4v1708959458631!5m2!1sbn!2sbd"
+              width="550"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="shadow rounded"
+            ></iframe>
           </div>
         </div>
-        <img src="{{asset('asset/images/map.png')}}" alt="Map image" class="img-fluid mt-3">
+        <div class="col-sm-12 col-md-6 contact-form p-4">
+          <p>Message Us</p>
+          <div>
+            <form method="POST" action="{{route('contact.store')}}">
+              @csrf
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  name="full_name"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Mobile Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  name="phone"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Your Message</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  name="message"
+                ></textarea>
+              </div>
+               <button type="submit" class="btn btn-green m-1 border rounded-pill px-4">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h2 class="mb-3">Contact Us</h2>
-        <form>
-          <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Mobile Number</label>
-            <input type="tel" class="form-control" id="phone" required>
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="5" required></textarea>
-          </div>
-          <div class="text-end">
-             <button type="submit" class="btn btn-light rounded-pill px-4 py-2">Send</button>
-          </div>
-         
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 @include('frontend.layout.footer')
 @endsection('content')
