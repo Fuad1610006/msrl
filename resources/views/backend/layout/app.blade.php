@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="{{asset('assets/css/shared/iconly.css')}}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    @stack('styles')
 </head>
 
 <body>
@@ -94,7 +95,7 @@
             
             <li
                 class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                <a href="{{route('track-records.index')}}" class='sidebar-link'>
                    <i class="bi bi-clipboard-minus"></i>
                     <span>Track Record</span>
                 </a>

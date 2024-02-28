@@ -10,9 +10,9 @@
     </section>
     <!-- page top View end -->
     <!-- Catagory start -->
-    <section class="my-3 shadow p-2">
+<section class="my-3 shadow p-2">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-sm-6">
             <div class="mb-3">
               <input
@@ -23,7 +23,7 @@
               />
             </div>
           </div>
-          <div class="col">
+          {{--<div class="col">
             <div
               id="project-galary-btn"
               class="image-catary d-flex align-items-center justify-content-end"
@@ -32,7 +32,7 @@
               <a href="/">Corporate</a>
               <a href="/">Project</a>
             </div>
-          </div>
+          </div>--}}
         </div>
       </div>
 </section>
@@ -307,25 +307,9 @@
     </section>
     <!-- Ship List end -->
     <!-- pagination start -->
-    <section class="my-4 d-flex justify-content-center">
-      <nav aria-label="Page navigation example " class="pagination-custom">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </section>
+ <section class="my-4 d-flex justify-content-center">
+    {{ $ships->links() }}
+</section>
 
 @include('frontend.layout.footer')
 @endsection('content')
