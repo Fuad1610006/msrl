@@ -53,12 +53,12 @@
             <li class="sidebar-title">Pages</li>
             
             <li
-                class="sidebar-item  ">
+                class="sidebar-item  has-sub">
                 <a href="{{route('settings.index')}}" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
-                 {{--<ul class="submenu ">
+                 <ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="#">Sister Concern</a>
                     </li>
@@ -71,26 +71,19 @@
                      <li class="submenu-item ">
                         <a href="#">Header/Footer Info</a>
                     </li>
-                </ul>--}}
+                    <li class="submenu-item ">
+                        <a href="#">About us</a>
+                    </li>
+                </ul>
             </li>
             
             <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item  ">
+                <a href="{{route('carousel.index')}}" class='sidebar-link'>
                     <i class="bi bi-house-fill"></i>
                     <span>Home Page</span>
                 </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="#">Carousel</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="#">Image Gallery</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="#">About Us</a>
-                    </li>
-                </ul>
+                
             </li>
             
             <li

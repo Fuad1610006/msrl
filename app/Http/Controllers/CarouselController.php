@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Carousel;
 use Illuminate\Http\Request;
+use App\Http\Requests\CarouselRequest;
+use Exception;
+use Toastr;
 
 class CarouselController extends Controller
 {
@@ -12,7 +15,8 @@ class CarouselController extends Controller
      */
     public function index()
     {
-        //
+        $carousel = Carousel::all();
+        return view('backend.carousel.index', compact('carousel'));
     }
 
     /**
@@ -20,15 +24,41 @@ class CarouselController extends Controller
      */
     public function create()
     {
-        //
+         $carousel = Carousel::all();
+         return view('backend.carousel.create', compact('carousel'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CarouselRequest $request)
     {
-        //
+        try{
+        $carousel=new Carousel;
+        $carousel->about_link = $request->about_link;
+        $carousel->project_link = $request->project_link;
+        $carousel->short_description = $request->short_description;
+
+         if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/carousel'), $imageName);
+                $carousel->image = $imageName;
+            }
+        if( $carousel->save()){
+             $this->notice::success('Successfully saved');
+             return redirect()->route('carousel.index');
+       
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+           
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -42,24 +72,51 @@ class CarouselController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Carousel $carousel)
+    public function edit( $id)
     {
-        //
+        return view('backend.carousel.edit', compact('carousel'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Carousel $carousel)
+    public function update(CarouselRequest $request,  $id)
     {
-        //
+        try{
+            $carousel->about_link = $request->about_link;
+            $carousel->project_link = $request->project_link;
+            $carousel->short_description = $request->short_description;
+            if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/carousel'), $imageName);
+                $carousel->image = $imageName;
+            }
+        if( $carousel->save()){
+            $this->notice::success('Successfully saved');
+            return redirect()->route('carousel.index');
+    
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+           
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Carousel $carousel)
+    public function destroy( $id)
     {
-        //
+         $carousel= Carousel::findOrFail(encryptor('decrypt', $id));
+        if($carousel->delete()){
+              $this->notice::warning('Deleted Permanently!');
+              return redirect()->back();
+        }
     }
 }

@@ -16,6 +16,7 @@ use App\Http\Controllers\OverviewController as overview;
 use App\Http\Controllers\SisterConcernController as sister;
 use App\Http\Controllers\SettingController as settings;
 use App\Http\Controllers\GalleryController as gallery;
+use App\Http\Controllers\CarouselController as carousel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +58,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('settings', settings::class);//In-progress
     Route::resource('moderation', moderation::class);//In-progress
     Route::resource('about-us', about::class);//In-progress
+    Route::resource('carousel', carousel::class);//In-progress
   
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 

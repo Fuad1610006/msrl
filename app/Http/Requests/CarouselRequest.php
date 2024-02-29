@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Ship;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddNewRequest extends FormRequest
+class CarouselRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,10 @@ class AddNewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'country' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
-            'weight' => 'required|numeric',
-            'type' => 'required|in:1,2', // Assuming only 1 and 2 are valid values for type
-            'status' => 'required|in:Completed,Ongoing,Pending',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'about_link' => 'required|string',
+            'project_link' => 'required|string',
+            'short_description' => 'required|string',
         ];
     }
 }
