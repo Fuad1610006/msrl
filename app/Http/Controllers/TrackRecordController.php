@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Setting;
+use App\Models\TrackRecord;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class TrackRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $setting = Setting::all();
-        return view('backend.settings.index', compact('setting'));
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Setting $setting)
+    public function show(TrackRecord $trackRecord)
     {
         //
     }
@@ -43,7 +42,7 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Setting $setting)
+    public function edit(TrackRecord $trackRecord)
     {
         //
     }
@@ -51,7 +50,7 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Setting $setting)
+    public function update(Request $request, TrackRecord $trackRecord)
     {
         //
     }
@@ -59,7 +58,7 @@ class SettingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Setting $setting)
+    public function destroy(TrackRecord $trackRecord)
     {
         //
     }

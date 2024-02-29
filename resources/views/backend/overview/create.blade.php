@@ -4,13 +4,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Moderation</h3>
+                <h3>Industry</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Moderaion</li>
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Industry</li>
                     </ol>
                 </nav>
             </div>
@@ -20,19 +20,15 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Moderaion Page</h4>
+                    <h4 class="card-title">Industry Page</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('moderation.update', encryptor('encrypt',$moderation->id)) }}" method="POST">
+                    <form action="{{ route('industry.store') }}" method="POST">
                         @csrf
-                        @method('PUT')
-                        <div class="row">
-                             <textarea name="moderation_text" cols="30" rows="8" id="moderation_text" class="form-control"></textarea>
-                        </div>
+                        <textarea name="overview_text" cols="30" rows="8" id="overview_text" class="form-control"></textarea>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
-
             </div>
         </section>
     </div>

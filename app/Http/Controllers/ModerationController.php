@@ -4,39 +4,106 @@ namespace App\Http\Controllers;
 
 use App\Models\Moderation;
 use Illuminate\Http\Request;
+use App\Http\Requests\ModerationRequest;
+use Exception;
+use Toastr;
 
 class ModerationController extends Controller
 {
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $moderation = Moderation::all();
+        return view('backend.moderation.create', compact('moderation'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(ModerationRequest $request)
+    {
+        try{
+        $moderation=new Moderation;
+        $moderation->moderation_text=$request->moderation_text;
+        if( $moderation->save()){
+             $this->notice::success('Successfully Updated');
+             return redirect()->route('moderation.index');
+       
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+           
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput(); 
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-         $moderation = Moderation::firstOrFail();
+        $moderation = Moderation::all();
         return view('backend.moderation.index', compact('moderation'));
     }
 
-    public function edit()
+   public function edit($id)
     {
-        $moderation = Moderation::firstOrNew();
+        // Fetch the specific moderation record based on the $id
+        $moderation = Moderation::find($id);
+
+        // Check if the moderation record exists
+        if (!$moderation) {
+            // Handle the case where the record doesn't exist, maybe redirect back with a message
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+        }
+
+        // Pass the single moderation record to the view
         return view('backend.moderation.edit', compact('moderation'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $moderation = Moderation::firstOrNew();
-        $moderation->introduction = $request->input('introduction');
-        $moderation->necessity = $request->input('necessity');
-        $moderation->save();
 
-        return redirect()->route('moderations.edit')->with('success', 'Paragraphs updated successfully.');
+    public function update(ModerationRequest $request, $id)
+    {
+         try{
+
+         $moderation->moderation_text=$request->moderation_text;
+
+         $moderation->save();
+            $this->notice::success('Successfully saved');
+            return redirect()->route('moderation.index');
+           
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Moderation $moderation)
+    public function destroy( $id)
     {
-        //
+        $moderation= Moderation::findOrFail(encryptor('decrypt', $id));
+        if($moderation->delete()){
+              $this->notice::warning('Deleted Permanently!');
+              return redirect()->back();
+        }
+    }
+
+    public function moderation()
+    {
+        // Fetch moderation texts from the database
+        $moderation = Moderation::all();
+        
+        // Pass moderation data to the view
+        return view('frontend.moderation.moderation', compact('moderation'));
     }
 }

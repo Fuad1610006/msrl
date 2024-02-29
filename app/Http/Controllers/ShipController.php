@@ -60,7 +60,6 @@ class ShipController extends Controller
             dd($e);
              $this->notice::error('Please try again');
             return redirect()->back()->withInput();
-           
         }
 
     }
@@ -77,7 +76,7 @@ class ShipController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ship $ship)
+    public function edit($id)
     {
        return view('backend.ship.edit', compact('ship'));
     }

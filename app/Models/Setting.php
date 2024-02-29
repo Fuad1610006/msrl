@@ -23,4 +23,9 @@ class Setting extends Model
     {
         return $this->hasOne(SisterLogo::class);
     }
+
+    public function trackRecord()
+    {
+        return $this->hasOne(TrackRecord::class);
+    }
 }

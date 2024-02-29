@@ -42,7 +42,7 @@
           </p>
         </div>
         <div class="col-md-12 col-lg-6 sister-logo-about text-center">
-          <img class="img-fluid" src="./{{asset('asset/images/logo.png')}}" alt="Sister Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/logo.png')}}" alt="Sister Logo" />
         </div>
       </div>
     </section>
@@ -52,7 +52,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6 experience">
-            <img class="img-fluid" src="./{{asset('asset/images/17.png')}}" alt="Years" />
+            <img class="img-fluid" src="{{asset('asset/images/17.png')}}" alt="Years" />
             <div class="top-exprience">
               <p>Years <br />experience</p>
             </div>
@@ -136,7 +136,7 @@
           <div class="col-sm-12 col-md-6 experience d-flex align-items-center">
             <img
               class="img-fluid shadow rounded"
-              src="./{{asset('asset/images/history.png')}}"
+              src="{{asset('asset/images/history.png')}}"
               alt=""
             />
           </div>
@@ -189,18 +189,18 @@
           </p>
         </div>
         <div class="col-md-12 col-lg-6 buyers-logo text-center">
-          <img class="img-fluid" src="./{{asset('asset/images/bsrm.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/madina-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/RRM-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/BMSIL-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/RSRM-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/Sarker-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/KSRM-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/AKS-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="./{{asset('asset/images/BS_Logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/bsrm.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/madina-logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/RRM-logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/BMSIL-Logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/RSRM-logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/Sarker-Logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/KSRM-Logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/AKS-Logo.png')}}" alt="Buyer Logo" />
+          <img class="img-fluid" src="{{asset('asset/images/BS_Logo.png')}}" alt="Buyer Logo" />
           <img
             class="img-fluid"
-            src="./{{asset('asset/images/transport_logo.png')}}"
+            src="{{asset('asset/images/transport_logo.png')}}"
             alt=""
           />
         </div>

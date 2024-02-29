@@ -28,9 +28,9 @@
               <a class="nav-link" href="{{route('sister')}}">Sister Concern</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('moderation')}}">Yard</a>
+              <a class="nav-link" href="{{route('yard')}}">Yard</a>
               <ul class="sub-nav">
-                <li><a href="{{route('moderation')}}">Modaration of Yard</a></li>
+                <li><a href="{{route('yard')}}">Modaration of Yard</a></li>
               </ul>
             </li>
             <li class="nav-item">

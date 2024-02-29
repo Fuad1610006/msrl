@@ -14,6 +14,7 @@ use App\Http\Controllers\ChairmanController as chairman;
 use App\Http\Controllers\ManagementController as management;
 use App\Http\Controllers\OverviewController as overview;
 use App\Http\Controllers\SisterController as sister;
+use App\Http\Controllers\SettingController as settings;
 use App\Http\Controllers\GalleryController as gallery;
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
+Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly done
+Route::get('/yard', [moderation::class, 'moderation'])->name('yard');//mostly done
 Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');//mostly done
 Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');//mostly done
 
@@ -46,14 +49,13 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('track-records', ship::class);//mostly done
     Route::resource('gallery', gallery::class);//In-progress
     Route::resource('about', about::class);//In-progress
-    Route::resource('overview', overview::class);//In-progress
+    Route::resource('industry', overview::class);//In-progress
     Route::resource('management', management::class);//In-progress
     Route::resource('sister-concern', sister::class);//In-progress
     Route::resource('chairman', chairman::class);//In-progress
-    
-    Route::get('moderation', [moderation::class, 'index'])->name('moderations.index');
-    Route::get('moderation/edit', [moderation::class, 'edit'])->name('moderations.edit');
-    Route::post('moderation/update', [moderation::class, 'update'])->name('moderations.update');//Incomplete
+    Route::resource('settings', settings::class);//In-progress
+    Route::resource('moderation', moderation::class);//In-progress
+  
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 
 });
@@ -82,6 +84,3 @@ Route::get('management', function () {
 Route::get('track-record', function () {
     return view('frontend.track-record.track');
 })->name('track');
-Route::get('overview', function () {
-    return view('frontend.overview.overview');
-})->name('overview');

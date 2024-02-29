@@ -53,12 +53,12 @@
             <li class="sidebar-title">Pages</li>
             
             <li
-                class="sidebar-item has-sub ">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item  ">
+                <a href="{{route('settings.index')}}" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
-                 <ul class="submenu ">
+                 {{--<ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="#">Sister Concern</a>
                     </li>
@@ -71,7 +71,7 @@
                      <li class="submenu-item ">
                         <a href="#">Header/Footer Info</a>
                     </li>
-                </ul>
+                </ul>--}}
             </li>
             
             <li
@@ -102,14 +102,14 @@
             </li>
              <li
                 class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                <a href="{{route('industry.index')}}" class='sidebar-link'>
                    <i class="bi bi-search-heart-fill"></i>
                     <span>Industry Overview </span>
                 </a>
             </li>
              <li
                 class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                <a href="{{route('moderation.index')}}" class='sidebar-link'>
                     <i class="bi bi-shield-fill-exclamation"></i>
                     <span>Moderation of Yard</span>
                 </a>

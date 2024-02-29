@@ -4,62 +4,106 @@ namespace App\Http\Controllers;
 
 use App\Models\Overview;
 use Illuminate\Http\Request;
+use App\Http\Requests\OverviewRequest;
+use Exception;
+use Toastr;
 
 class OverviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        $overview = Overview::all();
+        return view('backend.overview.create', compact('overview'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OverviewRequest $request)
     {
-        //
+        try{
+        $overview=new Overview;
+        $overview->overview_text=$request->overview_text;
+        if( $overview->save()){
+             $this->notice::success('Successfully Updated');
+             return redirect()->route('industry.index');
+       
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+           
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput(); 
+        }
     }
 
     /**
-     * Display the specified resource.
+     * Display a listing of the resource.
      */
-    public function show(Overview $overview)
+    public function index()
     {
-        //
+        $overview = Overview::all();
+        return view('backend.overview.index', compact('overview'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Overview $overview)
+   public function edit($id)
     {
-        //
+        // Fetch the specific overview record based on the $id
+        $overview = Overview::find($id);
+
+        // Check if the overview record exists
+        if (!$overview) {
+            // Handle the case where the record doesn't exist, maybe redirect back with a message
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput();
+        }
+
+        // Pass the single overview record to the view
+        return view('backend.overview.edit', compact('overview'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Overview $overview)
+
+    public function update(OverviewRequest $request, $id)
     {
-        //
+         try{
+
+         $overview->overview_text=$request->overview_text;
+
+         $overview->save();
+            $this->notice::success('Successfully saved');
+            return redirect()->route('industry.index');
+           
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Overview $overview)
+    public function destroy( $id)
     {
-        //
+        $overview= Overview::findOrFail(encryptor('decrypt', $id));
+        if($overview->delete()){
+              $this->notice::warning('Deleted Permanently!');
+              return redirect()->back();
+        }
+    }
+
+    public function overview()
+    {
+        // Fetch overview texts from the database
+        $overview = Overview::all();
+        
+        // Pass overview data to the view
+        return view('frontend.overview.overview', compact('overview'));
     }
 }
