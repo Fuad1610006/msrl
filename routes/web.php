@@ -52,20 +52,26 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 Route::get('about', function () {
-    return view('frontend.about.about-us');
+    return view('frontend.about.about');
 })->name('about');
+Route::get('chairman', function () {
+    return view('frontend.chairman.chairman');
+})->name('chairman');
+Route::get('sister-concern', function () {
+    return view('frontend.sister-concern.sister');
+})->name('sister');
 Route::get('contact', function () {
-    return view('frontend.contact.contact-us');
+    return view('frontend.contact.contact');
 })->name('contact');
-// Route::get('gallery', function () {
-//     return view('frontend.gallery.gallery');
-// })->name('gallery');
 Route::get('moderation', function () {
     return view('frontend.moderation.moderation');
 })->name('moderation');
+Route::get('management', function () {
+    return view('frontend.management.management');
+})->name('management');
 Route::get('track-record', function () {
-    return view('frontend.track-record.track-record');
-})->name('track-record');
+    return view('frontend.track-record.track');
+})->name('track');
 Route::get('overview', function () {
     return view('frontend.overview.overview');
 })->name('overview');

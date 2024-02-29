@@ -305,12 +305,7 @@
         <!-- Add more card rows as needed -->
       </div>
     </section>
-    <!-- Ship List end -->
-    <!-- pagination start -->
- <section class="my-4 d-flex justify-content-center">
-    {{ $ships->links() }}
-</section>
-
+ 
 @include('frontend.layout.footer')
 @endsection('content')
 

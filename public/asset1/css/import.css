@@ -5,7 +5,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 /*====================== main import ===========================*/
-@import url(./variable.css);
+@import url(variable.css);
 
 /* ================== custom import ============================*/
 
@@ -31,12 +31,3 @@
 
 /* Track Recourd Page */
 @import url(./trackRecord/trackRecord.css);
-
-/* Chariman Page */
-@import url(./chairman/chairman.css);
-
-/* management Page */
-@import url(./management/management.css);
-
-/* about Page */
-@import url(./about/about.css);

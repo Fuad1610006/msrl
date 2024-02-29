@@ -18,32 +18,32 @@
               <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Who we are</a>
+              <a class="nav-link" href="{{route('about')}}">Who we are</a>
               <ul class="sub-nav">
-                <li><a href="">About Us</a></li>
-                <li><a href="">Chairman Message</a></li>
+                <li><a href="{{route('about')}}">About Us</a></li>
+                <li><a href="{{route('chairman')}}">Chairman Message</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Sister Concern</a>
+              <a class="nav-link" href="{{route('sister')}}">Sister Concern</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Yard</a>
+              <a class="nav-link" href="{{route('moderation')}}">Yard</a>
               <ul class="sub-nav">
-                <li><a href="">Modaration of Yard</a></li>
+                <li><a href="{{route('moderation')}}">Modaration of Yard</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Industry</a>
+              <a class="nav-link" href="{{route('overview')}}">Industry</a>
               <ul class="sub-nav">
-                <li><a href="">Ship Breaking Industry</a></li>
+                <li><a href="{{route('overview')}}">Ship Breaking Industry</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Our Project</a>
+              <a class="nav-link" href="{{route('track')}}">Our Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Our Team</a>
+              <a class="nav-link" href="{{route('management')}}">Our Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('gallery')}}">Gallery</a>

@@ -109,7 +109,7 @@ class GalleryController extends Controller
      */
     public function gallery()
     {
-        $ships = Ship::all(); // Fetch data from the Gallery model
+        $ships = Ship::paginate(10); // Paginate the ships with 10 items per page
         return view('frontend.gallery.gallery', compact('ships'));
     }
 
@@ -119,18 +119,16 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function filter(Request $request)
+  public function filter(Request $request)
     {
-        // Retrieve the category query parameter from the request
         $category = $request->query('category');
 
-        // Query the ships based on the selected category
         if ($category === 'corporate') {
-            $ships = Ship::where('category', 'corporate')->get();
+            $ships = Ship::where('category', 'corporate')->paginate(10);
         } elseif ($category === 'project') {
-            $ships = Ship::where('category', 'project')->get();
+            $ships = Ship::where('category', 'project')->paginate(10);
         } else {
-            $ships = Ship::all(); // Display all ships if no specific category is selected
+            $ships = Ship::paginate(10);
         }
 
         return view('frontend.gallery.gallery', compact('ships'));
