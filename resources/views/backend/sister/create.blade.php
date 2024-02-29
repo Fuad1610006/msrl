@@ -4,13 +4,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Ship</h3>
+                <h3>About</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ship</li>
+                        <li class="breadcrumb-item active" aria-current="page">About</li>
                     </ol>
                 </nav>
             </div>
@@ -20,61 +20,12 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Ship Info</h4>
+                    <h4 class="card-title">About Page</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('track-records.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('sister-concern.store') }}" method="POST">
                         @csrf
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Ship Name <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" placeholder="Enter Name" required>
-                                     @if($errors->has('name'))
-                                        <span class="text-danger"> {{ $errors->first('name') }}</span>
-                                     @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="country">Country <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="country" name="country" value="{{ old('country')}}" placeholder="Enter Country" required>
-                                     @if($errors->has('country'))
-                                        <span class="text-danger"> {{ $errors->first('country') }}</span>
-                                     @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="weight">Weight <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="weight" name="weight" value="{{ old('weight')}}" placeholder="Enter Weight" required>
-                                     @if($errors->has('weight'))
-                                        <span class="text-danger"> {{ $errors->first('weight') }}</span>
-                                     @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="type">Type</label>
-                                    <select class="form-control" id="type" name="type">
-                                        <option>Select One</option>
-                                         <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>General Ship</option>
-                                         <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>Bulk Carrier</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option>Select One</option>
-                                        <option value="Completed" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
-                                        <option value="Ongoing"{{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                        <option value="Pending"{{ old('status') == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image">
-                                </div>
-                            
-                            </div>
-                        </div>
+                        <textarea name="sister_text" cols="30" rows="8" id="sister_text" class="form-control"></textarea>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -83,3 +34,23 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+ <!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/ceyb8meqlrqis0sgk1xe964n5su0k26wvyrj80i1g9swpx2q/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
+@endpush

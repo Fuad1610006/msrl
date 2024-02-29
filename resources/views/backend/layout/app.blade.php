@@ -116,9 +116,16 @@
             </li>
              <li
                 class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
+                <a href="{{route('about-us.index')}}" class='sidebar-link'>
                     <i class="bi bi-info-square-fill"></i>
                     <span>About Us</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="{{route('sister-concern.index')}}" class='sidebar-link'>
+                    <i class="bi bi-info-square-fill"></i>
+                    <span>Sister Concern</span>
                 </a>
             </li>
         </ul>

@@ -143,28 +143,28 @@
 
         <ul class="navbar-nav ms-2 mt-2 text-center mobile-nav-view">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="{{route('home')}}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link cursor-point">Who we are</a>
             <ul class="sub-nav">
-              <li><a href="">About Us</a></li>
-              <li><a href="">Chairman Message</a></li>
+              <li><a href="{{route('about')}}">About Us</a></li>
+              <li><a href="{{route('chairman')}}">Chairman Message</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="management.html">Sister Concern</a>
+            <a class="nav-link" href="{{route('sister')}}">Sister Concern</a>
           </li>
           <li class="nav-item">
             <a class="nav-link cursor-point">Yard</a>
             <ul class="sub-nav">
-              <li><a href="">Modaration of Yard</a></li>
+              <li><a href="{{route('sister')}}">Modaration of Yard</a></li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link cursor-point">Industry</a>
             <ul class="sub-nav">
-              <li><a href="">Ship Breaking Industry</a></li>
+              <li><a href="{{route('sister')}}">Ship Breaking Industry</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -174,13 +174,13 @@
             <a class="nav-link" href="{{route('contact')}}">Our Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Gallery</a>
+            <a class="nav-link" href="{{route('gallery')}}">Gallery</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link border m-3 bg-light" href="{{route('contact')}}"
+            <a class="nav-link border m-3 bg-light" href="{{route('gallery')}}"
               >Our All Project</a
             >
           </li>

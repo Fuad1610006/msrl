@@ -13,7 +13,7 @@ use App\Http\Controllers\AboutController as about;
 use App\Http\Controllers\ChairmanController as chairman;
 use App\Http\Controllers\ManagementController as management;
 use App\Http\Controllers\OverviewController as overview;
-use App\Http\Controllers\SisterController as sister;
+use App\Http\Controllers\SisterConcernController as sister;
 use App\Http\Controllers\SettingController as settings;
 use App\Http\Controllers\GalleryController as gallery;
 /*
@@ -33,6 +33,8 @@ Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
+Route::get('sister', [sister::class, 'sister'])->name('sister');//mostly done
+Route::get('about', [about::class, 'about'])->name('about');//mostly done
 Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly done
 Route::get('/yard', [moderation::class, 'moderation'])->name('yard');//mostly done
 Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');//mostly done
@@ -48,13 +50,13 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('role', role::class);
     Route::resource('track-records', ship::class);//mostly done
     Route::resource('gallery', gallery::class);//In-progress
-    Route::resource('about', about::class);//In-progress
     Route::resource('industry', overview::class);//In-progress
     Route::resource('management', management::class);//In-progress
     Route::resource('sister-concern', sister::class);//In-progress
     Route::resource('chairman', chairman::class);//In-progress
     Route::resource('settings', settings::class);//In-progress
     Route::resource('moderation', moderation::class);//In-progress
+    Route::resource('about-us', about::class);//In-progress
   
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 
@@ -63,15 +65,15 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
-Route::get('about', function () {
-    return view('frontend.about.about');
-})->name('about');
+// Route::get('about', function () {
+//     return view('frontend.about.about');
+// })->name('about');
 Route::get('chairman', function () {
     return view('frontend.chairman.chairman');
 })->name('chairman');
-Route::get('sister-concern', function () {
-    return view('frontend.sister-concern.sister');
-})->name('sister');
+// Route::get('sister-concern', function () {
+//     return view('frontend.sister-concern.sister');
+// })->name('sister');
 Route::get('contact', function () {
     return view('frontend.contact.contact');
 })->name('contact');
