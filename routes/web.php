@@ -9,6 +9,11 @@ use App\Http\Controllers\PermissionController as permission;
 use App\Http\Controllers\ModerationController as moderation;
 use App\Http\Controllers\ContactController as contact;
 use App\Http\Controllers\ShipController as ship;
+use App\Http\Controllers\AboutController as about;
+use App\Http\Controllers\ChairmanController as chairman;
+use App\Http\Controllers\ManagementController as management;
+use App\Http\Controllers\OverviewController as overview;
+use App\Http\Controllers\SisterController as sister;
 use App\Http\Controllers\GalleryController as gallery;
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +45,11 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('role', role::class);
     Route::resource('track-records', ship::class);//mostly done
     Route::resource('gallery', gallery::class);//In-progress
+    Route::resource('about', about::class);//In-progress
+    Route::resource('overview', overview::class);//In-progress
+    Route::resource('management', management::class);//In-progress
+    Route::resource('sister-concern', sister::class);//In-progress
+    Route::resource('chairman', chairman::class);//In-progress
     
     Route::get('moderation', [moderation::class, 'index'])->name('moderations.index');
     Route::get('moderation/edit', [moderation::class, 'edit'])->name('moderations.edit');

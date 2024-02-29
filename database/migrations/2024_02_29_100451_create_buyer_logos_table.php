@@ -9,23 +9,25 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+   public function up(): void
     {
-        Schema::create('moderations', function (Blueprint $table) {
+        Schema::create('buyer_logos', function (Blueprint $table) {
             $table->id();
-            // $table->text('introduction');
-            // $table->text('necessity');
-            $table->text('moderaion_text');
+            $table->string('buyer_name');
+            $table->string('buyer_logo');
+            $table->unsignedBigInteger('setting_id');
             $table->timestamps();
-            $table->softDeletes();
+
+            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('moderations');
+        Schema::dropIfExists('buyer_logos');
     }
 };

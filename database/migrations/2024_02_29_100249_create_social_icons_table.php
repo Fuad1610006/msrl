@@ -11,21 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('moderations', function (Blueprint $table) {
+        Schema::create('social_icons', function (Blueprint $table) {
             $table->id();
-            // $table->text('introduction');
-            // $table->text('necessity');
-            $table->text('moderaion_text');
+            $table->string('social_site');
+            $table->string('social_logo');
+            $table->string('social_address');
+            $table->unsignedBigInteger('setting_id');
             $table->timestamps();
-            $table->softDeletes();
+
+            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('moderations');
+        Schema::dropIfExists('social_icons');
     }
 };

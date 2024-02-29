@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('moderations', function (Blueprint $table) {
+        Schema::create('management', function (Blueprint $table) {
             $table->id();
-            // $table->text('introduction');
-            // $table->text('necessity');
+            $table->string('image');
             $table->text('moderaion_text');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('moderations');
+        Schema::dropIfExists('management');
     }
 };

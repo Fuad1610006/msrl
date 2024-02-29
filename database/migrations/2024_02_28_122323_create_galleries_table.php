@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ship_id'); // Foreign key column
             $table->foreign('ship_id')->references('id')->on('ships')->onDelete('cascade');
             $table->timestamps();
+            //This is not necessary if image is uploaded per project/ship. skip gallery model/migration.
         });
     }
 
