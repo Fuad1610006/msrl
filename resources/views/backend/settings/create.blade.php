@@ -4,7 +4,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Ship</h3>
+                <h3>Settings</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -19,67 +19,165 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Settings</h4>
-                </div>
                 <div class="card-body">
-                    <form action="{{ route('settings.store') }}" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Sister Concern Logo</h4>
+                                <form action="{{ route('sister-logo.store') }}" method="POST" enctype="multipart/form-data">
+                                 @csrf
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="file" id="image" class="form-control" name="image">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </form>  
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Buyer Logo</h4>
+                                <form action="{{ route('buyer-logo.store') }}" method="POST" enctype="multipart/form-data">
+                                 @csrf
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="file" id="image" class="form-control" name="image">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </form>  
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+      
+        <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Track Record Cards</h4>
+                    <form action="{{ route('track.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Ship Name <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" placeholder="Enter Name" required>
-                                     @if($errors->has('name'))
-                                        <span class="text-danger"> {{ $errors->first('name') }}</span>
+                                    <label for="title_1">Card Title 1<i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_1" name="title_1" required>
+                                    @if($errors->has('title_1'))
+                                        <span class="text-danger"> {{ $errors->first('title_1') }}</span>
                                      @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="country">Country <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="country" name="country" value="{{ old('country')}}" placeholder="Enter Country" required>
-                                     @if($errors->has('country'))
-                                        <span class="text-danger"> {{ $errors->first('country') }}</span>
+                                    <label for="title_2">Card Title 2 <i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_2" name="title_2" required>
+                                    @if($errors->has('title_2'))
+                                        <span class="text-danger"> {{ $errors->first('title_2') }}</span>
                                      @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="weight">Weight <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="weight" name="weight" value="{{ old('weight')}}" placeholder="Enter Weight" required>
-                                     @if($errors->has('weight'))
-                                        <span class="text-danger"> {{ $errors->first('weight') }}</span>
+                                    <label for="title_3">Card Title 3 <i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_3" name="title_3" required>
+                                    @if($errors->has('title_3'))
+                                        <span class="text-danger"> {{ $errors->first('title_3') }}</span>
                                      @endif
                                 </div>
+                                 <div class="form-group">
+                                    <label for="title_4">Card Title 4 <i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_4" name="title_4" required>
+                                    @if($errors->has('title_4'))
+                                        <span class="text-danger"> {{ $errors->first('title_4') }}</span>
+                                     @endif
+                                </div>
+                                 <button type="submit" class="btn btn-primary">Submit</button>  
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="type">Type</label>
-                                    <select class="form-control" id="type" name="type">
-                                        <option>Select One</option>
-                                         <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>General Ship</option>
-                                         <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>Bulk Carrier</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option>Select One</option>
-                                        <option value="Completed" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
-                                        <option value="Ongoing"{{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                        <option value="Pending"{{ old('status') == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image">
-                                </div>
-                            
+
+                             <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="number_1">Card Number 1<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_1" name="number_1" required>
+                                        @if($errors->has('number_1'))
+                                            <span class="text-danger"> {{ $errors->first('number_1') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number_2">Card Number 2<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_2" name="number_2" required>
+                                        @if($errors->has('number_2'))
+                                            <span class="text-danger"> {{ $errors->first('number_2') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number_3">Card Number 3<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_3" name="number_3" required>
+                                        @if($errors->has('number_3'))
+                                            <span class="text-danger"> {{ $errors->first('number_3') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number_4">Card Number 4<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_4" name="number_4" required>
+                                        @if($errors->has('number_4'))
+                                            <span class="text-danger"> {{ $errors->first('number_4') }}</span>
+                                        @endif
+                                    </div>
+                                </div>  
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
+                
+                
             </div>
         </section>
+
+         <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Track Record Cards</h4>
+                    <form action="{{ route('settings.store') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title_1">Card Title 1<i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_1" name="title_1" required>
+                                    @if($errors->has('title_1'))
+                                        <span class="text-danger"> {{ $errors->first('title_1') }}</span>
+                                     @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="title_2">Card Title 2 <i class="text-danger">*</i></label>
+                                    <input type="text" class="form-control" id="title_2" name="title_2" required>
+                                    @if($errors->has('title_2'))
+                                        <span class="text-danger"> {{ $errors->first('title_2') }}</span>
+                                     @endif
+                                </div>
+                                
+                                 <button type="submit" class="btn btn-primary">Submit</button>  
+                            </div>
+
+                             <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="number_1">Card Number 1<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_1" name="number_1" required>
+                                        @if($errors->has('number_1'))
+                                            <span class="text-danger"> {{ $errors->first('number_1') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number_2">Card Number 2<i class="text-danger">*</i></label>
+                                        <input type="text" class="form-control" id="number_2" name="number_2" required>
+                                        @if($errors->has('number_2'))
+                                            <span class="text-danger"> {{ $errors->first('number_2') }}</span>
+                                        @endif
+                                    </div>
+                                   
+                                </div>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                
+            </div>
+        </section>
+
     </div>
 </div>
 @endsection

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\SisterLogo;
 use Illuminate\Http\Request;
+use App\Http\Requests\SisterLogoRequest;
+use Exception;
+use Toastr;
 
 class SisterLogoController extends Controller
 {
@@ -12,7 +15,8 @@ class SisterLogoController extends Controller
      */
     public function index()
     {
-        //
+        $data = SisterLogo::all();
+        return view('backend.settings.index', compact('data'));
     }
 
     /**
@@ -20,15 +24,36 @@ class SisterLogoController extends Controller
      */
     public function create()
     {
-        //
+        $data = SisterLogo::all();
+        return view('backend.settings.ceate', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SisterLogoRequest $request)
     {
-        //
+        try{
+        $data=new SisterLogo;
+        $data->company_name=$request->company_name;
+         if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/buyerLogo'), $imageName);
+                $ship->image = $imageName;
+            }
+        if( $data->save()){
+             $this->notice::success('Successfully saved');
+             return redirect()->route('buyer.index');
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput(); 
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -42,24 +67,47 @@ class SisterLogoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SisterLogo $sisterLogo)
+    public function edit( $id)
     {
-        //
+        return view('backend.settings.edit');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SisterLogo $sisterLogo)
+    public function update(SisterLogoRequest $request,  $id)
     {
-        //
+        try{
+        $data->company_name=$request->company_name;
+         if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/buyerLogo'), $imageName);
+                $ship->image = $imageName;
+            }
+        if( $data->save()){
+             $this->notice::success('Successfully saved');
+             return redirect()->route('buyer.index');
+        }else{
+            $this->notice::error('Please try again!');
+            return redirect()->back()->withInput(); 
+        }
+        }catch(Exception $e){
+            dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SisterLogo $sisterLogo)
+    public function destroy( $id)
     {
-        //
+        $data= SisterLogo::findOrFail(encryptor('decrypt', $id));
+        if($data->delete()){
+              $this->notice::warning('Deleted Permanently!');
+              return redirect()->back();
+        }
     }
 }

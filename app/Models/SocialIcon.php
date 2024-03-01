@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocialIcon extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
-     public function setting()
-    {
-        return $this->belongsTo(Setting::class);
-    }
+    //  public function setting()
+    // {
+    //     return $this->belongsTo(Setting::class);
+    // }
 }

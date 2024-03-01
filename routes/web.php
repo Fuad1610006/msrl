@@ -10,6 +10,7 @@ use App\Http\Controllers\ModerationController as moderation;
 use App\Http\Controllers\ContactController as contact;
 use App\Http\Controllers\ShipController as ship;
 use App\Http\Controllers\AboutController as about;
+use App\Http\Controllers\AboutUsController as aboutUs;
 use App\Http\Controllers\ChairmanController as chairman;
 use App\Http\Controllers\ManagementController as management;
 use App\Http\Controllers\OverviewController as overview;
@@ -17,6 +18,12 @@ use App\Http\Controllers\SisterConcernController as sister;
 use App\Http\Controllers\SettingController as settings;
 use App\Http\Controllers\GalleryController as gallery;
 use App\Http\Controllers\CarouselController as carousel;
+use App\Http\Controllers\TrackRecordController as track;
+use App\Http\Controllers\BuyerLogoController as buyer;
+use App\Http\Controllers\SisterLogoController as sisterLogo;
+use App\Http\Controllers\SocialIconController as socials;
+use App\Http\Controllers\HistoryController as history;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +40,10 @@ Route::get('login', [auth::class,'signInForm'])->name('login');
 Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
+Route::post('about_us/ckfinder/upload', [aboutUs::class, 'upload'])->name('ckfinder_upload');
+
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
+Route::get('data', [carousel::class, 'carousel'])->name('carousel.show');//mostly done
 Route::get('sister', [sister::class, 'sister'])->name('sister');//mostly done
 Route::get('about', [about::class, 'about'])->name('about');//mostly done
 Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly done
@@ -59,7 +69,13 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('moderation', moderation::class);//In-progress
     Route::resource('about-us', about::class);//In-progress
     Route::resource('carousel', carousel::class);//In-progress
-  
+    Route::resource('social', socials::class);//In-progress
+    Route::resource('sister-logo', sisterLogo::class);//In-progress
+    Route::resource('buyer-logo', buyer::class);//In-progress
+    Route::resource('track-no', track::class);//In-progress
+    Route::resource('history', history::class);//In-progress
+    Route::resource('about_us', aboutUs::class);//In-progress
+    
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 
 });

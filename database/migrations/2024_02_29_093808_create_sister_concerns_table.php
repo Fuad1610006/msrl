@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('sister_text');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

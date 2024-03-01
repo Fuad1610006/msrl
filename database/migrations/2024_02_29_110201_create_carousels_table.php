@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('about_link');
-            $table->string('project_link');
-            $table->string('short_description');
+            // $table->string('about_link');
+            // $table->string('project_link');
+            $table->text('short_description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -42,7 +42,7 @@
         <ul class="menu">
             <li class="sidebar-title">Menu</li>
             
-            <li
+           {{-- <li
                 class="sidebar-item active ">
                 <a href="index.html" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
@@ -50,31 +50,15 @@
                 </a>
             </li>
                        
-            <li class="sidebar-title">Pages</li>
+            <li class="sidebar-title">Pages</li>--}}
             
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item  ">
                 <a href="{{route('settings.index')}}" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
-                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="#">Sister Concern</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="#">Prospective Buyers</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="#">Track Record</a>
-                    </li>
-                     <li class="submenu-item ">
-                        <a href="#">Header/Footer Info</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="#">About us</a>
-                    </li>
-                </ul>
+                 
             </li>
             
             <li
@@ -85,42 +69,63 @@
                 </a>
                 
             </li>
-            
+             <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Text (with image)</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('about_us.index')}}">About-us</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('history.index')}}">Our-history</a>
+                    </li>
+                   
+                </ul>
+            </li>
+             <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Text (Only) </span>
+                </a>
+                <ul class="submenu ">
+                    </li>
+             <li
+                class="submenu-item  ">
+                <a href="{{route('industry.index')}}" >
+                   Industry Overview 
+                </a>
+            </li>
+             <li
+                class="submenu-item  ">
+                <a href="{{route('moderation.index')}}" class='sidebar-link'>    
+                    Moderation of Yard
+                </a>
+            </li>
+             <li
+                class="submenu-item  ">
+                <a href="{{route('about-us.index')}}">
+                    About Us
+                </a>
+            </li>
+            <li
+                class="submenu-item  ">
+                <a href="{{route('sister-concern.index')}}">
+                    Sister Concern
+                </a>
+            </li>
+                </ul>
+            </li>
             <li
                 class="sidebar-item  ">
                 <a href="{{route('track-records.index')}}" class='sidebar-link'>
                    <i class="bi bi-clipboard-minus"></i>
                     <span>Track Record</span>
                 </a>
-            </li>
-             <li
-                class="sidebar-item  ">
-                <a href="{{route('industry.index')}}" class='sidebar-link'>
-                   <i class="bi bi-search-heart-fill"></i>
-                    <span>Industry Overview </span>
-                </a>
-            </li>
-             <li
-                class="sidebar-item  ">
-                <a href="{{route('moderation.index')}}" class='sidebar-link'>
-                    <i class="bi bi-shield-fill-exclamation"></i>
-                    <span>Moderation of Yard</span>
-                </a>
-            </li>
-             <li
-                class="sidebar-item  ">
-                <a href="{{route('about-us.index')}}" class='sidebar-link'>
-                    <i class="bi bi-info-square-fill"></i>
-                    <span>About Us</span>
-                </a>
-            </li>
-            <li
-                class="sidebar-item  ">
-                <a href="{{route('sister-concern.index')}}" class='sidebar-link'>
-                    <i class="bi bi-info-square-fill"></i>
-                    <span>Sister Concern</span>
-                </a>
-            </li>
+           
         </ul>
     </div>
 </div>

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('social_icons', function (Blueprint $table) {
             $table->id();
             $table->string('social_site');
-            $table->string('social_logo');
+            // $table->string('social_logo')->nullable();
             $table->string('social_address');
-            $table->unsignedBigInteger('setting_id');
+            // $table->unsignedBigInteger('setting_id');
             $table->timestamps();
-
-            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
+            $table->softDeletes();
+            // $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
 

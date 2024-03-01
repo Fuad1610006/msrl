@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('number_2');
             $table->string('number_3');
             $table->string('number_4');
-            $table->unsignedBigInteger('setting_id');
+            // $table->unsignedBigInteger('setting_id');
             $table->timestamps();
-
-            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
+            $table->softDeletes();
+            // $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
 

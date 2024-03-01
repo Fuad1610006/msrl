@@ -35,8 +35,8 @@ class CarouselController extends Controller
     {
         try{
         $carousel=new Carousel;
-        $carousel->about_link = $request->about_link;
-        $carousel->project_link = $request->project_link;
+        // $carousel->about_link = $request->about_link;
+        // $carousel->project_link = $request->project_link;
         $carousel->short_description = $request->short_description;
 
          if ($request->hasFile('image')) {
@@ -83,8 +83,8 @@ class CarouselController extends Controller
     public function update(CarouselRequest $request,  $id)
     {
         try{
-            $carousel->about_link = $request->about_link;
-            $carousel->project_link = $request->project_link;
+            // $carousel->about_link = $request->about_link;
+            // $carousel->project_link = $request->project_link;
             $carousel->short_description = $request->short_description;
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
@@ -119,4 +119,11 @@ class CarouselController extends Controller
               return redirect()->back();
         }
     }
+
+   public function carousel()
+ {
+    $data = Carousel::all(); // Pluralize variable name for consistency
+    return view('frontend.home', compact('data'));
+ }
+
 }

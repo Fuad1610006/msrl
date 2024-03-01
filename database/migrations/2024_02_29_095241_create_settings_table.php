@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('location');
             $table->string('email_address');
             $table->string('contact_no');
+            $table->text('about_us_text');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

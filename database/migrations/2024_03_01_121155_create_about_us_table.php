@@ -9,25 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
+    public function up(): void
     {
-        Schema::create('buyer_logos', function (Blueprint $table) {
+        Schema::create('about_us', function (Blueprint $table) {
             $table->id();
-            $table->string('buyer_name');
+            $table->text('about_us_text');
             $table->string('image');
-            // $table->unsignedBigInteger('setting_id');
             $table->timestamps();
-            $table->softDeletes();
-            // $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('buyer_logos');
+        Schema::dropIfExists('about_us');
     }
 };

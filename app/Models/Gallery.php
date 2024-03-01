@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
-    public function ship()
-    {
-        return $this->belongsTo(Ship::class);
-    }
+    // public function ship()
+    // {
+    //     return $this->belongsTo(Ship::class);
+    // }
 }

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SocialIcon;
+use App\Models\History;
 use Illuminate\Http\Request;
-use App\Http\Requests\SocialIconRequest;
+use App\Http\Requests\HistoryRequest;
 use Exception;
 use Toastr;
 
-class SocialIconController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = SocialIcon::all();
-        return view('backend.settings.index', compact('data'));
+        $data = History::all();
+        return view('backend.history.index', compact('data'));
     }
 
     /**
@@ -24,38 +24,38 @@ class SocialIconController extends Controller
      */
     public function create()
     {
-        $data = SocialIcon::all();
-        return view('backend.settings.ceate', compact('data'));
+        $data = History::all();
+        return view('backend.history.index', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SocialIconRequest $request)
+    public function store(HistoryRequest $request)
     {
         try{
-        $data=new SocialIcon;
-        $data->social_site=$request->social_site;
-        $data->social_address=$request->social_address;
-         
+        $data=new History;
+        $data->history_text=$request->history_text;
         if( $data->save()){
-             $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             $this->notice::success('Successfully Updated');
+             return redirect()->route('moderation.index');
+       
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
+           
         }
         }catch(Exception $e){
             dd($e);
              $this->notice::error('Please try again');
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput(); 
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SocialIcon $socialIcon)
+    public function show(History $history)
     {
         //
     }
@@ -65,29 +65,30 @@ class SocialIconController extends Controller
      */
     public function edit( $id)
     {
-        return view('backend.settings.ceate', compact('setting'));
+       $data = History::all();
+        return view('backend.history.index', compact('setting'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SocialIcon $id)
+    public function update(HistoryRequest $request,  $id)
     {
         try{
-        $data->social_site=$request->social_site;
-        $data->social_address=$request->social_address;
-        
+        $data->history_text=$request->history_text;
         if( $data->save()){
-             $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             $this->notice::success('Successfully Updated');
+             return redirect()->route('moderation.index');
+       
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
+           
         }
         }catch(Exception $e){
             dd($e);
              $this->notice::error('Please try again');
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput(); 
         }
     }
 
@@ -96,8 +97,8 @@ class SocialIconController extends Controller
      */
     public function destroy( $id)
     {
-        $data= SocialIcon::findOrFail(encryptor('decrypt', $id));
-        if($ship->delete()){
+        $data= History::findOrFail(encryptor('decrypt', $id));
+        if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();
         }

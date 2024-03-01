@@ -11,23 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sister_logos', function (Blueprint $table) {
+        Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name');
-            $table->string('image');
-            // $table->unsignedBigInteger('setting_id');
+            $table->text('history_text');
             $table->timestamps();
-            $table->softDeletes();
-            // $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('sister_logos');
+        Schema::dropIfExists('histories');
     }
 };

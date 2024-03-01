@@ -69,6 +69,60 @@
         </div>
 
     </section>
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+                <a href="{{ route('settings.create') }}" class="btn btn-primary mb-3">Add New</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Country</th>
+                            <th>Weight</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($setting as $s)
+                        <tr>
+                            <td>{{ ++$loop->index }}</td>
+                            <td>{{$s->name}}</td>
+                            <td>{{$s->country}}</td>
+                            <td>{{$s->weight}}</td>
+                            <td>{{$s->type}}</td>
+                            <td>{{$s->status}}</td>
+                            <td>
+                               <img width="50px" src="{{asset('uploads/ship/'.$s->image)}}" alt="Ship">
+                            </td>
+                           <td class="white-space-nowrap">
+                                <a href="{{route('track-records.edit',encryptor('encrypt',$s->id))}}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <form id="form{{$s->id}}" action="{{route('track-records.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                            </td>
+                             @empty
+                             <td colspan="8" class="text-center">No Data Found</td>
+                        </tr>
+                         @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+    
 </div>
 @endsection
 @push('styles')
