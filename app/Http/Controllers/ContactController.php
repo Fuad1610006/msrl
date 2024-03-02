@@ -13,7 +13,7 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all(); // Retrieve all contacts
-        return view('backend.contact.index', compact('contacts'));
+        return view('backend.contacts.index', compact('contacts'));
     }
 
     /**
@@ -23,7 +23,10 @@ class ContactController extends Controller
     {
         // Validate the request
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|string|max:50',
+            'phone' => 'required|string|max:50',
+            'message' => 'required|string',
             // Add validation rules for other fields
         ]);
 

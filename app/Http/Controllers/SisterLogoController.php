@@ -16,7 +16,7 @@ class SisterLogoController extends Controller
     public function index()
     {
         $data = SisterLogo::all();
-        return view('backend.settings.index', compact('data'));
+        return view('backend.sisterLogo.index', compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class SisterLogoController extends Controller
     public function create()
     {
         $data = SisterLogo::all();
-        return view('backend.settings.ceate', compact('data'));
+        return view('backend.sisterLogo.create', compact('data'));
     }
 
     /**
@@ -39,12 +39,12 @@ class SisterLogoController extends Controller
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
-                $request->image->move(public_path('uploads/buyerLogo'), $imageName);
-                $ship->image = $imageName;
+                $request->image->move(public_path('uploads/sisterLogo'), $imageName);
+                $data->image = $imageName;
             }
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('sister-logo.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 
@@ -69,7 +69,8 @@ class SisterLogoController extends Controller
      */
     public function edit( $id)
     {
-        return view('backend.settings.edit');
+        $data = SisterLogo::findOrFail(encryptor('decrypt', $id));
+        return view('backend.sisterLogo.edit', compact('data'));
     }
 
     /**
@@ -78,16 +79,18 @@ class SisterLogoController extends Controller
     public function update(SisterLogoRequest $request,  $id)
     {
         try{
-        $data->company_name=$request->company_name;
+          $data = SisterLogo::findOrFail(encryptor('decrypt', $id));
+          $data->company_name = $request->company_name;
+
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
-                $request->image->move(public_path('uploads/buyerLogo'), $imageName);
-                $ship->image = $imageName;
+                $request->image->move(public_path('uploads/sisterLogo'), $imageName);
+                $data->image = $imageName;
             }
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('sister-logo.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 

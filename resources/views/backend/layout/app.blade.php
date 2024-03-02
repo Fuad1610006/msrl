@@ -53,12 +53,29 @@
             <li class="sidebar-title">Pages</li>--}}
             
             <li
-                class="sidebar-item  ">
-                <a href="{{route('settings.index')}}" class='sidebar-link'>
+                class="sidebar-item  has-sub">
+                <a href="" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
-                 
+                  <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('info.index')}}">Company Info</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('track-no.index')}}">Record Cards</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('history.index')}}">Our History</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('buyer-logo.index')}}">Buyer Logo</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('sister-logo.index')}}">Sister Concern Logo</a>
+                    </li>
+                   
+                </ul>
             </li>
             
             <li
@@ -69,7 +86,7 @@
                 </a>
                 
             </li>
-             <li
+            {{--<li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
@@ -84,7 +101,7 @@
                     </li>
                    
                 </ul>
-            </li>
+            </li>--}}
              <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -92,7 +109,7 @@
                     <span>Text (Only) </span>
                 </a>
                 <ul class="submenu ">
-                    </li>
+                   
              <li
                 class="submenu-item  ">
                 <a href="{{route('industry.index')}}" >
@@ -125,7 +142,21 @@
                    <i class="bi bi-clipboard-minus"></i>
                     <span>Track Record</span>
                 </a>
-           
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="" class='sidebar-link'>
+                    <i class="bi bi-house-fill"></i>
+                    <span>Add Submenu</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="{{route('contacts')}}" class='sidebar-link'>
+                    <i class="bi bi-house-fill"></i>
+                    <span>Contacts</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

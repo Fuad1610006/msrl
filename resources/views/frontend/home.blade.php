@@ -183,7 +183,7 @@
                 class="col-md-12 col-lg-6 d-flex align-items-center mt-3 pb-4"
               >
                 <div>
-                  <h2 class="chairman-title">Chairman Massage</h2>
+                  <h2 class="chairman-title">Chairman Message</h2>
                   <p class="chairman-text mb-4">
                     I welcome you on behalf of the MAHINUR SHIP RECYCLING LTD
                     (MSRL) and thank you for showing your interest in us. MSRL

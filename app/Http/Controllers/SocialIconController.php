@@ -25,7 +25,7 @@ class SocialIconController extends Controller
     public function create()
     {
         $data = SocialIcon::all();
-        return view('backend.settings.ceate', compact('data'));
+        return view('backend.settings.create', compact('data'));
     }
 
     /**
@@ -65,7 +65,7 @@ class SocialIconController extends Controller
      */
     public function edit( $id)
     {
-        return view('backend.settings.ceate', compact('setting'));
+        return view('backend.settings.edit', compact('setting'));
     }
 
     /**

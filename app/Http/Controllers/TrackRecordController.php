@@ -16,7 +16,7 @@ class TrackRecordController extends Controller
     public function index()
     {
         $data = TrackRecord::all();
-        return view('backend.settings.index', compact('data'));
+        return view('backend.cards.index', compact('data'));
     }
 
     /**
@@ -25,21 +25,27 @@ class TrackRecordController extends Controller
     public function create()
     {
         $data = TrackRecord::all();
-        return view('backend.settings.ceate', compact('data'));
+        return view('backend.cards.create', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TrackRecordRequest $request)
+    public function store(TrackNoRequest $request)
     {
         try{
         $data=new TrackRecord;
-        $data->buyer_name=$request->buyer_name;
-         
+        $data->title_1 = $request->title_1;
+        $data->title_2 = $request->title_2;
+        $data->title_3 = $request->title_3;
+        $data->title_4 = $request->title_4;
+        $data->number_1 = $request->number_1;
+        $data->number_2 = $request->number_2;
+        $data->number_3 = $request->number_3;
+        $data->number_4 = $request->number_4;
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('track-no.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 
@@ -54,23 +60,25 @@ class TrackRecordController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TrackRecord $trackRecord)
+    public function show( $id)
     {
-        //
+        // $data = TrackRecord::findOrFail($id);
+        // return view('backend.cards.show', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( $id)
-    {
-       return view('backend.settings.index', compact('data'));
-    }
+   public function edit($id)
+   {
+    $data = TrackRecord::findOrFail(encryptor('decrypt', $id));
+    return view('backend.cards.edit', compact('data'));
+   }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(TrackRecordRequest $request,  $id)
+    public function update(TrackNoRequest $request,  $id)
     {
         try{
         $data->title_1=$request->title_1;
@@ -84,7 +92,7 @@ class TrackRecordController extends Controller
          
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('track-no.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 

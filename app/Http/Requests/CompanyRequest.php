@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BuyerLogoRequest extends FormRequest
+class CompanyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,10 @@ class BuyerLogoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'buyer_name' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'location' => 'required|string',
+            'email_address' => 'required|string',
+            'contact_no' => 'required|string', 
         ];
     }
 }

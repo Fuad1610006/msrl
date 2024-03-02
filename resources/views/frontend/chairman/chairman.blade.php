@@ -4,7 +4,7 @@
 <section class="chairman-page-top">
       <div class="overlay">
         <div class="container pt-5 d-flex align-items-end">
-          <p><span>C</span>hairman Massge</p>
+          <p><span>C</span>hairman Message</p>
         </div>
       </div>
     </section>

@@ -198,11 +198,7 @@
           <img class="img-fluid" src="{{asset('asset/images/KSRM-Logo.png')}}" alt="Buyer Logo" />
           <img class="img-fluid" src="{{asset('asset/images/AKS-Logo.png')}}" alt="Buyer Logo" />
           <img class="img-fluid" src="{{asset('asset/images/BS_Logo.png')}}" alt="Buyer Logo" />
-          <img
-            class="img-fluid"
-            src="{{asset('asset/images/transport_logo.png')}}"
-            alt=""
-          />
+          <img class="img-fluid" src="{{asset('asset/images/transport_logo.png')}}" alt="Buyer Logo"/>
         </div>
       </div>
     </section>

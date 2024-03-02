@@ -16,7 +16,7 @@ class BuyerLogoController extends Controller
     public function index()
     {
         $data = BuyerLogo::all();
-        return view('backend.settings.index', compact('data'));
+        return view('backend.buyer.index', compact('data'));
     }
 
     /**
@@ -25,13 +25,13 @@ class BuyerLogoController extends Controller
     public function create()
     {
         $data = BuyerLogo::all();
-        return view('backend.settings.create', compact('data'));
+        return view('backend.buyer.create', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BuyerLogoRequest $request)
     {
         try{
         $data=new BuyerLogo;
@@ -40,11 +40,11 @@ class BuyerLogoController extends Controller
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
                 $request->image->move(public_path('uploads/buyerLogo'), $imageName);
-                $ship->image = $imageName;
+                $data->image = $imageName;
             }
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('buyer-logo.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 
@@ -70,7 +70,8 @@ class BuyerLogoController extends Controller
      */
     public function edit( $id)
     {
-        return view('backend.settings.index', compact('data'));
+        $data = BuyerLogo::findOrFail(encryptor('decrypt', $id));
+        return view('backend.buyer.edit', compact('data'));
     }
 
     /**
@@ -79,16 +80,17 @@ class BuyerLogoController extends Controller
     public function update(BuyerLogoRequest $request,  $id)
     { 
         try{
-        $data->buyer_name=$request->buyer_name;
+         $data = BuyerLogo::findOrFail(encryptor('decrypt', $id));
+          $data->buyer_name = $request->buyer_name;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
-                $request->image->move(public_path('uploads/ship'), $imageName);
-                $ship->image = $imageName;
+                $request->image->move(public_path('uploads/buyerLogo'), $imageName);
+                $data->image = $imageName;
             }
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('buyer.index');
+             return redirect()->route('buyer-logo.index');
        
         }else{
             $this->notice::error('Please try again!');

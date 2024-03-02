@@ -23,7 +23,7 @@ class SisterLogoRequest extends FormRequest
     {
         return [
             'company_name' => 'required|string',
-            'sister_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

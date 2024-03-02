@@ -74,7 +74,7 @@ class CarouselController extends Controller
      */
     public function edit( $id)
     {
-        return view('backend.carousel.edit', compact('carousel'));
+        return view('backend.carousel.edit');
     }
 
     /**
@@ -119,11 +119,4 @@ class CarouselController extends Controller
               return redirect()->back();
         }
     }
-
-   public function carousel()
- {
-    $data = Carousel::all(); // Pluralize variable name for consistency
-    return view('frontend.home', compact('data'));
- }
-
 }

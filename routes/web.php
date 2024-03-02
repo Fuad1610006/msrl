@@ -21,7 +21,7 @@ use App\Http\Controllers\CarouselController as carousel;
 use App\Http\Controllers\TrackRecordController as track;
 use App\Http\Controllers\BuyerLogoController as buyer;
 use App\Http\Controllers\SisterLogoController as sisterLogo;
-use App\Http\Controllers\SocialIconController as socials;
+use App\Http\Controllers\CompanyInfoController as company;
 use App\Http\Controllers\HistoryController as history;
 
 /*
@@ -40,10 +40,9 @@ Route::get('login', [auth::class,'signInForm'])->name('login');
 Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
-Route::post('about_us/ckfinder/upload', [aboutUs::class, 'upload'])->name('ckfinder_upload');
+// Route::post('about_us/ckfinder/upload', [aboutUs::class, 'upload'])->name('ckfinder_upload');
 
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
-Route::get('data', [carousel::class, 'carousel'])->name('carousel.show');//mostly done
 Route::get('sister', [sister::class, 'sister'])->name('sister');//mostly done
 Route::get('about', [about::class, 'about'])->name('about');//mostly done
 Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly done
@@ -69,13 +68,15 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('moderation', moderation::class);//In-progress
     Route::resource('about-us', about::class);//In-progress
     Route::resource('carousel', carousel::class);//In-progress
-    Route::resource('social', socials::class);//In-progress
+    Route::resource('info', company::class);//In-progress
     Route::resource('sister-logo', sisterLogo::class);//In-progress
     Route::resource('buyer-logo', buyer::class);//In-progress
     Route::resource('track-no', track::class);//In-progress
     Route::resource('history', history::class);//In-progress
     Route::resource('about_us', aboutUs::class);//In-progress
-    
+
+    Route::get('contacts', [contact::class, 'index'])->name('contacts');
+
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 
 });
