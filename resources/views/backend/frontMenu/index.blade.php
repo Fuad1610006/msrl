@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('backend.layout.app')
 @section('pageTitle',trans('Frontend Menu List'))
 @section('pageSubTitle',trans('List'))
 @push('styles')
@@ -28,16 +28,13 @@
                     $menu_lnk=array(
                                 'Home'					=>'/',
                                 'Blank'					=>'#',
-                                'Member Login' 		    =>'mlogin',
-                                'Become a Member' 		=>'memberRegister',
-                                'Founding Committee' 	=>'founding-member',
-                                'Executive Committee' 	=>'executive-session-member',
-                                'Notice' 		        =>'all-notice',
-                                'News & Events' 		=>'news-events',
-                                'Member List' 		    =>'memberlist',
-                                'Photo Gallery' 		=>'photo_gallery',
-                                'Video Gallery' 		=>'video_gallery',
-                                'Club Dues' 		    =>'club-dues',
+                                'Who we are' 		    =>'about',
+                                'Sister Concern' 		=>'sister',
+                                'Yard' 	                =>'yard',
+                                'Industry ' 	        =>'overview',
+                                'Our Project' 		    =>'track-record',
+                                'Our Team' 		        =>'management',
+                                'Gallery' 		        =>'gallery', 
                                 'Contact Us' 			=>'contact_us'
                                 );
                 ?>
@@ -77,11 +74,7 @@
                                                                 <?php } } ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Menu Icon</label>
-                                                            <input type="file" class="form-control" name="menuIcon">
-                                                            <input type="hidden" name="id" value="0">
-                                                        </div>
+                                                       
                                                         <div class="form-group">
                                                             <button type="submit" class="btn btn-primary btn-label-left">Save</button>
                                                             <button type="reset" class="reset btn btn-warning">Reset</button>
@@ -170,7 +163,7 @@
                                 * @return echo string
                                 */
                                 function menu_showNested($parentID) {
-                                    $sql = "SELECT * FROM front_menus WHERE parent_id='$parentID' and status='1' ORDER BY rang";
+                                    $sql = "SELECT * FROM front_menus WHERE parent_id='$parentID' and status='1' ORDER BY rank";
                                     $rowsm = DB::select($sql);
                                     if ($rowsm) {
                                         echo "\n";
@@ -195,7 +188,7 @@
                                 
                                 ## Show the top parent elements from DB
                                 ######################################
-                                $sql = "SELECT * FROM front_menus WHERE parent_id='0' and status='1' ORDER BY rang";
+                                $sql = "SELECT * FROM front_menus WHERE parent_id='0' and status='1' ORDER BY rank";
                                 $rows = DB::select($sql);
                                 
                                 echo "<div class='cf nestable-lists'>\n";
@@ -251,8 +244,7 @@
 				var jsonstring=window.JSON.stringify(list.nestable('serialize'));
 				
 				$.get("{{route(currentUser().'.front_menu.mss')}}",{ jsonstring:jsonstring },function(data, status){ /*document.getElementById('ss').innerHTML=data;*/ });
-	
-				
+                
 				 //$.get(baseUrl+"web_conf/menu/mss/"+jsonstring, function(data){ alert(data);   });
 				
 			} else {

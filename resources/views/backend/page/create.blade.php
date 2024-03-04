@@ -16,7 +16,7 @@
               <div class="card">
                   <div class="card-content">
                       <div class="card-body">
-                          <form class="form" method="post" action="{{route(currentUser().'.page.store')}}">
+                          <form class="form" method="post" action="{{route('page.store')}}">
                               @csrf
                                 <div class="row mb-3">
                                     <div class="col-12">
@@ -36,8 +36,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div id="toolbar-container"></div>
-                                        <textarea name="details" id="ckeditordetails" class="d-none">{{ old('details')}}</textarea>
-                                        <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('details')}}</div>
+                                        <textarea name="details" id="ckeditordetails" class="d-none ckeditordetails">{{ old('details')}}</textarea>
+                                        <div class="form-control ck-editor__editable ck-editor__editable_inline ckeditor" id="ckeditor"  rows="5">{{ old('details')}}</div>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -66,13 +66,14 @@
 @endsection
 
 @push('scripts')
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="{{ asset('assets/ckeditor5-build-decoupled-document/ckeditor.js') }}"></script>
 <script>
-    $('#ckeditor').blur(function(){
-        $('#ckeditordetails').val($(this).html());
+    $('.ckeditor').blur(function(){
+        $('.ckeditordetails').val($(this).html());
     })
 DecoupledEditor
-.create( document.querySelector( '#ckeditor' ),{
+.create( document.querySelector( '.ckeditor' ),{
                 ckfinder: {
                     uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
                 }

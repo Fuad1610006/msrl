@@ -23,6 +23,9 @@ use App\Http\Controllers\BuyerLogoController as buyer;
 use App\Http\Controllers\SisterLogoController as sisterLogo;
 use App\Http\Controllers\CompanyInfoController as company;
 use App\Http\Controllers\HistoryController as history;
+use App\Http\Controllers\FrontMenuController as frontMenu;
+use App\Http\Controllers\FrontendController as front;
+use App\Http\Controllers\PageController as page;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +43,11 @@ Route::get('login', [auth::class,'signInForm'])->name('login');
 Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
-// Route::post('about_us/ckfinder/upload', [aboutUs::class, 'upload'])->name('ckfinder_upload');
+Route::post('image-upload', [page::class, 'storeImage'])->name('image.upload');
+Route::get('front_menu', [frontMenu::class, 'index'])->name('admin.front_menu.index');
+Route::post('menu_save_update/{id?}', [frontMenu::class, 'save_update'])->name('admin.front_menu.save');
+Route::get('front_menu/mss', [frontMenu::class, 'mss'])->name('admin.front_menu.mss');
+Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('admin.front_menu.detroy');
 
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
 Route::get('sister', [sister::class, 'sister'])->name('sister');//mostly done
@@ -54,7 +61,6 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
     Route::get('change_password', [user::class,'index'])->name('change_password');
 });
-
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
     Route::resource('role', role::class);
@@ -74,6 +80,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('track-no', track::class);//In-progress
     Route::resource('history', history::class);//In-progress
     Route::resource('about_us', aboutUs::class);//In-progress
+    Route::resource('page', page::class);//In-progress
 
     Route::get('contacts', [contact::class, 'index'])->name('contacts');
 

@@ -10,7 +10,7 @@
                     <!-- table bordered -->
                     <div class="table-responsive">
                         <div class="float-end">
-                            <a class="float-end" href="{{route(currentUser().'.page.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
+                            <a class="float-end" href="{{route('page.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
                         </div>
                         <table class="table table-bordered mb-0">
                             <thead>
@@ -29,7 +29,7 @@
                                     
                                     <td>{{ $m->published == 1?"Show":"Hide" }}</td>
                                     <td class="white-space-nowrap">
-                                        <a class="btn btn-sm btn-success" href="{{route(currentUser().'.page.edit',encryptor('encrypt',$m->id))}}">Edit</a>
+                                        <a class="btn btn-sm btn-success" href="{{route('page.edit',encryptor('encrypt',$m->id))}}">Edit</a>
                                     </td>
                                 </tr>
                                 @empty

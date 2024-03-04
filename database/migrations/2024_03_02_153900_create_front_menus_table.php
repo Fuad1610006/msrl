@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('front_menus', function (Blueprint $table) {
             $table->id();
             $table->integer('menu_type')->comment('1 page 2 list page');
-            $table->integer('rang');
+            $table->integer('rank');
             $table->integer('parent_id')->default(0)->nullable();
             $table->string('menu_icon')->nullable();
             $table->string('name',500)->nullable();

@@ -18,7 +18,7 @@ class PageController extends Controller
     public function index()
     {
         $page = Page::paginate(10);
-        return view('page.index',compact('page'));
+        return view('backend.page.index',compact('page'));
     }
 
     /**
@@ -28,7 +28,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('page.create');
+        return view('backend.page.create');
     }
 
     /**
@@ -70,16 +70,16 @@ class PageController extends Controller
             
 
             if($page->save()){
-            Toastr::success('Post created Successfully!');
+            $this->notice::success('Post created Successfully!');
             return redirect()->route(currentUser().'.page.index');
             }else{
-            Toastr::warning('Please try Again!');
+            $this->notice::warning('Please try Again!');
             return redirect()->back();
             }
 
         }
         catch (Exception $e){
-            Toastr::warning('Please try Again!');
+             $this->notice::warning('Please try Again!');
             // dd($e);
             return back()->withInput();
 
@@ -106,7 +106,7 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::findOrFail(encryptor('decrypt',$id));
-        return view('page.edit',compact('page'));
+        return view('backend.page.edit',compact('page'));
     }
 
     /**
@@ -128,16 +128,16 @@ class PageController extends Controller
             
 
             if($page->save()){
-            Toastr::success('Post Updated Successfully!');
+           $this->notice::success('Post Updated Successfully!');
             return redirect()->route(currentUser().'.page.index');
             }else{
-            Toastr::warning('Please try Again!');
+           $this->notice::warning('Please try Again!');
             return redirect()->back();
             }
 
         }
         catch (Exception $e){
-            Toastr::warning('Please try Again!');
+             $this->notice::warning('Please try Again!');
             // dd($e);
             return back()->withInput();
 

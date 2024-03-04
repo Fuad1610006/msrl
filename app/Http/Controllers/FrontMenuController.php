@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\FrontMenu;
 use App\Models\Page;
 use Illuminate\Http\Request;
-use App\Http\Traits\ImageHandleTraits;
+// use App\Http\Traits\ImageHandleTraits;
 use Exception;
 
 class FrontMenuController extends Controller
 {
-    use ImageHandleTraits;
+    // use ImageHandleTraits;
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +20,7 @@ class FrontMenuController extends Controller
     {
         $menus=FrontMenu::all();
         $pages=Page::all();
-        return view('frontmenu.index',compact('menus','pages'));
+        return view('backend.frontmenu.index',compact('menus','pages'));
     }
 
     /**
@@ -40,23 +40,15 @@ class FrontMenuController extends Controller
                 $data=new FrontMenu;
 
             $data->name=$request->name;
-            // if($request->has('menuIcon'))
-            // $data->menu_icon=$this->resizeImage($request->menuIcon,'uploads/menu_image',true,30,30,true);
-
-            if($request->hasFile('menuIcon')){
-                $menu = rand(111,999).time().'.'.$request->menuIcon->extension();
-                $request->menuIcon->move(public_path('uploads/menu_image'), $menu);
-                $data->menu_icon=$menu;
-            }
-
             $data->href=$request->href;
             
             $data->save();
-            Toastr::success('Menu Create Successfully!');
+            $this->notice::success('Menu Create Successfully');
             return redirect()->route(currentUser().'.front_menu.index');
         }
         catch (Exception $e){
-            Toastr::warning('Please try Again!');
+             dd($e);
+            $this->notice::warning('Please try Again!');
             return back()->withInput();
         }
     }
@@ -64,7 +56,7 @@ class FrontMenuController extends Controller
     function destroy(Request $request){
         $data=FrontMenu::find($request->id);
         $data->delete();
-            Toastr::success('Menu Deleted Successfully!');
+            $this->notice::success('Menu Deleted Successfully!');
             return back();
     }
     /* update menu order */
@@ -84,7 +76,7 @@ class FrontMenuController extends Controller
 			// $value should always be an array, but we do a check
 			if (is_array($value)) {
                 $data=FrontMenu::find($value['id']);
-                $data->rang=$key;
+                $data->rank=$key;
                 $data->parent_id=$value['parentID'];
                 
                 $data->save();

@@ -145,9 +145,16 @@
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="" class='sidebar-link'>
+                <a href="{{route('admin.front_menu.index')}}" class='sidebar-link'>
                     <i class="bi bi-house-fill"></i>
                     <span>Add Submenu</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="{{route('page.index')}}" class='sidebar-link'>
+                    <i class="bi bi-house-fill"></i>
+                    <span>Add Page</span>
                 </a>
             </li>
             <li
@@ -188,10 +195,11 @@
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
 
 <script src="https://cdn.tiny.cloud/1/ceyb8meqlrqis0sgk1xe964n5su0k26wvyrj80i1g9swpx2q/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-@stack('scripts')
- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
- <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
+@stack('scripts')       
 </body>
 
 </html>

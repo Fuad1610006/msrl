@@ -16,7 +16,7 @@
               <div class="card">
                   <div class="card-content">
                       <div class="card-body">
-                          <form class="form" method="post" action="{{route(currentUser().'.page.update',encryptor('encrypt',$page->id))}}">
+                          <form class="form" method="post" action="{{route('page.update',encryptor('encrypt',$page->id))}}">
                               @csrf
                               @method('patch')
                               <input type="hidden" name="uptoken" value="{{encryptor('encrypt',$page->id)}}">
@@ -68,12 +68,13 @@
 @endsection
 
 @push('scripts')
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="{{ asset('assets/ckeditor5-build-decoupled-document/ckeditor.js') }}"></script>
 <script>
     $('#ckeditor').blur(function(){
         $('#ckeditordetails').val($(this).html());
     })
-DecoupledEditor .create( document.querySelector( '#ckeditor' ),{
+DecoupledEditor.create( document.querySelector( '#ckeditor' ),{
                 ckfinder: {
                     uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
                 }
@@ -86,7 +87,5 @@ DecoupledEditor .create( document.querySelector( '#ckeditor' ),{
             .catch( error => {
                 console.error( error );
             } );
-
-    
 </script>
 @endpush
