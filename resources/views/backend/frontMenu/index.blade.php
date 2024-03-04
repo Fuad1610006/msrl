@@ -2,7 +2,6 @@
 @section('pageTitle',trans('Frontend Menu List'))
 @section('pageSubTitle',trans('List'))
 @push('styles')
-
 <link href="{{ asset('assets/ddmenu/css/style.css') }}" rel="stylesheet" type="text/css" />
 <style>
     .insertion_div{
@@ -11,13 +10,27 @@
 </style>
 @endpush
 @section('content')
-
+<div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>SubMenu</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">SubMenu</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
 <!-- Bordered table start -->
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
 
-            <div class="card">
+            <div class="card p-4">
                 
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}

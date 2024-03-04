@@ -68,23 +68,21 @@ class PageController extends Controller
             $page->details=$request->details;
             $page->published=$request->published;
             
-
             if($page->save()){
             $this->notice::success('Post created Successfully!');
             return redirect()->route(currentUser().'.page.index');
+
             }else{
             $this->notice::warning('Please try Again!');
             return redirect()->back();
             }
-
-        }
-        catch (Exception $e){
+          }
+            catch (Exception $e){
              $this->notice::warning('Please try Again!');
             // dd($e);
             return back()->withInput();
-
         }
-    }
+}
 
     /**
      * Display the specified resource.

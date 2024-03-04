@@ -32,11 +32,10 @@
                 <div class="card-body">
                     <form action="{{ route('about_us.store') }}" method="POST">
                         @csrf
-                        <div id="toolbar-container"></div>
-
-                        <div class="form-group">
-                            <label for="editor">Content</label>
-                             <div id="editor"></div>
+                       <div class="col-12">
+                            <div id="toolbar-container"></div>
+                            <textarea name="details" id="ckeditordetails" class="d-none">{{ old('details')}}</textarea>
+                            <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('details')}}</div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -46,38 +45,28 @@
     </div>
 </div>
 @endsection
-
 @push('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/decoupled-document/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/plugins/image/image.js"></script>
+<script src="{{ asset('assets/ckeditor5-build-decoupled-document/ckeditor.js') }}"></script>
 <script>
-  DecoupledEditor
-    .create(document.querySelector('#editor'))
-    .then(editor => {
-      // Get the toolbar container element from your blade template
-      const toolbarContainer = document.getElementById('toolbar-container');
-
-      // Append the toolbar to the container
-      toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-
-      // Add a hidden input to store the editor data
-      const hiddenInput = document.createElement('input');
-      hiddenInput.type = 'hidden';
-      hiddenInput.name = 'content'; // Adjust the name according to your form
-
-      // Update the hidden input value whenever the editor data changes
-      editor.model.document.on('change', () => {
-        hiddenInput.value = editor.getData();
-      });
-
-      // Add the hidden input to the form
-      const form = document.querySelector('form');
-      form.appendChild(hiddenInput);
+    $('#ckeditor').blur(function(){
+        $('#ckeditordetails').val($(this).html());
     })
+DecoupledEditor
+.create( document.querySelector( '#ckeditor' ),{
+                ckfinder: {
+                    uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+                }
+            })
+            .then( editor => {
+                const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
     
-    .catch(error => {
-      console.error(error);
-    });
 </script>
 
 @endpush
+

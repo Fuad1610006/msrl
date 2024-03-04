@@ -2,15 +2,30 @@
 @section('pageTitle',trans('Page List'))
 @section('pageSubTitle',trans('List'))
 @section('content')
-    <!-- Bordered table start -->
+<div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Page</h3>
+            </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Page</li>
+                </ol>
+             </nav>
+         </div>
+    </div>
+</div>  
+<!-- Bordered table start -->
     <section class="section">
         <div class="row" id="table-bordered">
             <div class="col-12">
-                <div class="card">
+                <div class="card p-4">
                     <!-- table bordered -->
                     <div class="table-responsive">
-                        <div class="float-end">
-                            <a class="float-end" href="{{route('page.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
+                        <div class="float-start">
+                            <a class="float-start btn btn-info mb-3" href="{{route('page.create')}}">Add New</a>
                         </div>
                         <table class="table table-bordered mb-0">
                             <thead>
@@ -29,7 +44,7 @@
                                     
                                     <td>{{ $m->published == 1?"Show":"Hide" }}</td>
                                     <td class="white-space-nowrap">
-                                        <a class="btn btn-sm btn-success" href="{{route('page.edit',encryptor('encrypt',$m->id))}}">Edit</a>
+                                        <a class="btn btn-warning" href="{{route('page.edit',encryptor('encrypt',$m->id))}}">Edit</a>
                                     </td>
                                 </tr>
                                 @empty

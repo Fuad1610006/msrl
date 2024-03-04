@@ -19,7 +19,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('history.create') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{route('history.create')}}" class="btn btn-primary mb-3">Add New</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -34,7 +34,7 @@
                         @forelse ($data as $m)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{!!$m->History_text!!}</td>
+                            <td>{!!$m->history_text!!}</td>
                            
                            <td class="white-space-nowrap">
                                 <a href="{{route('history.edit',encryptor('encrypt',$m->id))}}">

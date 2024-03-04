@@ -20,7 +20,6 @@ class AboutUsController extends Controller
             }
             $data->save();
             $this->notice::success('Successfully Uploaded');
-
     }
 
     /**
@@ -60,7 +59,7 @@ class AboutUsController extends Controller
         }
         }catch(Exception $e){
             dd($e);
-             $this->notice::error('Please try again');
+            $this->notice::error('Please try again');
             return redirect()->back()->withInput(); 
         }
     }
@@ -78,7 +77,8 @@ class AboutUsController extends Controller
      */
     public function edit( $id)
     {
-        //
+        $data = AboutUs::all();
+        return view('backend.about-us.edit', compact('data'));
     }
 
     /**
@@ -110,7 +110,7 @@ class AboutUsController extends Controller
     public function destroy( $id)
     {
         $data= AboutUs::findOrFail(encryptor('decrypt', $id));
-        if($ship->delete()){
+        if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();
         }

@@ -22,7 +22,7 @@ class HistoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-          'content' => 'required|string', 
+          'history_text' => 'required|string', 
         ];
     }
 }

@@ -25,7 +25,7 @@ class HistoryController extends Controller
     public function create()
     {
         $data = History::all();
-        return view('backend.history.index', compact('data'));
+        return view('backend.history.create', compact('data'));
     }
 
     /**
@@ -38,7 +38,7 @@ class HistoryController extends Controller
         $data->history_text=$request->history_text;
         if( $data->save()){
              $this->notice::success('Successfully Updated');
-             return redirect()->route('moderation.index');
+             return redirect()->route('history.index');
        
         }else{
             $this->notice::error('Please try again!');
@@ -47,7 +47,7 @@ class HistoryController extends Controller
         }
         }catch(Exception $e){
             dd($e);
-             $this->notice::error('Please try again');
+            $this->notice::error('Please try again');
             return redirect()->back()->withInput(); 
         }
     }
@@ -66,7 +66,7 @@ class HistoryController extends Controller
     public function edit( $id)
     {
        $data = History::all();
-        return view('backend.history.index', compact('setting'));
+        return view('backend.history.edit', compact('data'));
     }
 
     /**
@@ -78,7 +78,7 @@ class HistoryController extends Controller
         $data->history_text=$request->history_text;
         if( $data->save()){
              $this->notice::success('Successfully Updated');
-             return redirect()->route('moderation.index');
+             return redirect()->route('history.index');
        
         }else{
             $this->notice::error('Please try again!');

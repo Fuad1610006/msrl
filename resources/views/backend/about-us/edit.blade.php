@@ -32,8 +32,10 @@
                     <form action="{{ route('about_us.update', encryptor('encrypt',$about->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div id="editor">
-                            <p>This is some sample content.</p>
+                        <div class="col-12">
+                            <div id="toolbar-container"></div>
+                            <textarea name="details" id="ckeditordetails" class="d-none">{{ old('details')}}</textarea>
+                            <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('details')}}</div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -45,6 +47,26 @@
 </div>
 @endsection
 @push('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
-<script src="asset{{'assets/js/pages/ckeditor.js'}}"></script>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="{{ asset('assets/ckeditor5-build-decoupled-document/ckeditor.js') }}"></script>
+<script>
+    $('.ckeditor').blur(function(){
+        $('.ckeditordetails').val($(this).html());
+    })
+DecoupledEditor
+.create( document.querySelector( '.ckeditor' ),{
+                ckfinder: {
+                    uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+                }
+            })
+            .then( editor => {
+                const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    
+</script>
 @endpush

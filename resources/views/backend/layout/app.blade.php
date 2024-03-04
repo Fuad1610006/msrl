@@ -77,16 +77,7 @@
                    
                 </ul>
             </li>
-            
             <li
-                class="sidebar-item  ">
-                <a href="{{route('carousel.index')}}" class='sidebar-link'>
-                    <i class="bi bi-house-fill"></i>
-                    <span>Home Page</span>
-                </a>
-                
-            </li>
-            {{--<li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
@@ -101,7 +92,7 @@
                     </li>
                    
                 </ul>
-            </li>--}}
+            </li>
              <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -136,11 +127,19 @@
             </li>
                 </ul>
             </li>
+             <li
+                class="sidebar-item  ">
+                <a href="{{route('carousel.index')}}" class='sidebar-link'>
+                    <i class="bi bi-house-fill"></i>
+                    <span>Home Page</span>
+                </a>
+                
+            </li>
             <li
                 class="sidebar-item  ">
                 <a href="{{route('track-records.index')}}" class='sidebar-link'>
                    <i class="bi bi-clipboard-minus"></i>
-                    <span>Track Record</span>
+                    <span>Ship</span>
                 </a>
             </li>
             <li
