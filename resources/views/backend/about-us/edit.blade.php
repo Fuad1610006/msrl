@@ -29,15 +29,15 @@
                     <h4 class="card-title">About Page</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('about_us.update', encryptor('encrypt',$about->id)) }}" method="POST">
+                    <form action="{{ route('about_us.update', encryptor('encrypt',$data->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="col-12">
                             <div id="toolbar-container"></div>
-                            <textarea name="details" id="ckeditordetails" class="d-none">{{ old('details')}}</textarea>
-                            <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('details')}}</div>
+                            <textarea name="about_us_text" id="ckeditordetails" class="d-none">{{ old('about_us_text')}}</textarea>
+                            <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('about_us_text')}}</div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
                 </div>
 

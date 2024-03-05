@@ -93,12 +93,12 @@ class SisterConcernController extends Controller
         }
     }
 
-    public function sister()
-    {
-        // Fetch sister texts from the database
-        $sister = SisterConcern::all();
+    // public function sister()
+    // {
+    //     // Fetch sister texts from the database
+    //     $sister = SisterConcern::all();
         
-        // Pass sister data to the view
-        return view('frontend.sister-concern.sister', compact('sister'));
-    }
+    //     // Pass sister data to the view
+    //     return view('frontend.sister-concern.sister', compact('sister'));
+    // }
 }

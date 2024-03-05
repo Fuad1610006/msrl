@@ -16,4 +16,10 @@ class FrontendController extends Controller
         $page_data= Page::where('page_slug',"$slug")->where('published',1)->first();
         return view('frontend.Page.index',compact('page_data'));
     }
+
+     public function menu()
+    {
+        $menus = FrontMenu::orderBy('order')->get();
+        return view('frontend.home', compact('menus'));
+    }
 }

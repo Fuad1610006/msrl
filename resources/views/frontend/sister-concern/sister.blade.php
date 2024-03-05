@@ -208,7 +208,7 @@
     </section>
     <!-- Buyers end -->
     <!-- main text -->
-     <section class="container">
+    {{-- <section class="container">
       <div class="my-4">
          @foreach($sister as $m)
         <div class="page-inner-body my-4">
@@ -216,7 +216,7 @@
         </div>
         @endforeach
       </div>
-    </section>
+    </section>--}}
     
 @include('frontend.layout.footer')
 @endsection('content')

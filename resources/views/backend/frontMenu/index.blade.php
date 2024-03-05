@@ -48,7 +48,7 @@
                                 'Our Project' 		    =>'track-record',
                                 'Our Team' 		        =>'management',
                                 'Gallery' 		        =>'gallery', 
-                                'Contact Us' 			=>'contact_us'
+                                'Contact Us' 			=>'contact-us'
                                 );
                 ?>
 

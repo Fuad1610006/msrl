@@ -14,17 +14,22 @@
       <nav class="navbar navbar-expand-sm bg-white navbar-white dektop-nav">
         <div class="container p-0">
           <ul class="navbar-nav ms-auto">
+            @foreach($menus as $menu)
+           {{-- <li class="nav-item">
+              <a class="nav-link" href="{{ $menu->url }}">{{ $menu->name }}"</a>
+            </li>--}}
             <li class="nav-item">
-              <a class="nav-link" href="{{route('home')}}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('about')}}">Who we are</a>
+              <a class="nav-link" href="{{ $menu->href }}">{{ $menu->name }}</a>
+              @if($menu->hasChildren())
               <ul class="sub-nav">
-                <li><a href="{{route('about')}}">About Us</a></li>
-                <li><a href="{{route('chairman')}}">Chairman Message</a></li>
+                @foreach($menu->children as $child)
+                <li><a href="{{ $child->href }}">{{ $child->name }}</a></li>
+                @endforeach
               </ul>
+              @endif
             </li>
-            <li class="nav-item">
+            @endforeach
+           {{-- <li class="nav-item">
               <a class="nav-link" href="{{route('sister')}}">Sister Concern</a>
             </li>
             <li class="nav-item">
@@ -50,7 +55,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
-            </li>
+            </li> --}}
           </ul>
         </div>
       </nav>

@@ -34,7 +34,7 @@
                         @forelse ($data as $m)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{!!$m->about_text!!}</td>
+                            <td>{!!$m->about_us_text!!}</td>
                            
                            <td class="white-space-nowrap">
                                 <a href="{{route('about-us.edit',encryptor('encrypt',$m->id))}}">

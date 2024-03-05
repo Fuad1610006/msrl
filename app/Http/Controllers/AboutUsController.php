@@ -10,18 +10,7 @@ use Toastr;
 
 class AboutUsController extends Controller
 {
-     public function upload(AboutUsRequest $request)
-    {
-        if ($request->hasFile('image')) {
-                $imageName = rand(111, 999) . time() . '.' .
-                    $request->image->extension();
-                $request->image->move(public_path('uploads/aboutUs'), $imageName);
-                $data->image = $imageName;
-            }
-            $data->save();
-            $this->notice::success('Successfully Uploaded');
-    }
-
+     
     /**
      * Display a listing of the resource.
      */
@@ -47,8 +36,8 @@ class AboutUsController extends Controller
     {
         try{
         $data=new AboutUs;
-        $about->about_us_text=$request->about_us_text;
-        if( $about->save()){
+        $data->about_us_text=$request->about_us_text;
+        if( $data->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('about-us.index');
        
@@ -89,7 +78,7 @@ class AboutUsController extends Controller
         try{
         $data = AboutUs::findOrFail(encryptor('decrypt', $id));
         $data->about_us_text=$request->about_us_text;
-        if( $about->save()){
+        if( $data->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('about-us.index');
        
@@ -100,7 +89,7 @@ class AboutUsController extends Controller
         }
         }catch(Exception $e){
             dd($e);
-             $this->notice::error('Please try again');
+            $this->notice::error('Please try again');
             return redirect()->back()->withInput(); 
         }
     }
