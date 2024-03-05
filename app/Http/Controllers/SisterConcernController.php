@@ -66,8 +66,8 @@ class SisterConcernController extends Controller
 
     public function update(SisterRequest $request, $id)
     {
-         try{
-
+     try{
+         $sister= SisterConcern::findOrFail(encryptor('decrypt',$id));
          $sister->sister_text=$request->sister_text;
 
          $sister->save();

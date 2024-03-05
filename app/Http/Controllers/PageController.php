@@ -118,18 +118,16 @@ class PageController extends Controller
     {
         try{
             $page= Page::findOrFail(encryptor('decrypt',$id));
-
             $page->page_title=$request->title;
             $page->page_slug=strtolower(str_replace(' ', '_', $request->title));
             $page->details=$request->details;
             $page->published=$request->published;
             
-
             if($page->save()){
-           $this->notice::success('Post Updated Successfully!');
+            $this->notice::success('Post Updated Successfully!');
             return redirect()->route(currentUser().'.page.index');
             }else{
-           $this->notice::warning('Please try Again!');
+            $this->notice::warning('Please try Again!');
             return redirect()->back();
             }
 

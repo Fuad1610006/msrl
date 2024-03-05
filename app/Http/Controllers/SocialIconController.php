@@ -65,6 +65,7 @@ class SocialIconController extends Controller
      */
     public function edit( $id)
     {
+        $data= SocialIcon::findOrFail(encryptor('decrypt', $id));
         return view('backend.settings.edit', compact('setting'));
     }
 
@@ -74,6 +75,7 @@ class SocialIconController extends Controller
     public function update(Request $request, SocialIcon $id)
     {
         try{
+        $data= SocialIcon::findOrFail(encryptor('decrypt', $id));
         $data->social_site=$request->social_site;
         $data->social_address=$request->social_address;
         
@@ -97,7 +99,7 @@ class SocialIconController extends Controller
     public function destroy( $id)
     {
         $data= SocialIcon::findOrFail(encryptor('decrypt', $id));
-        if($ship->delete()){
+        if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();
         }

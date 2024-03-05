@@ -77,7 +77,7 @@ class AboutUsController extends Controller
      */
     public function edit( $id)
     {
-        $data = AboutUs::all();
+        $data = AboutUs::findOrFail(encryptor('decrypt', $id));
         return view('backend.about-us.edit', compact('data'));
     }
 
@@ -87,6 +87,7 @@ class AboutUsController extends Controller
     public function update(AboutUsRequest $request,  $id)
     {
         try{
+        $data = AboutUs::findOrFail(encryptor('decrypt', $id));
         $data->about_us_text=$request->about_us_text;
         if( $about->save()){
              $this->notice::success('Successfully Updated');

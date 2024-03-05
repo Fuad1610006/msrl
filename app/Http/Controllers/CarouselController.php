@@ -74,6 +74,7 @@ class CarouselController extends Controller
      */
     public function edit( $id)
     {
+        $carousel = Carousel::findOrFail(encryptor('decrypt', $id));
         return view('backend.carousel.edit');
     }
 
@@ -83,6 +84,7 @@ class CarouselController extends Controller
     public function update(CarouselRequest $request,  $id)
     {
         try{
+            $carousel= Carousel::findOrFail(encryptor('decrypt', $id));
             // $carousel->about_link = $request->about_link;
             // $carousel->project_link = $request->project_link;
             $carousel->short_description = $request->short_description;

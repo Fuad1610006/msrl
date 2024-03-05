@@ -81,8 +81,9 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Setting $setting)
+    public function edit( $id)
     {
+        $setting = Setting::findOrFail(encryptor('decrypt',$id));
         return view('backend.settings.edit', compact('setting'));
     }
 

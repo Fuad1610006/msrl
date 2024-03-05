@@ -80,7 +80,7 @@ class BuyerLogoController extends Controller
     public function update(BuyerLogoRequest $request,  $id)
     { 
         try{
-         $data = BuyerLogo::findOrFail(encryptor('decrypt', $id));
+          $data = BuyerLogo::findOrFail(encryptor('decrypt', $id));
           $data->buyer_name = $request->buyer_name;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .

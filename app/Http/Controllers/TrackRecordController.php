@@ -81,6 +81,7 @@ class TrackRecordController extends Controller
     public function update(TrackNoRequest $request,  $id)
     {
         try{
+        $data = TrackRecord::findOrFail(encryptor('decrypt', $id));
         $data->title_1=$request->title_1;
         $data->title_2=$request->title_2;
         $data->title_3=$request->title_3;

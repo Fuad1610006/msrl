@@ -65,7 +65,7 @@ class HistoryController extends Controller
      */
     public function edit( $id)
     {
-       $data = History::all();
+        $data = History::findOrFail(encryptor('decrypt', $id));
         return view('backend.history.edit', compact('data'));
     }
 
@@ -75,15 +75,14 @@ class HistoryController extends Controller
     public function update(HistoryRequest $request,  $id)
     {
         try{
+        $data= History::findOrFail(encryptor('decrypt',$id));
         $data->history_text=$request->history_text;
         if( $data->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('history.index');
-       
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput();
-           
+            return redirect()->back()->withInput();  
         }
         }catch(Exception $e){
             dd($e);

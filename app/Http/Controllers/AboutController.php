@@ -54,36 +54,25 @@ class AboutController extends Controller
 
    public function edit($id)
     {
-        // Fetch the specific about record based on the $id
-        $about = About::find($id);
-
-        // Check if the about record exists
-        if (!$about) {
-            // Handle the case where the record doesn't exist, maybe redirect back with a message
-            $this->notice::error('Please try again!');
-            return redirect()->back()->withInput();
-        }
-
-        // Pass the single about record to the view
-        return view('backend.about.edit', compact('about'));
+        $about = About::findOrFail(encryptor('decrypt', $id));
+        return view('backend.history.edit', compact('data'));
     }
 
 
     public function update(AboutRequest $request, $id)
     {
-         try{
-
-         $about->about_text=$request->about_text;
-
-         $about->save();
-            $this->notice::success('Successfully saved');
-            return redirect()->route('about-us.index');
-           
+        try{
+        $about = About::findOrFail(encryptor('decrypt', $id));
+        $about->about_text=$request->about_text;
+        $about->save();
+        $this->notice::success('Successfully saved');
+        return redirect()->route('about-us.index');
+        
         }catch(Exception $e){
-            dd($e);
-             $this->notice::error('Please try again');
-            return redirect()->back()->withInput();
-        }
+        dd($e);
+        $this->notice::error('Please try again');
+        return redirect()->back()->withInput();
+    }
     }
 
     /**
