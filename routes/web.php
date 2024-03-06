@@ -13,6 +13,9 @@ use App\Http\Controllers\AboutController as about;
 use App\Http\Controllers\AboutUsController as aboutUs;
 use App\Http\Controllers\ChairmanController as chairman;
 use App\Http\Controllers\ManagementController as management;
+use App\Http\Controllers\TopManagementController as topM;
+use App\Http\Controllers\MidManagementController as midM;
+use App\Http\Controllers\YardManagementController as yardM;
 use App\Http\Controllers\OverviewController as overview;
 use App\Http\Controllers\SisterConcernController as sister;
 use App\Http\Controllers\SettingController as settings;
@@ -71,7 +74,10 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('track-records', ship::class);//mostly done
     Route::resource('gallery', gallery::class);//In-progress
     Route::resource('industry', overview::class);//In-progress
-    Route::resource('management', management::class);//In-progress
+    Route::resource('team', management::class);//In-progress
+    Route::resource('top', topM::class);//In-progress
+    Route::resource('mid', midM::class);//In-progress
+    Route::resource('yard', yardM::class);//In-progress
     Route::resource('sister-concern', sister::class);//In-progress
     Route::resource('chairman', chairman::class);//In-progress
     Route::resource('settings', settings::class);//In-progress

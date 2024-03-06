@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('histories', function (Blueprint $table) {
+        Schema::create('mid_management', function (Blueprint $table) {
             $table->id();
-            $table->text('history_text');
+            $table->string('name');
+            $table->string('designation');
+            $table->string('image');
+            // $table->unsignedBigInteger('management_id');
+            // $table->foreign('management_id')->references('id')->on('management')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('histories');
+        Schema::dropIfExists('mid_management');
     }
 };

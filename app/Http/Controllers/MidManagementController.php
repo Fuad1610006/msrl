@@ -6,23 +6,23 @@ use App\Models\Management;
 use App\Models\TopManagement;
 use App\Models\MidManagement;
 use App\Models\YardManagement;
-use App\Http\Requests\ManagementRequest;
+use App\Http\Requests\MidManagementRequest;
 use Illuminate\Http\Request;
 use Exception;
 use Toastr;
 
-class ManagementController extends Controller
+class MidManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Management::all();
+        $data = MidManagement::all();
         // $topM = TopManagement::all();
         // $midM = MidManagement::all();
         // $yardM = YardManagement::all();
-        return view('backend.management.index', compact('data'));
+        return view('backend.mid-management.index', compact('data'));
     }
 
     /**
@@ -33,26 +33,28 @@ class ManagementController extends Controller
         $topM = TopManagement::all();
         $midM = MidManagement::all();
         $yardM = YardManagement::all();
-        return view('backend.management.create');
+        return view('backend.mid-management.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ManagementRequest $request)
+    public function store(MidManagementRequest $request)
     {
        try{
-        $data=new Management;
-        $data->top_management_title=$request->top_management_title;
-        $data->mid_management_title=$request->mid_management_title;
-        $data->yard_management_title=$request->yard_management_title;
-        $data->top_description=$request->top_description;
-        $data->mid_description=$request->mid_description;
-        $data->yard_description=$request->yard_description;
+        $data=new MidManagement;
+        $data->name=$request->name;
+        $data->designation=$request->designation;
+         if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/midManagement'), $imageName);
+                $data->image = $imageName;
+            }
          
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('team.index');
+             return redirect()->route('mid.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 
@@ -77,27 +79,29 @@ class ManagementController extends Controller
      */
     public function edit( $id)
     {
-        $data= Management::findOrFail(encryptor('decrypt', $id));
-        return view('backend.management.edit', compact('data'));
+        $data= MidManagement::findOrFail(encryptor('decrypt', $id));
+        return view('backend.mid-management.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ManagementRequest $request,  $id)
+    public function update(MidManagementRequest $request,  $id)
     {
         try{
-        $data=Management::findOrFail(encryptor('decrypt', $id));
-        $data->top_management_title=$request->top_management_title;
-        $data->mid_management_title=$request->mid_management_title;
-        $data->yard_management_title=$request->yard_management_title;
-        $data->top_description=$request->top_description;
-        $data->mid_description=$request->mid_description;
-        $data->yard_description=$request->yard_description;
+        $data=MidManagement::findOrFail(encryptor('decrypt', $id));
+        $data->name=$request->name;
+        $data->designation=$request->designation;
+         if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/midManagement'), $imageName);
+                $data->image = $imageName;
+            }
          
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('team.index');
+             return redirect()->route('mid.index');
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput(); 
@@ -114,7 +118,7 @@ class ManagementController extends Controller
      */
     public function destroy( $id)
     {
-        $data= Management::findOrFail(encryptor('decrypt', $id));
+        $data= MidManagement::findOrFail(encryptor('decrypt', $id));
         if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();

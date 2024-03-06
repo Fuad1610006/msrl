@@ -1,5 +1,6 @@
 @extends('frontend.layout.app')
 @section('content')
+@include('frontend.layout.nav')
 <section class="about-support d-none d-sm-block">
     <span class="shape"></span>
     <span class="shape2"></span>
@@ -98,4 +99,5 @@
         </div>
     </div>
 </div>
+@include('frontend.layout.footer')
 @endsection

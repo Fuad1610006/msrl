@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('management', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->text('moderaion_text');
+            $table->string('top_management_title');
+            $table->text('top_description');
+            $table->string('mid_management_title');
+            $table->text('mid_description');
+            $table->string('yard_management_title');
+            $table->text('yard_description');
             $table->timestamps();
             $table->softDeletes();
         });

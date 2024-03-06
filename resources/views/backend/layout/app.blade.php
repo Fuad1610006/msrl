@@ -77,6 +77,23 @@
                    
                 </ul>
             </li>
+             <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Menu Setting</span>
+                </a>
+                <ul class="submenu ">
+                    <li
+                        class="submenu-item  ">
+                        <a href="{{route('admin.front_menu.index')}}"> Add Submenu</a>
+                    </li>
+                    <li
+                        class="submenu-item  ">
+                        <a href="{{route('page.index')}}">Add Page</a>
+                    </li>
+                </ul>
+            </li>
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -128,6 +145,40 @@
                 </ul>
             </li>
              <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Management</span>
+                </a>
+                <ul class="submenu ">
+                   
+             <li
+                class="submenu-item  ">
+                <a href="{{route('team.index')}}" >
+                   Text
+                </a>
+            </li>
+             <li
+                class="submenu-item  ">
+                <a href="{{route('top.index')}}" class='sidebar-link'>    
+                   Top Management
+                </a>
+            </li>
+             <li
+                class="submenu-item  ">
+                <a href="{{route('mid.index')}}">
+                   Mid Management
+                </a>
+            </li>
+            <li
+                class="submenu-item  ">
+                <a href="{{route('yard.index')}}">
+                   Yard Management
+                </a>
+            </li>
+                </ul>
+            </li>
+             <li
                 class="sidebar-item  ">
                 <a href="{{route('carousel.index')}}" class='sidebar-link'>
                     <i class="bi bi-house-fill"></i>
@@ -142,20 +193,7 @@
                     <span>Ship</span>
                 </a>
             </li>
-            <li
-                class="sidebar-item  ">
-                <a href="{{route('admin.front_menu.index')}}" class='sidebar-link'>
-                    <i class="bi bi-house-fill"></i>
-                    <span>Add Submenu</span>
-                </a>
-            </li>
-            <li
-                class="sidebar-item  ">
-                <a href="{{route('page.index')}}" class='sidebar-link'>
-                    <i class="bi bi-house-fill"></i>
-                    <span>Add Page</span>
-                </a>
-            </li>
+            
             <li
                 class="sidebar-item  ">
                 <a href="{{route('contacts')}}" class='sidebar-link'>
@@ -163,6 +201,13 @@
                     <span>Contacts</span>
                 </a>
             </li>
+            {{--<li
+                class="sidebar-item  ">
+                <a href="{{route('team.index')}}" class='sidebar-link'>
+                    <i class="bi bi-house-fill"></i>
+                    <span>Management</span>
+                </a>
+            </li>--}}
         </ul>
     </div>
 </div>
@@ -173,7 +218,7 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
-                <p>2024 &copy; MSRL</p>
+                <p>{{Date('Y')}} &copy; MSRL</p>
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a

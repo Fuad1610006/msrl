@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('details');
             $table->string('published')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
