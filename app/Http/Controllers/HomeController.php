@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function page($slug)
     {
         $menus = FrontMenu::orderBy('rank')->get();
-        $page_data= Page::where('page_slug',"$slug")->where('published',1)->first();
+        $page_data= Page::where('page_slug',$slug)->where('published',1)->first();
         return view('frontend.page.index',compact('page_data','menus'));
     }
 

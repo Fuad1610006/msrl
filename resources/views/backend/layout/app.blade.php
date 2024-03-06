@@ -42,15 +42,15 @@
         <ul class="menu">
             <li class="sidebar-title">Menu</li>
             
-           {{-- <li
+           <li
                 class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
+                <a href="{{route('dashboard')}}" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
                        
-            <li class="sidebar-title">Pages</li>--}}
+            <li class="sidebar-title">Pages</li>
             
             <li
                 class="sidebar-item  has-sub">
@@ -197,8 +197,15 @@
             <li
                 class="sidebar-item  ">
                 <a href="{{route('contacts')}}" class='sidebar-link'>
-                    <i class="bi bi-house-fill"></i>
+                    <i class="bi bi-telephone"></i>
                     <span>Contacts</span>
+                </a>
+            </li>
+             <li
+                class="sidebar-item  ">
+                <a href="{{route('logOut')}}" class='sidebar-link'>
+                    <i class="bi bi-person"></i>
+                    <span>Log out</span>
                 </a>
             </li>
             {{--<li

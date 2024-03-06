@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Page;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request; 
 
 class AddNewRequest extends FormRequest
 {
@@ -17,7 +18,7 @@ class AddNewRequest extends FormRequest
      /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules()
     {
@@ -26,10 +27,4 @@ class AddNewRequest extends FormRequest
         ];
     }
 
-    public function messages(){
-        return [
-            'required' => "The :attribute filed is required",
-            'unique' => "The :attribute already used. Please try another",
-        ];
-    }
 }

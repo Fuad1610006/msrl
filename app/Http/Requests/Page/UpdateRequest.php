@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Page;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request; 
 
 class UpdateRequest extends FormRequest
 {
@@ -17,7 +18,7 @@ class UpdateRequest extends FormRequest
      /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(Request $r)
     {
@@ -27,10 +28,4 @@ class UpdateRequest extends FormRequest
         ];
     }
 
-    public function messages(){
-        return [
-            'required' => "The :attribute field is required",
-            'unique' => "The :attribute is already used. Please try another",
-        ];
-    }
 }

@@ -1,8 +1,6 @@
 @extends('backend.layout.app')
-
 @section('pageTitle',trans('Update page'))
 @section('pageSubTitle',trans('Update'))
-
 @section('content')
 <style>
     .ck-editor__editable_inline {

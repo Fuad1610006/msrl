@@ -62,7 +62,7 @@ Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly
 Route::get('/yard', [moderation::class, 'moderation'])->name('yard');//mostly done
 Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');//mostly done
 Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');//mostly done
-Route::get('/', [home::class, 'index'])->name('home');
+Route::get('/home', [home::class, 'index'])->name('home');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');

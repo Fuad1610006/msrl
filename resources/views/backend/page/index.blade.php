@@ -2,6 +2,17 @@
 @section('pageTitle',trans('Page List'))
 @section('pageSubTitle',trans('List'))
 @section('content')
+<style>
+    /* Hide CKEditor specific elements */
+    .ck.ck-widget__type-around__button.ck-widget__type-around__button_before,
+    .ck.ck-widget__type-around__button.ck-widget__type-around__button_after {
+        display: none;
+    }
+    /* Additional styles to remove unwanted space */
+    .ck.ck-content > div {
+        margin-bottom: 0;
+    }
+</style>
 <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">

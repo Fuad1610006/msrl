@@ -13,8 +13,9 @@
       <!-- middle header -->
       <nav class="navbar navbar-expand-sm bg-white navbar-white dektop-nav">
         <div class="container p-0">
+           @foreach($menus as $menu)
           <ul class="navbar-nav ms-auto">
-            @foreach($menus as $menu)
+           
            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ $menu->url }}">{{ $menu->name }}"</a>
             </li>--}}

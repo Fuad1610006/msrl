@@ -70,7 +70,7 @@ class PageController extends Controller
             
             if($page->save()){
             $this->notice::success('Post created Successfully!');
-            return redirect()->route(currentUser().'.page.index');
+            return redirect()->route('page.index');
 
             }else{
             $this->notice::warning('Please try Again!');
@@ -125,7 +125,7 @@ class PageController extends Controller
             
             if($page->save()){
             $this->notice::success('Post Updated Successfully!');
-            return redirect()->route(currentUser().'.page.index');
+            return redirect()->route('page.index');
             }else{
             $this->notice::warning('Please try Again!');
             return redirect()->back();

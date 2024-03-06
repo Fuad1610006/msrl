@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FrontMenu extends Model
 {
     use HasFactory;
+    
      public function children()
     {
         return $this->hasMany(FrontMenu::class, 'parent_id', 'id');

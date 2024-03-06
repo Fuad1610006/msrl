@@ -1,31 +1,22 @@
 @extends('frontend.layout.app')
 @section('content')
 @include('frontend.layout.nav')
-<section class="about-support d-none d-sm-block">
-    <span class="shape"></span>
-    <span class="shape2"></span>
-    <span class="shape3"></span>
-    <div class="container-fluid px-lg-5">
-        <div class="row position-relative">
-            <div class="col-lg-6">
-                <h3 class="mb-0 common-title-of-page">{{$page_data?->page_title}}</h3>
-            </div>
-            <div class="col-lg-6">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-end bg-transparent mb-0">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('home')}}" class="breadcrumb-item router-link-active">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="">{{$page_data?->page_title}}</a>
-                        </li>
-                        <li class="breadcrumb-item">data</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
+<style>
+    /* Hide CKEditor specific elements */
+    .ck.ck-widget__type-around__button.ck-widget__type-around__button_before,
+    .ck.ck-widget__type-around__button.ck-widget__type-around__button_after {
+        display: none;
+    }
+    /* Additional styles to remove unwanted space */
+    .ck.ck-content > div {
+        margin-bottom: 0;
+    }
+    .ck.ck-reset_all.ck-widget__resizer{
+        width: 0 !important;
+        height: 0 !important;
+    }
+</style>
+
 <section class="about-support d-sm-none">
     <span class="shape"></span>
     <span class="shape2"></span>

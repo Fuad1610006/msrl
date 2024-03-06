@@ -17,9 +17,4 @@ class FrontendController extends Controller
         return view('frontend.Page.index',compact('page_data'));
     }
 
-     public function menu()
-    {
-        $menus = FrontMenu::orderBy('order')->get();
-        return view('frontend.home', compact('menus'));
-    }
 }
