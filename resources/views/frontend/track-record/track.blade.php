@@ -9,7 +9,7 @@
       </div>
     </section>
     <!-- page top View end -->
-
+@include('frontend.track-cards.card')
 
 @include('frontend.layout.footer')
 @endsection('content')
