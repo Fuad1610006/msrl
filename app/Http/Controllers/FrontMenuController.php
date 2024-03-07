@@ -41,10 +41,10 @@ class FrontMenuController extends Controller
 
             $data->name=$request->name;
             $data->href=$request->href;
-            
+
             $data->save();
             $this->notice::success('Menu Create Successfully');
-            return redirect()->route(currentUser().'.front_menu.index');
+            return redirect()->route('front_menu.index');
         }
         catch (Exception $e){
              dd($e);
@@ -64,28 +64,28 @@ class FrontMenuController extends Controller
     {
 		// Get the JSON string
 		$jsonstring = $request->jsonstring;
-		
+
 		// Decode it into an array
 		$jsonDecoded = json_decode($jsonstring, true, 64);
 		// Run the function above
 		$readbleArray = $this->parseJsonArray($jsonDecoded);
-		
+
 		// Loop through the "readable" array and save changes to DB
 		foreach ($readbleArray as $key => $value) {
-		
+
 			// $value should always be an array, but we do a check
 			if (is_array($value)) {
                 $data=FrontMenu::find($value['id']);
                 $data->rank=$key;
                 $data->parent_id=$value['parentID'];
-                
+
                 $data->save();
 			}
 		}
 		//print_r($readbleArray);
 	}
-	
-	/* Function to parse the multidimentional array into a more readable array 
+
+	/* Function to parse the multidimentional array into a more readable array
 	 * Got help from stackoverflow with this one:
 	 *    http://stackoverflow.com/questions/11357981/save-json-or-multidimentional-array-to-db-flat?answertab=active#tab-top
 	*/
@@ -103,5 +103,5 @@ class FrontMenuController extends Controller
 
 	  return $return;
 	}
-    
+
 }

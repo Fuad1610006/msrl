@@ -48,20 +48,20 @@ Route::post('login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('logout', [auth::class,'signOut'])->name('logOut');
 
 Route::post('image-upload', [page::class, 'storeImage'])->name('image.upload');
-Route::get('front_menu', [frontMenu::class, 'index'])->name('admin.front_menu.index');
-Route::post('menu_save_update/{id?}', [frontMenu::class, 'save_update'])->name('admin.front_menu.save');
-Route::get('front_menu/mss', [frontMenu::class, 'mss'])->name('admin.front_menu.mss');
-Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('admin.front_menu.detroy');
+Route::get('front_menu', [frontMenu::class, 'index'])->name('front_menu.index');
+Route::post('menu_save_update/{id?}', [frontMenu::class, 'save_update'])->name('front_menu.save');
+Route::get('front_menu/mss', [frontMenu::class, 'mss'])->name('front_menu.mss');
+Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('front_menu.detroy');
 Route::get('/page/{slug}', [home::class,'page'])->name('front.page');
 
-Route::post('contact/store', [contact::class, 'store'])->name('contact.store');//Incomplete
-Route::get('sister', [home::class, 'sister'])->name('sister');//mostly done
+Route::post('contact/store', [contact::class, 'store'])->name('contact.store');
+Route::get('sister', [home::class, 'sister'])->name('sister');
 Route::get('management', [home::class, 'management'])->name('management');
-Route::get('about', [about::class, 'about'])->name('about');//mostly done
-Route::get('overview', [overview::class, 'overview'])->name('overview');//mostly done
-Route::get('/yard', [moderation::class, 'moderation'])->name('yard');//mostly done
-Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');//mostly done
-Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');//mostly done
+Route::get('about', [about::class, 'about'])->name('about');
+Route::get('overview', [overview::class, 'overview'])->name('overview');
+Route::get('/yard', [moderation::class, 'moderation'])->name('yard');
+Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');
+Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');
 Route::get('/home', [home::class, 'index'])->name('home');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
@@ -71,36 +71,36 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
     Route::resource('role', role::class);
-    Route::resource('track-records', ship::class);//mostly done
-    Route::resource('gallery', gallery::class);//In-progress
-    Route::resource('industry', overview::class);//In-progress
-    Route::resource('team', management::class);//In-progress
-    Route::resource('top', topM::class);//In-progress
-    Route::resource('mid', midM::class);//In-progress
-    Route::resource('yard', yardM::class);//In-progress
-    Route::resource('sister-concern', sister::class);//In-progress
-    Route::resource('chairman', chairman::class);//In-progress
-    Route::resource('settings', settings::class);//In-progress
-    Route::resource('moderation', moderation::class);//In-progress
-    Route::resource('about-us', about::class);//In-progress
-    Route::resource('carousel', carousel::class);//In-progress
-    Route::resource('info', company::class);//In-progress
-    Route::resource('sister-logo', sisterLogo::class);//In-progress
-    Route::resource('buyer-logo', buyer::class);//In-progress
-    Route::resource('track-no', track::class);//In-progress
-    Route::resource('history', history::class);//In-progress
-    Route::resource('about_us', aboutUs::class);//In-progress
-    Route::resource('page', page::class);//In-progress
+    Route::resource('track-records', ship::class);
+    Route::resource('gallery', gallery::class);
+    Route::resource('industry', overview::class);
+    Route::resource('team', management::class);
+    Route::resource('top', topM::class);
+    Route::resource('mid', midM::class);
+    Route::resource('yard', yardM::class);
+    Route::resource('sister-concern', sister::class);
+    Route::resource('chairman', chairman::class);
+    Route::resource('settings', settings::class);
+    Route::resource('moderation', moderation::class);
+    Route::resource('about-us', about::class);
+    Route::resource('carousel', carousel::class);
+    Route::resource('info', company::class);
+    Route::resource('sister-logo', sisterLogo::class);
+    Route::resource('buyer-logo', buyer::class);
+    Route::resource('track-no', track::class);
+    Route::resource('history', history::class);
+    Route::resource('about_us', aboutUs::class);
+    Route::resource('page', page::class);
 
     Route::get('contacts', [contact::class, 'index'])->name('contacts');
 
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
-    Route::post('permission/{role}', [permission::class,'save'])->name('permission.save'); 
+    Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
 });
 
-// Route::get('/', function () {
-//     return view('frontend.home');
-// })->name('home');
+Route::get('/', function () {
+    return view('frontend.home');
+})->name('home');
 // Route::get('about', function () {
 //     return view('frontend.about.about');
 // })->name('about');

@@ -1,5 +1,5 @@
 <header class="sticky-top">
-      <!-- top header -->
+
       <div class="top-header text-end text-white pt-1">
         <div class="container">
           <i class="fas fa-map-marker-alt ps-3 pe-2"></i>
@@ -10,12 +10,12 @@
           <span class="fw-light"> +880123456789</span>
         </div>
       </div>
-      <!-- middle header -->
+
       <nav class="navbar navbar-expand-sm bg-white navbar-white dektop-nav">
         <div class="container p-0">
            @foreach($menus as $menu)
           <ul class="navbar-nav ms-auto">
-           
+
            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ $menu->url }}">{{ $menu->name }}"</a>
             </li>--}}
@@ -103,7 +103,7 @@
         />
       </div>
 </header>
-   
+
 <section class="brand-bg mobile-nav shadow sticky-top">
       <div class="container py-1">
         <div class="row">

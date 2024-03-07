@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSRL</title>
-    
+
     <link rel="stylesheet" href="{{asset('assets/css/main/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/app-dark.css')}}">
     <link rel="shortcut icon" href="{{asset('assets/images/logo/favicon.svg" type="image/x-icon')}}">
     <link rel="shortcut icon" href="{{asset('assets/images/logo/favicon.png" type="image/png')}}">
-    
+
     <link rel="stylesheet" href="{{asset('assets/css/shared/iconly.css')}}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     @stack('styles')
@@ -41,7 +41,7 @@
     <div class="sidebar-menu">
         <ul class="menu">
             <li class="sidebar-title">Menu</li>
-            
+
            <li
                 class="sidebar-item active ">
                 <a href="{{route('dashboard')}}" class='sidebar-link'>
@@ -49,9 +49,9 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-                       
+
             <li class="sidebar-title">Pages</li>
-            
+
             <li
                 class="sidebar-item  has-sub">
                 <a href="" class='sidebar-link'>
@@ -74,7 +74,7 @@
                     <li class="submenu-item ">
                         <a href="{{route('sister-logo.index')}}">Sister Concern Logo</a>
                     </li>
-                   
+
                 </ul>
             </li>
              <li
@@ -86,7 +86,7 @@
                 <ul class="submenu ">
                     <li
                         class="submenu-item  ">
-                        <a href="{{route('admin.front_menu.index')}}"> Add Submenu</a>
+                        <a href="{{route('front_menu.index')}}"> Add Submenu</a>
                     </li>
                     <li
                         class="submenu-item  ">
@@ -107,7 +107,7 @@
                     <li class="submenu-item ">
                         <a href="{{route('history.index')}}">Our-history</a>
                     </li>
-                   
+
                 </ul>
             </li>
              <li
@@ -117,16 +117,16 @@
                     <span>Text (Only) </span>
                 </a>
                 <ul class="submenu ">
-                   
+
              <li
                 class="submenu-item  ">
                 <a href="{{route('industry.index')}}" >
-                   Industry Overview 
+                   Industry Overview
                 </a>
             </li>
              <li
                 class="submenu-item  ">
-                <a href="{{route('moderation.index')}}" class='sidebar-link'>    
+                <a href="{{route('moderation.index')}}" class='sidebar-link'>
                     Moderation of Yard
                 </a>
             </li>
@@ -151,7 +151,7 @@
                     <span>Management</span>
                 </a>
                 <ul class="submenu ">
-                   
+
              <li
                 class="submenu-item  ">
                 <a href="{{route('team.index')}}" >
@@ -160,7 +160,7 @@
             </li>
              <li
                 class="submenu-item  ">
-                <a href="{{route('top.index')}}" class='sidebar-link'>    
+                <a href="{{route('top.index')}}" class='sidebar-link'>
                    Top Management
                 </a>
             </li>
@@ -184,7 +184,7 @@
                     <i class="bi bi-house-fill"></i>
                     <span>Home Page</span>
                 </a>
-                
+
             </li>
             <li
                 class="sidebar-item  ">
@@ -193,7 +193,7 @@
                     <span>Ship</span>
                 </a>
             </li>
-            
+
             <li
                 class="sidebar-item  ">
                 <a href="{{route('contacts')}}" class='sidebar-link'>
@@ -235,12 +235,12 @@
     </footer>
         </div>
     </div>
-    
-   
+
+
 
 <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
-    
+
 <!-- Need: Apexcharts -->
 <script src="{{asset('assets/extensions/apexcharts/apexcharts.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
@@ -250,7 +250,7 @@
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
-@stack('scripts')       
+@stack('scripts')
 </body>
 
 </html>

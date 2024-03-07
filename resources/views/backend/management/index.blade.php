@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -59,7 +59,7 @@
                                             </form>
                                         </td>
                                  @empty
-                                <td colspan="6" class="text-center">No Data Found</td>
+                                <td colspan="8" class="text-center">No Data Found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

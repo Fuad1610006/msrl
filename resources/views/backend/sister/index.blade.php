@@ -1,16 +1,16 @@
 @extends('backend.layout.app')
-@section('content')           
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>About</h3>
+                <h3>Sister</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                        <li class="breadcrumb-item active" aria-current="page">Sister</li>
                     </ol>
                 </nav>
             </div>
@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->sister_text!!}</td>
-                           
+
                            <td class="white-space-nowrap">
                                 <a href="{{route('sister-concern.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>

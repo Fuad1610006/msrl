@@ -31,7 +31,7 @@
         <div class="col-12">
 
             <div class="card p-4">
-                
+
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
                 @endif
@@ -39,7 +39,7 @@
 
                 <?php
                     $menu_lnk=array(
-                                'Home'					=>'/',
+                                'Home'					=>'/msrl/home',
                                 'Blank'					=>'#',
                                 'Who we are' 		    =>'about',
                                 'Sister Concern' 		=>'sister',
@@ -47,7 +47,7 @@
                                 'Industry ' 	        =>'overview',
                                 'Our Project' 		    =>'track-record',
                                 'Our Team' 		        =>'management',
-                                'Gallery' 		        =>'gallery', 
+                                'Gallery' 		        =>'gallery',
                                 'Contact Us' 			=>'contact-us'
                                 );
                 ?>
@@ -55,7 +55,7 @@
 
                 <!-- table bordered -->
                 <div class="widget-content padding">
-                    <div class="row">				
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="widget" style="min-height:500px;">
                                 <div class="widget-content padding">
@@ -70,7 +70,7 @@
                                             </ul>
                                             <div class="tab-content pt-3">
                                                 <div id="link" class="tab-pane container active">
-                                                    <form class="menu_form" enctype="multipart/form-data" action="{{route(currentUser().'.front_menu.save')}}" method="POST">
+                                                    <form class="menu_form" enctype="multipart/form-data" action="{{route('front_menu.save')}}" method="POST">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label>Menu Name</label>
@@ -87,7 +87,7 @@
                                                                 <?php } } ?>
                                                             </select>
                                                         </div>
-                                                       
+
                                                         <div class="form-group">
                                                             <button type="submit" class="btn btn-primary btn-label-left">Save</button>
                                                             <button type="reset" class="reset btn btn-warning">Reset</button>
@@ -96,7 +96,7 @@
                                                     </form>
                                                 </div>
                                                 <div id="page" class="tab-pane container fade">
-                                                    <form class="menu_form" action="{{route(currentUser().'.front_menu.save')}}" method="POST">
+                                                    <form class="menu_form" action="{{route('front_menu.save')}}" method="POST">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label>Menu Name</label>
@@ -120,7 +120,7 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                                         <button class="btn btn-link btn-sm" type="button" onclick="edit('{{$nl->id}}','<?= explode('/',$nl->href)[0];?>')">
                                                             <i class="bi bi-pencil-square"></i>
                                                         </button> &nbsp;
-                                                        <a href="{{route(currentUser().'.front_menu.detroy',$nl->id)}}" onclick="return confirm('Are you sure to delete this?')">
+                                                        <a href="{{route('front_menu.detroy',$nl->id)}}" onclick="return confirm('Are you sure to delete this?')">
                                                             <i class="bi bi-trash"></i>
                                                         </a>
                                                     </td>
@@ -168,9 +168,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">		
+                        <div class="col-md-6">
                                 <?php
-            
+
                                 /* Function menu_showNested
                                 * @desc Create inifinity loop for nested list from database
                                 * @return echo string
@@ -183,49 +183,49 @@
                                         echo "<ol class='dd-list'>\n";
                                             foreach($rowsm as $i=>$row) {
                                                 echo "\n";
-                                                
+
                                                 echo "<li class='dd-item' data-id='{$row->id}'>\n";
                                                     echo "<div class='dd-handle'>".++$i.": {$row->name}</div>\n";
-                                                
-                                                    // Run this function again (it would stop running when the mysql_num_result is 0
+
+                                //                     // Run this function again (it would stop running when the mysql_num_result is 0
                                                     menu_showNested($row->id);
-                                                
+
                                                 echo "</li>\n";
                                             }
                                         echo "</ol>\n";
                                     }
                                 }
-                                
-                                
-                                
-                                
+
+
+
+
                                 ## Show the top parent elements from DB
                                 ######################################
                                 $sql = "SELECT * FROM front_menus WHERE parent_id='0' and status='1' ORDER BY rank";
                                 $rows = DB::select($sql);
-                                
+
                                 echo "<div class='cf nestable-lists'>\n";
                                     echo "<div class='dd' id='nestableMenu'>\n\n";
                                         echo "<ol class='dd-list'>\n";
-                                        
+
                                             foreach($rows as $i=>$row) {
-                                                
+
                                                 echo "\n";
-                                                
+
                                                 echo "<li class='dd-item' data-id='{$row->id}'>";
                                                     echo "<div class='dd-handle'>".++$i.": {$row->name}</div>";
-                                                
-                                                
+
+
                                                 menu_showNested($row->id);
-                                                
+
                                                 echo "</li>\n";
                                             }
-                                            
+
                                         echo "</ol>\n\n";
                                     echo "</div>\n";
                                 echo "</div>\n\n";
-                                
-                                
+
+
                             ?>
                         </div>
                     </div>
@@ -244,7 +244,7 @@
 <script type="text/javascript">
 
 	window.onload=function(){
-		
+
 		/* The output is ment to update the nestableMenu-output textarea
 		 * So this could probably be rewritten a bit to only run the menu_updatesort function onchange
 		*/
@@ -255,24 +255,24 @@
 			if (window.JSON) {
 				output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
 				var jsonstring=window.JSON.stringify(list.nestable('serialize'));
-				
-				$.get("{{route(currentUser().'.front_menu.mss')}}",{ jsonstring:jsonstring },function(data, status){ /*document.getElementById('ss').innerHTML=data;*/ });
-                
+
+				$.get("{{route('front_menu.mss')}}",{ jsonstring:jsonstring },function(data, status){ /*document.getElementById('ss').innerHTML=data;*/ });
+
 				 //$.get(baseUrl+"web_conf/menu/mss/"+jsonstring, function(data){ alert(data);   });
-				
+
 			} else {
 				output.val('JSON browser support required for this demo.');
 			}
 		};
-		
+
 		// activate Nestable for list menu
 		$('#nestableMenu').nestable({
 			group: 1
 		})
 		.on('change', updateOutput);
 
-		
-		
+
+
 		// output initial serialised data
 		updateOutput($('#nestableMenu').data('output', $('#nestableMenu-output')));
 
@@ -291,7 +291,7 @@
 		$('#nestable3').nestable();
 
 	}
-	
+
 	function edit(ids,ohref){
 		$('.insertion_div').show();
 		var menu=<?= json_encode($menus); ?>;
@@ -302,7 +302,7 @@
 				var href=menu[i].href;
 			}
 		}
-		
+
         if(ohref=='page'){
             $('[href="#page"]').tab('show');
 			$('#page [name=id]').val(id);
@@ -315,7 +315,7 @@
 			$('#link [name=name]').val(name);
 			$('#link [name=href]').val(href);
 		}
-		
+
 	}
 	</script>
 @endpush

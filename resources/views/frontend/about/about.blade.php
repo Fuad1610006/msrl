@@ -72,62 +72,7 @@
     </section>
     <!-- Years Section end -->
     <!-- counter start -->
-    <section class="brand-bg" id="slider-zindex">
-      <!-- backgroud image -->
-      <div class="middle-bg">
-        <!-- counter start -->
-        <div class="py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-7">
-                <h2 class="counter-title brand-text-color">
-                  Track Record of Scrap Ship Import
-                </h2>
-                <p class="counter-text brand-text-color mt-2">
-                  The companies are mainly engaged in importing & breaking the
-                  old scrap vessels, cutting the MS Plates. The company offers
-                  its products to the domestic market in the Re-rolling Mills.
-                  Existing cutting capacity per year of PTCL & MSRL each is
-                  around 10 (Ten) Scrap Vessel at a time having average capacity
-                  of 10,000 M.T. After modernization the capacity will be
-                  increased to15,000 M.Ton per ship.
-                </p>
-                <a href="#" class="project-btn cursor-point">Project</a>
-              </div>
-              <div class="col-sm-5" id="counter-mobile">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="bg-white shadow text-center p-4 rounded-4 mb-3">
-                      <h3 class="brand-text-color">89</h3>
-                      <p class="brand-text-color">Total Import</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="bg-white shadow text-center p-4 rounded-4 mb-3">
-                      <h3>89</h3>
-                      <p>Total Import</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="bg-white shadow text-center p-4 rounded-4 mb-3">
-                      <h3>89</h3>
-                      <p>Total Import</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="bg-white shadow text-center p-4 rounded-4 mb-3">
-                      <h3>89</h3>
-                      <p>Total Import</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- counter end -->
-      </div>
-    </section>
+    @include('frontend.track-cards.card')
     <!-- counter end -->
     <!-- history start -->
     <section class="year brand-text-color my-4">
@@ -179,29 +124,7 @@
     </section>
     <!-- history end -->
     <!-- Buyers Start -->
-    <section class="container py-5 brand-text-color">
-      <div class="row">
-        <div class="col-md-12 col-lg-6 buyers mb-4">
-          <h3>Our Prospective Buyers</h3>
-          <p>
-            MSRL has na existing and reliable customer base. The list of the
-            major buyers.
-          </p>
-        </div>
-        <div class="col-md-12 col-lg-6 buyers-logo text-center">
-          <img class="img-fluid" src="{{asset('asset/images/bsrm.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/madina-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/RRM-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/BMSIL-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/RSRM-logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/Sarker-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/KSRM-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/AKS-Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/BS_Logo.png')}}" alt="Buyer Logo" />
-          <img class="img-fluid" src="{{asset('asset/images/transport_logo.png')}}" alt="Buyer Logo"/>
-        </div>
-      </div>
-    </section>
+    @include('frontend.our-buyers.buyer')
     <!-- Buyers end -->
     <!-- main text -->
     <section class="container">
@@ -213,6 +136,6 @@
         @endforeach
       </div>
     </section>
-    
+
 @include('frontend.layout.footer')
 @endsection('content')
