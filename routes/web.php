@@ -18,8 +18,6 @@ use App\Http\Controllers\MidManagementController as midM;
 use App\Http\Controllers\YardManagementController as yardM;
 use App\Http\Controllers\OverviewController as overview;
 use App\Http\Controllers\SisterConcernController as sister;
-use App\Http\Controllers\SettingController as settings;
-use App\Http\Controllers\GalleryController as gallery;
 use App\Http\Controllers\CarouselController as carousel;
 use App\Http\Controllers\TrackRecordController as track;
 use App\Http\Controllers\BuyerLogoController as buyer;
@@ -27,7 +25,6 @@ use App\Http\Controllers\SisterLogoController as sisterLogo;
 use App\Http\Controllers\CompanyInfoController as company;
 use App\Http\Controllers\HistoryController as history;
 use App\Http\Controllers\FrontMenuController as frontMenu;
-// use App\Http\Controllers\FrontendController as front;
 use App\Http\Controllers\PageController as page;
 use App\Http\Controllers\HomeController as home;
 
@@ -60,8 +57,8 @@ Route::get('management', [home::class, 'management'])->name('management');
 Route::get('about', [about::class, 'about'])->name('about');
 Route::get('overview', [overview::class, 'overview'])->name('overview');
 Route::get('/yard', [moderation::class, 'moderation'])->name('yard');
-Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');
-Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');
+Route::get('gallery', [ship::class, 'gallery'])->name('gallery');
+Route::get('gallery/filter/{category}', [ship::class, 'filter'])->name('frontend.gallery.filter');
 Route::get('/home', [home::class, 'index'])->name('home');
 Route::get('/', [home::class, 'index'])->name('msrl');
 
@@ -72,8 +69,7 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
     Route::resource('role', role::class);
-    Route::resource('track-records', ship::class);
-    Route::resource('gallery', gallery::class);
+    Route::resource('ship-info', ship::class);
     Route::resource('industry', overview::class);
     Route::resource('team', management::class);
     Route::resource('top', topM::class);
@@ -81,7 +77,6 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('yard', yardM::class);
     Route::resource('sister-concern', sister::class);
     Route::resource('chairman', chairman::class);
-    Route::resource('settings', settings::class);
     Route::resource('moderation', moderation::class);
     Route::resource('about-us', about::class);
     Route::resource('carousel', carousel::class);

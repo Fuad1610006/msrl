@@ -47,12 +47,13 @@ class HomeController extends Controller
 
     public function index()
     {
+        $carousel= Carousel::all();
         $buyerLogos= BuyerLogo::all();
         $card= TrackRecord::first();
         $sister= SisterLogo::all();
         $menus = FrontMenu::orderBy('rank')->get();
         $info = CompanyInfo::first();
-        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos'));
+        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos','carousel'));
     }
 
 

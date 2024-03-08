@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -23,7 +23,7 @@
                     <h4 class="card-title">Ship Info</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('track-records.update', encryptor('encrypt',$ship->id)) }}" method="POST">
+                    <form action="{{ route('ship-info.update', encryptor('encrypt',$ship->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -49,6 +49,15 @@
                                         <span class="text-danger"> {{ $errors->first('weight') }}</span>
                                     @endif
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" id="image" class="form-control" name="image">
+                                     @if ($ship->image)
+                                        <p class="mt-2">Current Image: {{ $ship->image }}</p>
+                                        <input type="hidden" name="old_image" value="{{ $ship->image }}">
+                                    @endif
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -68,16 +77,14 @@
                                         <option value="Pending"{{ old('status', $ship->status) == 'Pending' ? 'selected' : '' }}>Pending</option>
                                     </select>
                                 </div>
-
-                                 <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image">
-                                     @if ($ship->image)
-                                        <p class="mt-2">Current Image: {{ $ship->image }}</p>
-                                        <input type="hidden" name="old_image" value="{{ $ship->image }}">
-                                    @endif
+                                <div class="form-group">
+                                    <label for="category">category</label>
+                                    <select class="form-control" id="category" name="category">
+                                        <option>Select One</option>
+                                        <option value="1" {{ old('category', $ship->category) == '1' ? 'selected' : '' }}>Corporate</option>
+                                        <option value="2" {{ old('category', $ship->category) == '2' ? 'selected' : '' }}>Project</option>
+                                    </select>
                                 </div>
-
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>

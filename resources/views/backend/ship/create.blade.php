@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -23,7 +23,7 @@
                     <h4 class="card-title">Ship Info</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('track-records.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('ship-info.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -48,6 +48,10 @@
                                         <span class="text-danger"> {{ $errors->first('weight') }}</span>
                                      @endif
                                 </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" id="image" class="form-control" name="image">
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -67,12 +71,14 @@
                                         <option value="Pending"{{ old('status') == 'Pending' ? 'selected' : '' }}>Pending</option>
                                     </select>
                                 </div>
-                                
                                 <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image">
+                                    <label for="category">Category</label>
+                                    <select class="form-control" id="category" name="category">
+                                        <option>Select One</option>
+                                         <option value="1" {{ old('category') == '1' ? 'selected' : '' }}>Corporate</option>
+                                         <option value="2" {{ old('category') == '2' ? 'selected' : '' }}>Project</option>
+                                    </select>
                                 </div>
-                            
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,112 +1,56 @@
 @extends('frontend.layout.app')
 @section('content')
 @include('frontend.layout.nav')
-    <section class="container-fluid px-0 mx-0 mt-0">
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner h-100">
-              <div class="carousel-item active h-100">
-                <img
-                  src="{{asset('asset/images/carousel-image.png')}}"
-                  class="d-block h-100"
-                  alt="Carousel Image"
-                />
+<section class="container-fluid px-0 mx-0 mt-0">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
+            @if($carousel->isEmpty())
+            <div class="carousel-item active h-100">
+                <img src="{{ asset('asset/images/carousel-image.png') }}" class="d-block h-100" alt="Carousel Image" />
                 <div class="carousel-caption">
-                  <div class="text-start">
-                    <p class="slider-one-heading mb-0">Welcome To</p>
-                    <h2 class="slider-two-heading text-uppercase">
-                      Mahinur Ship Recycling Ltd.
-                    </h2>
-                    <p class="py-3 slider-text">
-                      Mahinur Ship Recycling Limited (here in after referred as
-                      “MSRL” or the company) was incorporated on 02.10.2016 vide
-                      Registration No. CH-11851/2016 asa Private Limited Company
-                      under the Companies Act (Act XVIII) of 1994. The company is
-                      also engaged in importing and dismantling of scrap vessel.
-                    </p>
-                  </div>
-                  <div class="d-flex justify-content-between me-auto">
-                    <a href="#" class="btn btn-white m-1 border rounded-pill px-4"
-                      >About Us</a
-                    >
-                    <a href="#" class="btn btn-green m-1 border rounded-pill px-4"
-                      >Project</a
-                    >
-                  </div>
+                    <div class="text-start">
+                        <p class="slider-one-heading mb-0">Welcome To</p>
+                        <h2 class="slider-two-heading text-uppercase">Mahinur Ship Recycling Ltd.</h2>
+                        <p class="py-3 slider-text">
+                            Mahinur Ship Recycling Limited (here in after referred as “MSRL” or the company) was incorporated on 02.10.2016 vide Registration No. CH-11851/2016 asa Private Limited Company under the Companies Act (Act XVIII) of 1994. The company is also engaged in importing and dismantling of scrap vessel.
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-between me-auto">
+                        <a href="#" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
+                        <a href="#" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
+                    </div>
                 </div>
-              </div>
-              <div class="carousel-item h-100">
-                <img
-                  src="{{asset('asset/images/carousel-image.png')}}"
-                  class="d-block h-100"
-                  alt="Carousel Image"
-                />
-                <div class="carousel-caption">
-                  <div class="text-start">
-                    <p class="slider-one-heading mb-0">Welcome To</p>
-                    <h2 class="slider-two-heading text-uppercase">
-                      Mahinur Ship Recycling Ltd.
-                    </h2>
-                    <p class="py-3 slider-text">
-                      Mahinur Ship Recycling Limited (here in after referred as
-                      “MSRL” or the company) was incorporated on 02.10.2016 vide
-                      Registration No. CH-11851/2016 asa Private Limited Company
-                      under the Companies Act (Act XVIII) of 1994. The company is
-                      also engaged in importing and dismantling of scrap vessel.
-                    </p>
-                  </div>
-                  <div class="d-flex justify-content-between me-auto">
-                    <a href="#" class="btn btn-white m-1 border rounded-pill px-4"
-                      >About Us</a
-                    >
-                    <a href="#" class="btn btn-green m-1 border rounded-pill px-4"
-                      >Project</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item h-100">
-                <img
-                  src="{{asset('asset/images/carousel-image.png')}}"
-                  class="d-block h-100"
-                  alt="Carousel Image"
-                />
-                <div class="carousel-caption">
-                  <div class="text-start">
-                    <p class="slider-one-heading mb-0">Welcome To</p>
-                    <h2 class="slider-two-heading text-uppercase">
-                      Mahinur Ship Recycling Ltd.
-                    </h2>
-                    <p class="py-3 slider-text">
-                      Mahinur Ship Recycling Limited (here in after referred as
-                      “MSRL” or the company) was incorporated on 02.10.2016 vide
-                      Registration No. CH-11851/2016 asa Private Limited Company
-                      under the Companies Act (Act XVIII) of 1994. The company is
-                      also engaged in importing and dismantling of scrap vessel.
-                    </p>
-                  </div>
-                  <div class="d-flex justify-content-between me-auto">
-                    <a href="#" class="btn btn-white m-1 border rounded-pill px-4"
-                      >About Us</a
-                    >
-                    <a href="#" class="btn btn-green m-1 border rounded-pill px-4"
-                      >Project</a
-                    >
-                  </div>
-                </div>
-              </div>
             </div>
+            @else
+            @foreach($carousel as $key => $item)
+            <div class="carousel-item {{ $key == 0 ? 'active' : '' }} h-100">
+                <img src="{{ asset('uploads/carousel/' . $item->image) }}" class="d-block h-100" alt="Carousel Image" />
+                <div class="carousel-caption">
+                    <div class="text-start">
+                        <p class="slider-one-heading mb-0">Welcome To</p>
+                        <h2 class="slider-two-heading text-uppercase">Mahinur Ship Recycling Ltd.</h2>
+                        <p class="py-3 slider-text">
+                            Mahinur Ship Recycling Limited (here in after referred as “MSRL” or the company) was incorporated on 02.10.2016 vide Registration No. CH-11851/2016 asa Private Limited Company under the Companies Act (Act XVIII) of 1994. The company is also engaged in importing and dismantling of scrap vessel.
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-between me-auto">
+                        <a href="#" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
+                        <a href="#" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+        </div>
 
-            <ol class="carousel-indicators">
-              <li
-                data-bs-target="#myCarousel"
-                data-bs-slide-to="0"
-                class="active"
-              ></li>
-              <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-              <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-            </ol>
-          </div>
-    </section>
+        <ol class="carousel-indicators">
+            @foreach($carousel as $key => $item)
+            <li data-bs-target="#myCarousel" data-bs-slide-to="{{ $key }}" {{ $key == 0 ? 'class=active' : '' }}></li>
+            @endforeach
+        </ol>
+    </div>
+</section>
+
     <!-- slider end -->
    @include('frontend.track-cards.card')
     <!-- chairman start -->

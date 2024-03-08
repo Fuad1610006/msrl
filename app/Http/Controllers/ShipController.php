@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ship;
+use App\Models\FrontMenu;
+use App\Models\CompanyInfo;
+use App\Models\SisterLogo;
 use Illuminate\Http\Request;
 use App\Http\Requests\Ship\AddNewRequest;
 use App\Http\Requests\Ship\UpdateRequest;
@@ -40,6 +43,7 @@ class ShipController extends Controller
         $ship->country = $request->country;
         $ship->weight = $request->weight;
         $ship->type = $request->type;
+        $ship->category = $request->category;
         $ship->status = $request->status;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
@@ -49,12 +53,12 @@ class ShipController extends Controller
             }
         if( $ship->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('track-records.index');
-       
+             return redirect()->route('ship-info.index');
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
@@ -91,6 +95,7 @@ class ShipController extends Controller
         $ship->country = $request->country;
         $ship->weight = $request->weight;
         $ship->type = $request->type;
+        $ship->category = $request->category;
         $ship->status = $request->status;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
@@ -100,18 +105,18 @@ class ShipController extends Controller
             }
         if( $ship->save()){
              $this->notice::success('Successfully Updated');
-             return redirect()->route('track-records.index');
-       
+             return redirect()->route('ship-info.index');
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
              $this->notice::error('Please try again');
             return redirect()->back()->withInput();
-           
+
         }
     }
 
@@ -124,7 +129,40 @@ class ShipController extends Controller
         if($ship->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();
-          
+
         }
+    }
+
+     /**
+     * Display data dynamically into frontend.gallery.gallery.
+     */
+    public function gallery()
+    {
+        $menus = FrontMenu::orderBy('rank')->get();
+        $info = CompanyInfo::first();
+        $sister= SisterLogo::all();
+        $ships = Ship::paginate(10); // Paginate the ships with 10 items per page
+        return view('frontend.gallery.gallery', compact('ships','menus', 'info','sister'));
+    }
+
+    /**
+     * Display the gallery with filtered ships.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+  public function filter(Request $request)
+    {
+        $category = $request->query('category');
+
+        if ($category === 'corporate') {
+            $ships = Ship::where('category', 'corporate')->paginate(10);
+        } elseif ($category === 'project') {
+            $ships = Ship::where('category', 'project')->paginate(10);
+        } else {
+            $ships = Ship::paginate(10);
+        }
+
+        return view('frontend.gallery.gallery', compact('ships'));
     }
 }

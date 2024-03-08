@@ -193,7 +193,7 @@
             </li>--}}
             <li
                 class="sidebar-item  ">
-                <a href="{{route('track-records.index')}}" class='sidebar-link'>
+                <a href="{{route('ship-info.index')}}" class='sidebar-link'>
                    <i class="bi bi-clipboard-minus"></i>
                     <span>Ship</span>
                 </a>

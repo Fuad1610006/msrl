@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')           
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -19,7 +19,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('track-records.create') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{ route('ship-info.create') }}" class="btn btn-primary mb-3">Add New</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -30,6 +30,7 @@
                             <th>Country</th>
                             <th>Weight</th>
                             <th>Type</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th>Image</th>
                             <th>Action</th>
@@ -43,18 +44,19 @@
                             <td>{{$s->country}}</td>
                             <td>{{$s->weight}}</td>
                             <td>{{$s->type}}</td>
+                            <td>{{$s->category}}</td>
                             <td>{{$s->status}}</td>
                             <td>
                                <img width="50px" src="{{asset('uploads/ship/'.$s->image)}}" alt="Ship">
                             </td>
                            <td class="white-space-nowrap">
-                                <a href="{{route('track-records.edit',encryptor('encrypt',$s->id))}}">
+                                <a href="{{route('ship-info.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                                 <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <form id="form{{$s->id}}" action="{{route('track-records.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                <form id="form{{$s->id}}" action="{{route('ship-info.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>
