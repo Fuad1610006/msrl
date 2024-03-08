@@ -73,13 +73,14 @@ class HomeController extends Controller
 
     public function management()
     {
+        $management= Management::first();
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $topM = TopManagement::all();
         $midM = MidManagement::all();
         $yardM = YardManagement::all();
         $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.management.management', compact('menus','topM','midM','yardM','info','sister'));
+        return view('frontend.management.management', compact('menus','topM','midM','yardM','info','sister','management'));
     }
 
     public function trackRecord()
