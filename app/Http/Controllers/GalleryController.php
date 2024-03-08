@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ship;
 use App\Models\Gallery;
+use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use Illuminate\Http\Request\GalleryRequest;
 
@@ -43,12 +44,12 @@ class GalleryController extends Controller
              return redirect()->route('backend.gallery.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
              $this->notice::error('Please try again');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
     }
 
@@ -100,7 +101,7 @@ class GalleryController extends Controller
         $gallery= Gallery::findOrFail(encryptor('decrypt', $id));
         if($gallery->delete()){
               $this->notice::warning('Deleted Permanently!');
-              return redirect()->back(); 
+              return redirect()->back();
         }
     }
 
@@ -109,8 +110,9 @@ class GalleryController extends Controller
      */
     public function gallery()
     {
+        $menus = FrontMenu::orderBy('rank')->get();
         $ships = Ship::paginate(10); // Paginate the ships with 10 items per page
-        return view('frontend.gallery.gallery', compact('ships'));
+        return view('frontend.gallery.gallery', compact('ships','menus'));
     }
 
     /**

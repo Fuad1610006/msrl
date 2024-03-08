@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\SisterConcernController;
 use App\Models\Page;
+use App\Models\BuyerLogo;
+use App\Models\TrackRecord;
+use App\Models\SisterLogo;
+use App\Models\CompanyInfo;
 use App\Models\Management;
 use App\Models\TopManagement;
 use App\Models\MidManagement;
@@ -22,7 +27,7 @@ class HomeController extends Controller
 {
     // public function carousel()
     // {
-    //     $data = Carousel::all(); 
+    //     $data = Carousel::all();
     //     return view('frontend.home', compact('data'));
     // }
 
@@ -42,15 +47,20 @@ class HomeController extends Controller
 
     public function index()
     {
+        $buyerLogos= BuyerLogo::all();
+        $card= TrackRecord::first();
+        $sister= SisterLogo::all();
         $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.home', compact('menus')); 
+        $info = CompanyInfo::first();
+        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos'));
     }
+
 
     public function sister()
     {
         $sister = SisterConcern::all();
         $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.sister-concern.sister', compact('menus')); 
+        return view('frontend.sister-concern.sister', compact('menus'));
     }
 
     public function management()
@@ -59,7 +69,7 @@ class HomeController extends Controller
         $midM = MidManagement::all();
         $yardM = YardManagement::all();
         $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.management.management', compact('menus','topM','midM','yardM')); 
+        return view('frontend.management.management', compact('menus','topM','midM','yardM'));
     }
 
 }

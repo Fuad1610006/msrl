@@ -63,10 +63,10 @@
                         <a href="{{route('info.index')}}">Company Info</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('track-no.index')}}">Record Cards</a>
+                        <a href="{{route('carousel.index')}}">Carousel</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('history.index')}}">Our History</a>
+                        <a href="{{route('track-no.index')}}">Record Cards</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="{{route('buyer-logo.index')}}">Buyer Logo</a>
@@ -102,12 +102,17 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="{{route('about_us.index')}}">About-us</a>
-                    </li>
-                    <li class="submenu-item ">
                         <a href="{{route('history.index')}}">Our-history</a>
                     </li>
-
+                    <li class="submenu-item ">
+                        <a href="{{route('history.index')}}">Our-mission</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('history.index')}}">About-us</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('history.index')}}">Chairman-message</a>
+                    </li>
                 </ul>
             </li>
              <li
@@ -130,7 +135,7 @@
                     Moderation of Yard
                 </a>
             </li>
-             <li
+             {{--<li
                 class="submenu-item  ">
                 <a href="{{route('about-us.index')}}">
                     About Us
@@ -141,7 +146,7 @@
                 <a href="{{route('sister-concern.index')}}">
                     Sister Concern
                 </a>
-            </li>
+            </li>--}}
                 </ul>
             </li>
              <li
@@ -178,14 +183,14 @@
             </li>
                 </ul>
             </li>
-             <li
+             {{--<li
                 class="sidebar-item  ">
                 <a href="{{route('carousel.index')}}" class='sidebar-link'>
                     <i class="bi bi-house-fill"></i>
                     <span>Home Page</span>
                 </a>
 
-            </li>
+            </li>--}}
             <li
                 class="sidebar-item  ">
                 <a href="{{route('track-records.index')}}" class='sidebar-link'>

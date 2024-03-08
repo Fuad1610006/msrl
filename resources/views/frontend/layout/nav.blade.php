@@ -1,15 +1,16 @@
 <header class="sticky-top">
 
-      <div class="top-header text-end text-white pt-1">
+    <div class="top-header text-end text-white pt-1">
         <div class="container">
-          <i class="fas fa-map-marker-alt ps-3 pe-2"></i>
-          <span class="fw-light">North Khulshi, Chittagong, Bangladesh</span>
-          <i class="fas fa-envelope ps-3 pe-2"></i>
-          <span class="fw-light"> info@admin.com </span>
-          <i class="fas fa-phone ps-3 pe-2"></i>
-          <span class="fw-light"> +880123456789</span>
+            <i class="fas fa-map-marker-alt ps-3 pe-2"></i>
+            <span class="fw-light">{{ $info->location }}</span>
+            <i class="fas fa-envelope ps-3 pe-2"></i>
+            <span class="fw-light">{{ $info->email_address }}</span>
+            <i class="fas fa-phone ps-3 pe-2"></i>
+            <span class="fw-light">{{ $info->contact_no }}</span>
         </div>
-      </div>
+    </div>
+
 
       <nav class="navbar navbar-expand-sm bg-white navbar-white dektop-nav">
         <div class="container p-0">
@@ -82,12 +83,14 @@
                 <p class="pe-2 my-auto fw-medium text-white text-nowrap">
                   Sister Concern -
                 </p>
-                <img
-                  src="{{asset('asset/images/logo.png')}}"
-                  alt="Sister Concern Logo"
-                  max-width="50px"
-                  class="h-100 my-auto"
-                />
+                @foreach ($sister as $sisterLogo)
+                    <img
+                        src="{{ asset('uploads/sisterLogo/' . $sisterLogo->image) }}"
+                        alt="Sister Concern Logo"
+                        max-width="50px"
+                        class="h-100 my-auto"
+                    />
+                @endforeach
               </div>
             </div>
           </div>
@@ -96,7 +99,7 @@
       <!-- Logo -->
       <div class="logo">
         <img
-          src="{{asset('asset/images/Mask group.png')}}"
+          src="{{ asset('uploads/companyInfo/' . $info->image) }}"
           alt="Logo"
           width="100px"
           class="img-fluid"

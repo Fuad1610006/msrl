@@ -63,6 +63,7 @@ Route::get('/yard', [moderation::class, 'moderation'])->name('yard');
 Route::get('gallery', [gallery::class, 'gallery'])->name('gallery');
 Route::get('gallery/filter/{category}', [gallery::class, 'filter'])->name('frontend.gallery.filter');
 Route::get('/home', [home::class, 'index'])->name('home');
+Route::get('/', [home::class, 'index'])->name('msrl');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
@@ -98,9 +99,9 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
 });
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('frontend.home');
+// })->name('home');
 // Route::get('about', function () {
 //     return view('frontend.about.about');
 // })->name('about');

@@ -19,7 +19,7 @@
         </div>
       </div>
 </section>
-    
+
 <footer class="footer-bg footer text-white" id="footer-mobile">
     <!-- Mega footer -->
     <div class="container py-4">
@@ -27,7 +27,7 @@
         <div class="col mb-3">
         <!-- logo -->
         <img
-            src="{{asset('asset/images/Mask group.png')}}"
+            src="{{ asset('uploads/companyInfo/' . $info->image) }}"
             alt="Footer Logo"
             class="footer-logo"
         />
@@ -35,14 +35,14 @@
         <div class="addressnicon my-4">
             <div>
             <i class="fas fa-map-marker-alt pe-2"></i>
-            <span class="">North Khulshi, Chittagong, Bangladesh</span>
+            <span>{{ $info->location }}</span>
             </div>
             <div>
             <i class="fas fa-envelope pe-2"></i>
-            <span> info@admin.com </span>
+            <span>{{ $info->email_address }}</span>
             </div>
             <div>
-            <i class="fas fa-phone pe-2"></i> <span> +880123456789</span>
+            <i class="fas fa-phone pe-2"></i> <span>{{ $info->contact_no }}</span>
             </div>
         </div>
         <!-- social media -->
