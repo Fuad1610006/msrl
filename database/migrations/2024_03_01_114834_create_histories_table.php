@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->text('history_text');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes();
         });

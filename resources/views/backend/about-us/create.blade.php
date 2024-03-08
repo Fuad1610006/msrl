@@ -1,12 +1,12 @@
 @extends('backend.layout.app')
 
-@section('content')    
+@section('content')
 <style>
     .ck-editor__editable_inline {
         min-height: 400px;
         border:1px solid #AAA !important;
     }
-</style>    
+</style>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -30,12 +30,18 @@
                     <h4 class="card-title">About Page</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('about_us.store') }}" method="POST">
+                    <form action="{{ route('about-us.store') }}" method="POST">
                         @csrf
                        <div class="col-12">
                             <div id="toolbar-container"></div>
                             <textarea name="about_us_text" id="ckeditordetails" class="d-none">{{ old('about_us_text')}}</textarea>
                             <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('about_us_text')}}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sister_image">Image</label>
+                                <input type="file" id="image" class="form-control" name="image">
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
@@ -65,7 +71,7 @@ DecoupledEditor
             .catch( error => {
                 console.error( error );
             } );
-    
+
 </script>
 
 @endpush

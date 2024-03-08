@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')           
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -19,50 +19,56 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('track-no.create') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{ route('track-record.create') }}" class="btn btn-primary mb-3">Add New</a>
             </div>
             <div class="card-body">
-                @foreach($data as $record)
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="title_1">Title 1</label>
-                                <input type="text" value="{{ $record->title_1 }}" class="form-control" name="title_1" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="title_2">Title 2</label>
-                                <input type="text" value="{{ $record->title_2 }}" class="form-control" name="title_2" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="title_3">Title 3</label>
-                                <input type="text" value="{{ $record->title_3 }}" class="form-control" name="title_3" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="title_4">Title 4</label>
-                                <input type="text" value="{{ $record->title_4 }}" class="form-control" name="title_4" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="number_1">Number 1</label>
-                                <input type="text" value="{{ $record->number_1 }}" class="form-control" name="number_1" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="number_2">Number 2</label>
-                                <input type="text" value="{{ $record->number_2 }}" class="form-control" name="number_2" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="number_3">Number 3</label>
-                                <input type="text" value="{{ $record->number_3 }}" class="form-control" name="number_3" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="number_4">Number 4</label>
-                                <input type="text" value="{{ $record->number_4 }}" class="form-control" name="number_4" readonly>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    @endforeach
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Title 1</th>
+                            <th>Title 2</th>
+                            <th>Title 3</th>
+                            <th>Title 4</th>
+                            <th>Number 1</th>
+                            <th>Number 2</th>
+                            <th>Number 3</th>
+                            <th>Number 4</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($data as $s)
+                        <tr>
+                            <td>{{ ++$loop->index }}</td>
+                            <td>{{$s->title_1}}</td>
+                            <td>{{$s->title_2}}</td>
+                            <td>{{$s->title_3}}</td>
+                            <td>{{$s->title_4}}</td>
+                            <td>{{$s->number_1}}</td>
+                            <td>{{$s->number_2}}</td>
+                            <td>{{$s->number_3}}</td>
+                            <td>{{$s->number_4}}</td>
+                            <td>{{$s->short_description}}</td>
+                           <td class="white-space-nowrap">
+                                <a href="{{route('track-record.edit',encryptor('encrypt',$s->id))}}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <form id="form{{$s->id}}" action="{{route('track-record.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                            </td>
+                             @empty
+                             <td colspan="11" class="text-center">No Data Found</td>
+                        </tr>
+                         @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

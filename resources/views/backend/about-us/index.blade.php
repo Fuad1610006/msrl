@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content') 
+@section('content')
 <style>
     /* Hide CKEditor specific elements */
     .ck.ck-widget__type-around__button.ck-widget__type-around__button_before,
@@ -10,7 +10,7 @@
     .ck.ck-content > div {
         margin-bottom: 0;
     }
-</style>          
+</style>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -30,7 +30,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('about_us.create') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{ route('about-us.create') }}" class="btn btn-primary mb-3">Add New</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -46,7 +46,7 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->about_us_text!!}</td>
-                           
+
                            <td class="white-space-nowrap">
                                 <a href="{{route('about-us.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>

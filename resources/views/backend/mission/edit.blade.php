@@ -1,16 +1,16 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>About</h3>
+                <h3>Mission</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Mission</li>
                     </ol>
                 </nav>
             </div>
@@ -19,16 +19,28 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
+                {{--<div class="card-header">
                     <h4 class="card-title">About Page</h4>
-                </div>
+                </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('about-us.store') }}" method="POST">
+                    <form action="{{ route('mission.update', encryptor('encrypt',$data->id)) }}" method="POST">
                         @csrf
-                        <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control"></textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sister_image">Image</label>
+                                <input type="file" id="image" class="form-control" name="image">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
+
             </div>
         </section>
     </div>

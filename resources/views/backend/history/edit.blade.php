@@ -1,11 +1,11 @@
 @extends('backend.layout.app')
-@section('content')  
+@section('content')
 <style>
     .ck-editor__editable_inline {
         min-height: 400px;
         border:1px solid #AAA !important;
     }
-</style>         
+</style>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -37,6 +37,12 @@
                             <textarea name="history_text" id="ckeditordetails" class="d-none">{{ old('history_text')}}</textarea>
                             <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('history_text', $data->history_text)}}</div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sister_image">Image</label>
+                                <input type="file" id="image" class="form-control" name="image">
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
                 </div>
@@ -66,7 +72,7 @@ DecoupledEditor
             .catch( error => {
                 console.error( error );
             } );
-    
+
 </script>
 
 @endpush

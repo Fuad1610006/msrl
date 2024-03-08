@@ -101,65 +101,33 @@
     <!-- About end -->
     <!-- Galary start -->
     <section class="container py-5 brand-text-color" id="galary">
-      <div class="row mb-4">
-        <div class="col-sm-6 galary-text">
-          <a class="brand-text-color" href="galary.html">
-            <h4>Image Gallery</h4>
-          </a>
+        <div class="row mb-4">
+            <div class="col-sm-6 galary-text">
+                <a class="brand-text-color" href="{{route('gallery')}}">
+                    <h4>Image Gallery</h4>
+                </a>
+            </div>
+            <div id="project-galary-btn" class="col-sm-6 image-catary d-flex align-items-center justify-content-end">
+                <a href="#">All</a>
+                <a href="#">Corporate</a>
+                <a href="#">Project</a>
+            </div>
         </div>
-        <div
-          id="project-galary-btn"
-          class="col-sm-6 image-catary d-flex align-items-center justify-content-end"
-        >
-          <a href="#">All</a>
-          <a href="#">Corporate</a>
-          <a href="#">Project</a>
+        <!-- galary image -->
+        <div class="row galary-img">
+            @foreach($ship as $shipItem)
+            <div class="col-sm-12 col-md-6 col-lg-3 cursor-point">
+                <img class="img-fluid rounded" src="{{ asset('uploads/ship/' . $shipItem->image) }}" alt="Ship" onclick="openModal('{{ asset('uploads/ship/' . $shipItem->image) }}')" />
+                <p>{{ $shipItem->name }}</p>
+            </div>
+            @endforeach
         </div>
-      </div>
-      <!-- galary image -->
-      <div class="row galary-img">
-        <div class="col-sm-12 col-md-6 col-lg-3 cursor-point">
-          <img
-            class="img-fluid rounded"
-            src="{{asset('asset/images/ship.png')}}"
-            alt="Ship"
-            onclick="openModal('{{asset('asset/images/ship.png')}}"
-          />
-          <p>MV. Sino Ocean</p>
+        <!-- view Modal -->
+        <div id="modal" class="modal" onclick="closeModal()">
+            <img id="modalImage" class="modal-content" alt="Modal Image" />
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 cursor-point">
-          <img
-            class="img-fluid rounded"
-            src="{{asset('asset/images/ship.png')}}"
-            alt="Ship"
-            onclick="openModal('{{asset('asset/images/ship.png')}}"
-          />
-          <p>MV. Sino Ocean</p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 cursor-point">
-          <img
-            class="img-fluid rounded"
-            src="{{asset('asset/images/ship.png')}}"
-            alt="Ship"
-            onclick="openModal('{{asset('asset/images/ship.png')}}"
-          />
-          <p>MV. Sino Ocean</p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 cursor-point">
-          <img
-            class="img-fluid rounded"
-            src="{{asset('asset/images/ship.png')}}"
-            alt="Ship"
-            onclick="openModal('{{asset('asset/images/ship.png')}}"
-          />
-          <p>MV. Sino Ocean</p>
-        </div>
-      </div>
-      <!-- view Modal -->
-      <div id="modal" class="modal" onclick="closeModal()">
-        <img id="modalImage" class="modal-content" alt="Modal Image" />
-      </div>
     </section>
+
 
 @include('frontend.layout.footer')
 @endsection('content')

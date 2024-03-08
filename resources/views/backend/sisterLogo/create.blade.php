@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -34,9 +34,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sister_image">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image" multiple>
+                                    <input type="file" id="image" class="form-control" name="image">
                                 </div>
-                                
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>

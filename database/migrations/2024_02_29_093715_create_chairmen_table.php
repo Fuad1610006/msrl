@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('chairmen', function (Blueprint $table) {
             $table->id();
             $table->text('chairman_text');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes();
         });

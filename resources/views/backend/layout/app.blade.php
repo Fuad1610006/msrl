@@ -66,7 +66,7 @@
                         <a href="{{route('carousel.index')}}">Carousel</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('track-no.index')}}">Record Cards</a>
+                        <a href="{{route('track-record.index')}}">Record Cards</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="{{route('buyer-logo.index')}}">Buyer Logo</a>
@@ -105,13 +105,13 @@
                         <a href="{{route('history.index')}}">Our-history</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('history.index')}}">Our-mission</a>
+                        <a href="{{route('mission.index')}}">Our-mission</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('history.index')}}">About-us</a>
+                        <a href="{{route('about-us.index')}}">About-us</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('history.index')}}">Chairman-message</a>
+                        <a href="{{route('chairman.index')}}">Chairman-message</a>
                     </li>
                 </ul>
             </li>

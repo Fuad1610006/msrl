@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chairman;
+use App\Models\Mission;
 use Illuminate\Http\Request;
-use App\Http\Requests\ChairmanRequest;
+use App\Http\Requests\MissionRequest;
 use Exception;
 
-class ChairmanController extends Controller
+class MissionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Chairman::all();
-        return view('backend.chairman.index', compact('data'));
+        $data = Mission::all();
+        return view('backend.mission.index', compact('data'));
     }
 
     /**
@@ -23,27 +23,21 @@ class ChairmanController extends Controller
      */
     public function create()
     {
-        $data = Chairman::all();
-        return view('backend.chairman.create', compact('data'));
+        $data = Mission::all();
+        return view('backend.mission.create', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ChairmanRequest $request)
+    public function store(MissionRequest $request)
     {
         try{
-            $data=new Chairman;
-            $data->chairman_text=$request->chairman_text;
-            if ($request->hasFile('image')) {
-                $imageName = rand(111, 999) . time() . '.' .
-                    $request->image->extension();
-                $request->image->move(public_path('uploads/chairman'), $imageName);
-                $data->image = $imageName;
-            }
+            $data=new Mission;
+            $data->mission_text=$request->mission_text;
             if( $data->save()){
-                 $this->notice::success('Successfully Saved');
-                 return redirect()->route('chairman.index');
+                 $this->notice::success('Successfully Updated');
+                 return redirect()->route('mission.index');
 
             }else{
                 $this->notice::error('Please try again!');
@@ -60,7 +54,7 @@ class ChairmanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Chairman $chairman)
+    public function show(Mission $mission)
     {
         //
     }
@@ -70,27 +64,21 @@ class ChairmanController extends Controller
      */
     public function edit( $id)
     {
-        $data = Chairman::findOrFail(encryptor('decrypt', $id));
-        return view('backend.chairman.edit', compact('data'));
+        $data = Mission::findOrFail(encryptor('decrypt', $id));
+        return view('backend.mission.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ChairmanRequest $request, Chairman $id)
+    public function update(MissionRequest $request, Mission $id)
     {
         try{
-            $data=Chairman::findOrFail(encryptor('decrypt', $id));
-            $data->chairman_text=$request->chairman_text;
-            if ($request->hasFile('image')) {
-                $imageName = rand(111, 999) . time() . '.' .
-                    $request->image->extension();
-                $request->image->move(public_path('uploads/chairman'), $imageName);
-                $data->image = $imageName;
-            }
+            $data=Mission::findOrFail(encryptor('decrypt', $id));
+            $data->mission_text=$request->mission_text;
             if( $data->save()){
                  $this->notice::success('Successfully Updated');
-                 return redirect()->route('chairman.index');
+                 return redirect()->route('mission.index');
 
             }else{
                 $this->notice::error('Please try again!');
@@ -109,7 +97,7 @@ class ChairmanController extends Controller
      */
     public function destroy( $id)
     {
-        $data= Chairman::findOrFail(encryptor('decrypt', $id));
+        $data= Mission::findOrFail(encryptor('decrypt', $id));
         if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();

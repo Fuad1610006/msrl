@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TrackNoRequest extends FormRequest
+class CardRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,7 @@ class TrackNoRequest extends FormRequest
             'number_2' => 'required|string',
             'number_3' => 'required|string',
             'number_4' => 'required|string',
-           
+            'short_description' => 'required|string',
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TrackRecord;
 use Illuminate\Http\Request;
-use App\Http\Requests\TrackNoRequest;
+use App\Http\Requests\CardRequest;
 use Exception;
 use Toastr;
 
@@ -31,7 +31,7 @@ class TrackRecordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TrackNoRequest $request)
+    public function store(CardRequest $request)
     {
         try{
         $data=new TrackRecord;
@@ -43,12 +43,13 @@ class TrackRecordController extends Controller
         $data->number_2 = $request->number_2;
         $data->number_3 = $request->number_3;
         $data->number_4 = $request->number_4;
+        $data->short_description = $request->short_description;
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('track-no.index');
+             return redirect()->route('track-record.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -78,7 +79,7 @@ class TrackRecordController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TrackNoRequest $request,  $id)
+    public function update(CardRequest $request,  $id)
     {
         try{
         $data = TrackRecord::findOrFail(encryptor('decrypt', $id));
@@ -90,13 +91,13 @@ class TrackRecordController extends Controller
         $data->number_2=$request->number_2;
         $data->number_3=$request->number_3;
         $data->number_4=$request->number_4;
-         
+        $data->short_description = $request->short_description;
         if( $data->save()){
              $this->notice::success('Successfully saved');
-             return redirect()->route('track-no.index');
+             return redirect()->route('track-record.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -113,7 +114,7 @@ class TrackRecordController extends Controller
         $data= TrackRecord::findOrFail(encryptor('decrypt', $id));
         if($data->delete()){
               $this->notice::warning('Deleted Permanently!');
-              return redirect()->back(); 
+              return redirect()->back();
         }
     }
 }

@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -28,7 +28,6 @@
                         @method('PUT')
                         <div class="row">
                              <div class="col-md-6">
-                                
                                 <div class="form-group">
                                     <label for="company_name">Company Name</label>
                                     <input type="text" id="company_name" class="form-control" name="company_name"  value="{{ old('company_name', $data->company_name)}}">

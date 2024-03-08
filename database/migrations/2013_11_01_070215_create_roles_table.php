@@ -19,6 +19,20 @@ return new class extends Migration
             $table->string('identity',30)->unique();
             $table->timestamps();
         });
+        DB::table('roles')->insert([
+            ['name' => 'Super Admin',
+            'identity' => 'superadmin',
+            'created_at' => Carbon::now(),
+        ],[
+            'name' => 'Admin',
+            'identity' => 'admin',
+            'created_at' => Carbon::now(),
+        ],[
+            'name' => 'Employee',
+            'identity' => 'employee',
+            'created_at' => Carbon::now(),
+        ]
+    ]);
     }
 
     /**

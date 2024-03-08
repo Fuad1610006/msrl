@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -19,9 +19,9 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
+                {{--<div class="card-header">
                     <h4 class="card-title">About Page</h4>
-                </div>
+                </div>--}}
                 <div class="card-body">
                     <form action="{{ route('sister-concern.update', encryptor('encrypt',$sister->id)) }}" method="POST">
                         @csrf

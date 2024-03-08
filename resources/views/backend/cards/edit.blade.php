@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('content')         
+@section('content')
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -23,7 +23,7 @@
                     <h4 class="card-title">Track Records</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('track-no.update', encryptor('encrypt',$data->id)) }}" method="POST">
+                    <form action="{{ route('track-record.update', encryptor('encrypt',$data->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -44,8 +44,15 @@
                                     <label for="title_4">Title 4</label>
                                     <input type="text" id="title_4" class="form-control" name="title_4">
                                 </div>
-                                 </div>
-                                 <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="short_description">Description <i class="text-danger">*</i></label>
+                                     <textarea name="short_description" cols="30" rows="8" id="short_description" class="form-control"></textarea>
+                                     @if($errors->has('short_description'))
+                                        <span class="text-danger"> {{ $errors->first('short_description') }}</span>
+                                     @endif
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="number_1">Number 1</label>
                                     <input type="text" id="number_1" class="form-control" name="number_1">

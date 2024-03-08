@@ -10,7 +10,7 @@ use Toastr;
 
 class AboutUsController extends Controller
 {
-     
+
     /**
      * Display a listing of the resource.
      */
@@ -37,19 +37,25 @@ class AboutUsController extends Controller
         try{
         $data=new AboutUs;
         $data->about_us_text=$request->about_us_text;
+        if ($request->hasFile('image')) {
+            $imageName = rand(111, 999) . time() . '.' .
+                $request->image->extension();
+            $request->image->move(public_path('uploads/aboutUs'), $imageName);
+            $data->image = $imageName;
+        }
         if( $data->save()){
-             $this->notice::success('Successfully Updated');
+             $this->notice::success('Successfully saved');
              return redirect()->route('about-us.index');
-       
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
             $this->notice::error('Please try again');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
     }
 
@@ -78,19 +84,25 @@ class AboutUsController extends Controller
         try{
         $data = AboutUs::findOrFail(encryptor('decrypt', $id));
         $data->about_us_text=$request->about_us_text;
+        if ($request->hasFile('image')) {
+            $imageName = rand(111, 999) . time() . '.' .
+                $request->image->extension();
+            $request->image->move(public_path('uploads/aboutUs'), $imageName);
+            $data->image = $imageName;
+        }
         if( $data->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('about-us.index');
-       
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
             $this->notice::error('Please try again');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
     }
 
