@@ -26,3 +26,9 @@
   font-size: 20px;
   margin-top: 0;
 }
+.designation {
+    background-color: #0d392edc;
+    position: absolute;
+    bottom: 0px;
+    right: 12px;
+}

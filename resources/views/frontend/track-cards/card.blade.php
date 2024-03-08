@@ -46,7 +46,7 @@
         </div>
       </div>
       <!-- counter end -->
-
+    </section>
 
 
 

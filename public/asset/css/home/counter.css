@@ -19,10 +19,10 @@
   font-weight: 300;
 }
 .middle-bg {
-  background-image: url(../../images/screw.png);
+  background-image: url(../../images/countbg.png);
   background-repeat: no-repeat;
   background-position: right -80px top 60px;
-  background-size: 600px;
+  background-size: 800px;
 }
 @media only screen and (max-width: 800px) {
   .middle-bg {

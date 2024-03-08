@@ -18,7 +18,7 @@
             @foreach($topM as $manager)
             <div class="col-sm-12 col-md-6 mb-3">
                 <div class="management-div">
-                    <img class="img-fluid rounded shadow" src="{{ asset('uploads/topManagement/' . $manager->image) }}" alt="Management Image">
+                    <img class="img-fluid rounded shadow" src="{{ asset('uploads/topManagement/' . $manager->image) }}" alt="Management Image" style="height: 480px;">
                     <div class="management-title">
                         <h5 class="pb-2">{{ $manager->name }}</h5>
                         <p>{{ $manager->designation }}</p>

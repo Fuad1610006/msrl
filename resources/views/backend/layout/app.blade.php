@@ -135,18 +135,18 @@
                     Moderation of Yard
                 </a>
             </li>
-             {{--<li
+             <li
                 class="submenu-item  ">
-                <a href="{{route('about-us.index')}}">
-                    About Us
+                <a href="{{route('text.index')}}">
+                   Text Contents
                 </a>
             </li>
             <li
                 class="submenu-item  ">
-                <a href="{{route('sister-concern.index')}}">
-                    Sister Concern
+                <a href="{{route('sisterC.index')}}">
+                    Sister Page
                 </a>
-            </li>--}}
+            </li>
                 </ul>
             </li>
              <li

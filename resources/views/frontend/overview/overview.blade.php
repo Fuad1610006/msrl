@@ -11,11 +11,9 @@
     
   <main class="brand-text-color brand-text-color">
     <div class="container">
-       @foreach($overview as $m)
         <div class="page-inner-body my-4">
-            <p>{!! $m->overview_text !!}</p>
+            <p>{!! $over->overview_text !!}</p>
         </div>
-        @endforeach
     </div>
   </main>
 @include('frontend.layout.footer')

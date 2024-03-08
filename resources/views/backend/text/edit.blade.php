@@ -4,13 +4,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Moderation</h3>
+                <h3>Text</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Moderation</li>
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Text</li>
                     </ol>
                 </nav>
             </div>
@@ -19,16 +19,33 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
+                {{--<div class="card-header">
                     <h4 class="card-title">Moderation Page</h4>
-                </div>
+                </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('moderation.store') }}" method="POST">
+                    <form action="{{ route('moderation.update', encryptor('encrypt',$moderation->id)) }}" method="POST">
                         @csrf
-                        <textarea name="moderation_text" cols="30" rows="8" id="moderation_text" class="form-control">{{old('moderation_text')}}</textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        @method('PUT')
+                        <div class="row">
+                             <div class="col-12 mb-4">
+                            <label for="about_text">About Text</label>
+                            <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control">{{old('about_text',$data->about_text)}}</textarea>
+                        </div>
+                         <div class="col-12 mb-4">
+                            <label for="sister_text">Sister Text</label>
+                            <textarea name="sister_text" cols="30" rows="8" id="sister_text" class="form-control">{{old('sister_text',$data->sister_text)}}</textarea>
+                         </div>
+                         <div class="col-12">
+                            <label for="sister_concern_text">Sister Concern Text</label>
+                            <textarea name="sister_concern_text" id="sister_concern_text" cols="30" rows="8">{{old('sister_text',$data->sister_concern_text)}}</textarea>
+                         </div>
+                        </div>
+                         <div class="col-md-6 mt-2 ms-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
+
             </div>
         </section>
     </div>

@@ -27,7 +27,7 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
-                             <textarea name="overview_text" cols="30" rows="8" id="overview_text" class="form-control"></textarea>
+                             <textarea name="overview_text" cols="30" rows="8" id="overview_text" class="form-control">{{ old('overview_text', $overview->overview_text)}}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

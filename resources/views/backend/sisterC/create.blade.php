@@ -4,13 +4,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Moderation</h3>
+                <h3>Sister Concern</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Moderation</li>
+                        <li class="breadcrumb-item active" aria-current="page">Sister Concern</li>
                     </ol>
                 </nav>
             </div>
@@ -19,14 +19,33 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
+                {{--<div class="card-header">
                     <h4 class="card-title">Moderation Page</h4>
-                </div>
+                </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('moderation.store') }}" method="POST">
+                    <form action="{{ route('sisterC.store') }}" method="POST">
                         @csrf
-                        <textarea name="moderation_text" cols="30" rows="8" id="moderation_text" class="form-control">{{old('moderation_text')}}</textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                          <div class="row">
+                            <div class="col-12 mb-4">
+                            <label for="about_us">About Us</label>
+                            <textarea name="about_us" cols="30" rows="8" id="about_us" class="form-control">{{old('about_us')}}</textarea>
+                        </div>
+                         <div class="col-12 mb-4">
+                            <label for="history">History</label>
+                            <textarea name="history" cols="30" rows="8" id="history" class="form-control">{{old('history')}}</textarea>
+                         </div>
+                         <div class="col-12 mb-4">
+                            <label for="mission">Mission</label>
+                            <textarea name="mission" id="mission" cols="30" rows="8">{{old('mission')}}</textarea>
+                         </div>
+                         <div class="col-12">
+                            <label for="sister_text">Sister Text</label>
+                            <textarea name="sister_text" id="sister_text" cols="30" rows="8">{{old('sister_text')}}</textarea>
+                         </div>
+                        <div class="col-md-6 mt-2 ms-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        </div>
                     </form>
                 </div>
             </div>

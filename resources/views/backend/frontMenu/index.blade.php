@@ -45,10 +45,11 @@
                                 'Sister Concern' 		=>'sister',
                                 'Yard' 	                =>'yard',
                                 'Industry ' 	        =>'overview',
-                                'Our Project' 		    =>'track-record',
+                                'Our Project' 		    =>'trackRecord',
                                 'Our Team' 		        =>'management',
                                 'Gallery' 		        =>'gallery',
-                                'Contact Us' 			=>'contact-us'
+                                'Contact Us' 			=>'contact',
+                                'Chairman' 			    =>'chairman',
                                 );
                 ?>
 

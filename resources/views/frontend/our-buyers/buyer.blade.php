@@ -1,4 +1,4 @@
-<section class="container py-5 brand-text-color">
+<section class="container py-5 brand-text-color bg-white">
     <div class="row">
       <div class="col-md-12 col-lg-6 buyers mb-4">
         <h3>Our Prospective Buyers</h3>

@@ -54,12 +54,12 @@
     <!-- slider end -->
    @include('frontend.track-cards.card')
     <!-- chairman start -->
-    <div class="chairman">
+    <div class="chairman brand-bg">
         <div class="container">
           <div class="row">
             <div class="col-md-12 col-lg-6 chairman-image">
               <img
-                src="{{asset('asset/images/chairman-image.png')}}"
+                src="{{ asset('uploads/chairman/' . $chairman->image) }}"
                 alt="Chairman"
                 class="img-fluid"
               />
@@ -75,14 +75,9 @@
               <div>
                 <h2 class="chairman-title">Chairman Message</h2>
                 <p class="chairman-text mb-4">
-                  I welcome you on behalf of the MAHINUR SHIP RECYCLING LTD
-                  (MSRL) and thank you for showing your interest in us. MSRL
-                  is positioned to play a crucial role to building structural
-                  materials in Bangladesh. You will be happy to know that
-                  Shipbreaking plays an important role in the national economy
-                  for several reasons. MSRL is proud for the part of one.
+                  {!!$chairman->chairman_text !!}
                 </p>
-                <a href="/" class="unknown-btn"> &lt; Read More &gt; </a>
+                <a href="{{route('chairman')}}" class="unknown-btn"> &lt; Read More &gt; </a>
               </div>
             </div>
           </div>
@@ -90,7 +85,7 @@
       </div>
       <!-- Chairman end -->
     </div>
-  </section>
+ 
 
     <!-- counter and Chairman end -->
     <!-- Buyers Start -->

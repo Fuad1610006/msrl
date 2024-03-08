@@ -55,7 +55,7 @@ class ModerationController extends Controller
    public function edit($id)
     {
         $moderation = Moderation::findOrFail(encryptor('decrypt', $id));
-        return view('backend.moderation.edit', compact('overview'));
+        return view('backend.moderation.edit', compact('moderation'));
     }
 
 

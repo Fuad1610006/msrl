@@ -19,15 +19,15 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Moderaion Page</h4>
-                </div>
+                {{--<div class="card-header">
+                    <h4 class="card-title">Moderation Page</h4>
+                </div>--}}
                 <div class="card-body">
                     <form action="{{ route('moderation.update', encryptor('encrypt',$moderation->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
-                             <textarea name="moderation_text" cols="30" rows="8" id="moderation_text" class="form-control"></textarea>
+                             <textarea name="moderation_text" cols="30" rows="8" id="moderation_text" class="form-control">{{ old('moderation_text', $moderation->moderation_text)}}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

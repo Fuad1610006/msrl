@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <form action="{{ route('industry.store') }}" method="POST">
                         @csrf
-                        <textarea name="overview_text" cols="30" rows="8" id="overview_text" class="form-control"></textarea>
+                        <textarea name="overview_text" cols="30" rows="8" id="overview_text" class="form-control">{{old('overview_text')}}</textarea>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
