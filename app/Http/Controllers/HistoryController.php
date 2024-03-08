@@ -36,8 +36,14 @@ class HistoryController extends Controller
         try{
         $data=new History;
         $data->history_text=$request->history_text;
+        if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/history'), $imageName);
+                $data->image = $imageName;
+            }
         if( $data->save()){
-             $this->notice::success('Successfully Updated');
+             $this->notice::success('Successfully Saved');
              return redirect()->route('history.index');
        
         }else{
@@ -77,6 +83,12 @@ class HistoryController extends Controller
         try{
         $data= History::findOrFail(encryptor('decrypt',$id));
         $data->history_text=$request->history_text;
+        if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/history'), $imageName);
+                $data->image = $imageName;
+            }
         if( $data->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('history.index');

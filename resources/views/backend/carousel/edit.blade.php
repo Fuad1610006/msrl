@@ -30,7 +30,7 @@
                              <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="short_description">Description <i class="text-danger">*</i></label>
-                                     <textarea name="short_description" cols="30" rows="8" id="short_description" class="form-control"></textarea>
+                                     <textarea name="short_description" cols="30" rows="8" id="short_description" class="form-control">{{ old('short_description', $carousel->short_description)}}</textarea>
                                      @if($errors->has('short_description'))
                                         <span class="text-danger"> {{ $errors->first('short_description') }}</span>
                                      @endif
@@ -54,6 +54,9 @@
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" id="image" class="form-control" name="image">
+                                    @if($errors->has('image'))
+                                        <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                     @endif
                                 </div>
                             </div>
                         </div>

@@ -31,10 +31,16 @@
                                 <div class="form-group">
                                     <label for="company_name">Company Name</label>
                                     <input type="text" id="company_name" class="form-control" name="company_name"  value="{{ old('company_name', $data->company_name)}}">
+                                    @if($errors->has('company_name'))
+                                        <span class="text-danger"> {{ $errors->first('company_name') }}</span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" id="image" class="form-control" name="image">
+                                    @if($errors->has('image'))
+                                        <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>

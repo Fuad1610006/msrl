@@ -1,16 +1,5 @@
 @extends('backend.layout.app')
-@section('content')
-<style>
-    /* Hide CKEditor specific elements */
-    .ck.ck-widget__type-around__button.ck-widget__type-around__button_before,
-    .ck.ck-widget__type-around__button.ck-widget__type-around__button_after {
-        display: none;
-    }
-    /* Additional styles to remove unwanted space */
-    .ck.ck-content > div {
-        margin-bottom: 0;
-    }
-</style>           
+@section('content')         
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -38,6 +27,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Content</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,8 +36,10 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->history_text!!}</td>
-                           
-                           <td class="white-space-nowrap">
+                            <td>
+                               <img width="50px" src="{{asset('uploads/history/'.$m->image)}}" alt="Mission">
+                            </td>
+                            <td class="white-space-nowrap">
                                 <a href="{{route('history.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
@@ -58,7 +50,7 @@
                                     @csrf
                                     @method('delete')
                                 </form>
-                            </td>
+                             </td>
                              @empty
                              <td colspan="3" class="text-center">No Data Found</td>
                         </tr>

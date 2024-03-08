@@ -27,6 +27,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Content</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,8 +35,10 @@
                         @forelse ($data as $m)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{!!$m->about_text!!}</td>
-
+                            <td>{!!$m->mission_text!!}</td>
+                            <td>
+                               <img width="50px" src="{{asset('uploads/mission/'.$m->image)}}" alt="Mission">
+                            </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('mission.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>

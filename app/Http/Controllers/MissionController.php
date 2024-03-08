@@ -35,8 +35,14 @@ class MissionController extends Controller
         try{
             $data=new Mission;
             $data->mission_text=$request->mission_text;
+            if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/mission'), $imageName);
+                $data->image = $imageName;
+            }
             if( $data->save()){
-                 $this->notice::success('Successfully Updated');
+                 $this->notice::success('Successfully Saved');
                  return redirect()->route('mission.index');
 
             }else{
@@ -76,6 +82,12 @@ class MissionController extends Controller
         try{
             $data=Mission::findOrFail(encryptor('decrypt', $id));
             $data->mission_text=$request->mission_text;
+            if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' .
+                    $request->image->extension();
+                $request->image->move(public_path('uploads/mission'), $imageName);
+                $data->image = $imageName;
+            }
             if( $data->save()){
                  $this->notice::success('Successfully Updated');
                  return redirect()->route('mission.index');

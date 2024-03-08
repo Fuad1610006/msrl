@@ -1,11 +1,5 @@
 @extends('backend.layout.app')
 @section('content')
-<style>
-    .ck-editor__editable_inline {
-        min-height: 400px;
-        border:1px solid #AAA !important;
-    }
-</style>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -29,16 +23,14 @@
                     <h4 class="card-title">History Page</h4>
                 </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('history.store') }}" method="POST">
+                    <form action="{{ route('history.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="col-12">
-                            <div id="toolbar-container"></div>
-                            <textarea name="history_text" id="ckeditordetails" class="d-none">{{ old('history_text')}}</textarea>
-                            <div class="form-control ck-editor__editable ck-editor__editable_inline" id="ckeditor"  rows="5">{{ old('history_text')}}</div>
+                            <textarea name="history_text" cols="30" rows="8" id="history_text" class="form-control">{{ old('history_text')}}</textarea>  
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="sister_image">Image</label>
+                                <label for="image">Image</label>
                                 <input type="file" id="image" class="form-control" name="image">
                             </div>
                         </div>
@@ -50,28 +42,23 @@
     </div>
 </div>
 @endsection
-
 @push('scripts')
-<script src="{{ asset('assets/ckeditor5-build-decoupled-document/ckeditor.js') }}"></script>
+ <!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/ceyb8meqlrqis0sgk1xe964n5su0k26wvyrj80i1g9swpx2q/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
-    $('#ckeditor').blur(function(){
-        $('#ckeditordetails').val($(this).html());
-    })
-DecoupledEditor
-.create( document.querySelector( '#ckeditor' ),{
-                ckfinder: {
-                    uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
-                }
-            })
-            .then( editor => {
-                const toolbarContainer = document.querySelector( '#toolbar-container' );
-
-                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
 </script>
-
 @endpush

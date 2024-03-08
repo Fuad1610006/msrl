@@ -23,18 +23,21 @@
                     <h4 class="card-title">About Page</h4>
                 </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('mission.update', encryptor('encrypt',$data->id)) }}" method="POST">
+                    <form action="{{ route('mission.update', encryptor('encrypt',$data->id)) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-12">
-                                <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control"></textarea>
+                                <textarea name="mission_text" cols="30" rows="8" id="mission_text" class="form-control">{{ old('mission_text', $data->mission_text)}}</textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="sister_image">Image</label>
+                                <label for="image">Image</label>
                                 <input type="file" id="image" class="form-control" name="image">
+                                @if($errors->has('image'))
+                                    <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

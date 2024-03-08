@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('missions', function (Blueprint $table) {
             $table->id();
             $table->text('mission_text');
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\SisterConcernController;
+use App\Models\AboutUs;
 use App\Models\Page;
 use App\Models\Ship;
 use App\Models\BuyerLogo;
@@ -48,6 +49,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $about= AboutUs::first();
         $ship= Ship::latest()->get();
         $carousel= Carousel::all();
         $buyerLogos= BuyerLogo::all();
@@ -55,7 +57,7 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $menus = FrontMenu::orderBy('rank')->get();
         $info = CompanyInfo::first();
-        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos','carousel','ship'));
+        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos','carousel','ship','about'));
     }
 
 

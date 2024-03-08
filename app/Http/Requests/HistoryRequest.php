@@ -23,6 +23,7 @@ class HistoryRequest extends FormRequest
     {
         return [
           'history_text' => 'required|string', 
+          'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

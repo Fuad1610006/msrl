@@ -26,11 +26,7 @@
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Name</th>
-                            <th>Country</th>
-                            <th>Weight</th>
-                            <th>Type</th>
-                            <th>Status</th>
+                            <th>Content</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -39,13 +35,9 @@
                         @forelse ($data as $s)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{{$s->name}}</td>
-                            <td>{{$s->country}}</td>
-                            <td>{{$s->weight}}</td>
-                            <td>{{$s->type}}</td>
-                            <td>{{$s->status}}</td>
+                            <td>{!!$s->chairman_text!!}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/chairman/'.$s->image)}}" alt="Ship">
+                               <img width="50px" src="{{asset('uploads/chairman/'.$s->image)}}" alt="Chairman">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('chairman.edit',encryptor('encrypt',$s->id))}}">

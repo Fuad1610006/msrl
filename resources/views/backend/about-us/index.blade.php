@@ -1,16 +1,5 @@
 @extends('backend.layout.app')
 @section('content')
-<style>
-    /* Hide CKEditor specific elements */
-    .ck.ck-widget__type-around__button.ck-widget__type-around__button_before,
-    .ck.ck-widget__type-around__button.ck-widget__type-around__button_after {
-        display: none;
-    }
-    /* Additional styles to remove unwanted space */
-    .ck.ck-content > div {
-        margin-bottom: 0;
-    }
-</style>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -38,6 +27,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Content</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,7 +36,9 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->about_us_text!!}</td>
-
+                            <td>
+                               <img width="50px" src="{{asset('uploads/aboutUs/'.$m->image)}}" alt="About">
+                            </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('about-us.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>

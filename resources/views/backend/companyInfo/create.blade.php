@@ -30,20 +30,32 @@
                                 <div class="form-group">
                                     <label for="location">Location</label>
                                     <input type="text" id="location" class="form-control" name="location">
+                                    @if($errors->has('location'))
+                                        <span class="text-danger"> {{ $errors->first('location') }}</span>
+                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="email_address">Email Address</label>
                                     <input type="email" id="email_address" class="form-control" name="email_address">
+                                    @if($errors->has('email_address'))
+                                        <span class="text-danger"> {{ $errors->first('email_address') }}</span>
+                                     @endif
                                 </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contact_no">Contact Number</label>
                                         <input type="text" id="contact_no" class="form-control" name="contact_no">
+                                        @if($errors->has('contact_no'))
+                                        <span class="text-danger"> {{ $errors->first('contact_no') }}</span>
+                                     @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="image">Main Logo</label>
                                         <input type="file" id="image" class="form-control" name="image" >
+                                        @if($errors->has('image'))
+                                        <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                     @endif
                                 </div>
                                 </div>
                         </div>

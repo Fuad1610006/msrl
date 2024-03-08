@@ -23,7 +23,7 @@
                     <h4 class="card-title">Company Info</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('info.update', encryptor('encrypt',$info->id)) }}" method="POST">
+                    <form action="{{ route('info.update', encryptor('encrypt',$info->id)) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                          <div class="row">

@@ -27,12 +27,18 @@
                         @csrf
                         <div class="row">
                             <div class="col-12">
-                                <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control"></textarea>
+                                <textarea name="chairman_text" cols="30" rows="8" id="chairman_text" class="form-control">{{ old('chairman_text')}}</textarea>
+                                @if($errors->has('chairman_text'))
+                                    <span class="text-danger"> {{ $errors->first('chairman_text') }}</span>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" id="image" class="form-control" name="image">
+                                     @if($errors->has('image'))
+                                        <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                     @endif
                                 </div>
                             </div>
                         </div>
