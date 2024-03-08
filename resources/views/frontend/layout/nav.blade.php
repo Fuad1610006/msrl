@@ -167,20 +167,20 @@
           <li class="nav-item">
             <a class="nav-link cursor-point">Yard</a>
             <ul class="sub-nav">
-              <li><a href="{{route('sister')}}">Modaration of Yard</a></li>
+              <li><a href="{{route('yard')}}">Modaration of Yard</a></li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link cursor-point">Industry</a>
             <ul class="sub-nav">
-              <li><a href="{{route('sister')}}">Ship Breaking Industry</a></li>
+              <li><a href="{{route('overview')}}">Ship Breaking Industry</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Our Project</a>
+            <a class="nav-link" href="{{route('trackRecord')}}">Our Project</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Our Team</a>
+            <a class="nav-link" href="{{route('management')}}">Our Team</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('gallery')}}">Gallery</a>

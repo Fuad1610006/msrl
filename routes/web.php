@@ -52,11 +52,14 @@ Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('front
 Route::get('/page/{slug}', [home::class,'page'])->name('front.page');
 
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');
+Route::get('contact', [home::class, 'contact'])->name('contact');
 Route::get('sister', [home::class, 'sister'])->name('sister');
 Route::get('management', [home::class, 'management'])->name('management');
-Route::get('about', [about::class, 'about'])->name('about');
-Route::get('overview', [overview::class, 'overview'])->name('overview');
-Route::get('/yard', [moderation::class, 'moderation'])->name('yard');
+Route::get('about', [home::class, 'about'])->name('about');
+Route::get('chairman', [home::class, 'chairman'])->name('chairman');
+Route::get('trackRecord', [home::class, 'trackRecord'])->name('trackRecord');
+Route::get('overview', [home::class, 'overview'])->name('overview');
+Route::get('/yard', [home::class, 'moderation'])->name('yard');
 Route::get('gallery', [ship::class, 'gallery'])->name('gallery');
 Route::get('gallery/filter/{category}', [ship::class, 'filter'])->name('frontend.gallery.filter');
 Route::get('/home', [home::class, 'index'])->name('home');
@@ -100,21 +103,21 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
 // Route::get('about', function () {
 //     return view('frontend.about.about');
 // })->name('about');
-Route::get('chairman', function () {
-    return view('frontend.chairman.chairman');
-})->name('chairman');
+// Route::get('chairman', function () {
+//     return view('frontend.chairman.chairman');
+// })->name('chairman');
 // Route::get('sister-concern', function () {
 //     return view('frontend.sister-concern.sister');
 // })->name('sister');
-Route::get('contact', function () {
-    return view('frontend.contact.contact');
-})->name('contact');
-Route::get('moderation', function () {
-    return view('frontend.moderation.moderation');
-})->name('moderation');
+// Route::get('contact', function () {
+//     return view('frontend.contact.contact');
+// })->name('contact');
+// Route::get('moderation', function () {
+//     return view('frontend.moderation.moderation');
+// })->name('moderation');
 // Route::get('management', function () {
 //     return view('frontend.management.management');
 // })->name('management');
-Route::get('track-record', function () {
-    return view('frontend.track-record.track');
-})->name('track');
+// Route::get('track-record', function () {
+//     return view('frontend.track-record.track');
+// })->name('track');

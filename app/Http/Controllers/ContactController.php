@@ -46,12 +46,12 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contact $contact)
+    public function destroy( $id)
     {
-        // Delete the contact
-        $contact->delete();
-
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Contact deleted successfully!');
+        $data= Contact::findOrFail(encryptor('decrypt', $id));
+        if($data->delete()){
+              $this->notice::warning('Deleted Permanently!');
+              return redirect()->back();
+        }
     }
 }

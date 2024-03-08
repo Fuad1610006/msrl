@@ -54,27 +54,16 @@ class ModerationController extends Controller
 
    public function edit($id)
     {
-        // Fetch the specific moderation record based on the $id
-        $moderation = Moderation::find($id);
-
-        // Check if the moderation record exists
-        if (!$moderation) {
-            // Handle the case where the record doesn't exist, maybe redirect back with a message
-            $this->notice::error('Please try again!');
-            return redirect()->back()->withInput();
-        }
-
-        // Pass the single moderation record to the view
-        return view('backend.moderation.edit', compact('moderation'));
+        $moderation = Moderation::findOrFail(encryptor('decrypt', $id));
+        return view('backend.moderation.edit', compact('overview'));
     }
 
 
     public function update(ModerationRequest $request, $id)
     {
          try{
-
+         $moderation = Moderation::findOrFail(encryptor('decrypt', $id));
          $moderation->moderation_text=$request->moderation_text;
-
          $moderation->save();
             $this->notice::success('Successfully saved');
             return redirect()->route('moderation.index');
@@ -98,12 +87,4 @@ class ModerationController extends Controller
         }
     }
 
-    public function moderation()
-    {
-        // Fetch moderation texts from the database
-        $moderation = Moderation::all();
-        
-        // Pass moderation data to the view
-        return view('frontend.moderation.moderation', compact('moderation'));
-    }
 }

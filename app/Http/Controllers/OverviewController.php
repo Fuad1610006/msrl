@@ -54,17 +54,7 @@ class OverviewController extends Controller
 
    public function edit($id)
     {
-        // Fetch the specific overview record based on the $id
-        $overview = Overview::find($id);
-
-        // Check if the overview record exists
-        if (!$overview) {
-            // Handle the case where the record doesn't exist, maybe redirect back with a message
-            $this->notice::error('Please try again!');
-            return redirect()->back()->withInput();
-        }
-
-        // Pass the single overview record to the view
+        $overview = Overview::findOrFail(encryptor('decrypt', $id));
         return view('backend.overview.edit', compact('overview'));
     }
 
@@ -72,9 +62,8 @@ class OverviewController extends Controller
     public function update(OverviewRequest $request, $id)
     {
          try{
-
+         $overview = Overview::findOrFail(encryptor('decrypt', $id));
          $overview->overview_text=$request->overview_text;
-
          $overview->save();
             $this->notice::success('Successfully saved');
             return redirect()->route('industry.index');
@@ -98,12 +87,4 @@ class OverviewController extends Controller
         }
     }
 
-    public function overview()
-    {
-        // Fetch overview texts from the database
-        $overview = Overview::all();
-        
-        // Pass overview data to the view
-        return view('frontend.overview.overview', compact('overview'));
-    }
 }
