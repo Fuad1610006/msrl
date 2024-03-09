@@ -32,9 +32,10 @@ class HomeController extends Controller
     /* get daynamic page */
     public function page($slug)
     {
-        $menus = FrontMenu::orderBy('rank')->get();
+        $sister= SisterLogo::all();
+        $info = CompanyInfo::first();
         $page_data= Page::where('page_slug',$slug)->where('published',1)->first();
-        return view('frontend.page.index',compact('page_data','menus'));
+        return view('frontend.page.index',compact('page_data','info','sister'));
     }
 
     //  public function menu()
@@ -47,14 +48,13 @@ class HomeController extends Controller
     {
         $chairman = Chairman::first();
         $about= AboutUs::first();
-        $ship= Ship::latest()->get();
+        $ship= Ship::latest()->take(4)->get();
         $carousel= Carousel::all();
         $buyerLogos= BuyerLogo::all();
         $card = TrackRecord::first();
         $sister= SisterLogo::all();
-        $menus = FrontMenu::orderBy('rank')->get();
         $info = CompanyInfo::first();
-        return view('frontend.home', compact('menus', 'info','sister','card','buyerLogos','carousel','ship','about','chairman'));
+        return view('frontend.home', compact('info','sister','card','buyerLogos','carousel','ship','about','chairman'));
     }
 
 
@@ -67,8 +67,7 @@ class HomeController extends Controller
         $sisLogo= SisterLogo::all();
         $info = CompanyInfo::first();
         $sister = SisterConcern::all();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.sister-concern.sister', compact('menus','info','sister','sisLogo','card','buyerLogos','sis','text'));
+        return view('frontend.sister-concern.sister', compact('info','sister','sisLogo','card','buyerLogos','sis','text'));
     }
 
     public function management()
@@ -79,8 +78,7 @@ class HomeController extends Controller
         $topM = TopManagement::all();
         $midM = MidManagement::all();
         $yardM = YardManagement::all();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.management.management', compact('menus','topM','midM','yardM','info','sister','management'));
+        return view('frontend.management.management', compact('topM','midM','yardM','info','sister','management'));
     }
 
     public function trackRecord()
@@ -88,8 +86,7 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $card= TrackRecord::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.track-record.track', compact('menus','card','info','sister'));
+        return view('frontend.track-record.track', compact('card','info','sister'));
     }
 
      public function overview()
@@ -97,8 +94,7 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $over = Overview::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.overview.overview', compact('menus','over','info','sister'));
+        return view('frontend.overview.overview', compact('over','info','sister'));
     }
 
      public function moderation()
@@ -106,8 +102,7 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $moderation = Moderation::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.moderation.moderation', compact('menus','moderation','info','sister'));
+        return view('frontend.moderation.moderation', compact('moderation','info','sister'));
     }
 
       public function chairman()
@@ -115,8 +110,7 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $chairman = Chairman::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.chairman.chairman', compact('menus','chairman','info','sister'));
+        return view('frontend.chairman.chairman', compact('chairman','info','sister'));
     }
 
      public function about()
@@ -129,16 +123,14 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $about = AboutUs::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.about.about', compact('menus','about','info','sister','card','buyerLogos','mission','history','text'));
+        return view('frontend.about.about', compact('about','info','sister','card','buyerLogos','mission','history','text'));
     }
 
     public function contact()
     {
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
-        $menus = FrontMenu::orderBy('rank')->get();
-        return view('frontend.contact.contact', compact('menus','info','sister'));
+        return view('frontend.contact.contact', compact('info','sister'));
     }
 
 }

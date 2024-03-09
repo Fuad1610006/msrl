@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('mission');
             $table->text('sister_text')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

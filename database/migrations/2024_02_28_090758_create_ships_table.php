@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->string('country');
-            $table->float('weight');
+            // $table->string('country');
+            // $table->float('weight');
             $table->string('category')->comment('1=>Corporate, 2=>Project');
-            $table->string('type')->comment('1=>General Ship, 2=>Bulk Carrier');
-            $table->enum('status', ['Completed', 'Ongoing', 'Pending']); 
+            // $table->string('type')->comment('1=>General Ship, 2=>Bulk Carrier');
+            // $table->enum('status', ['Completed', 'Ongoing', 'Pending']); 
             $table->timestamps();
             $table->softDeletes();
         });

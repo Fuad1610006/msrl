@@ -40,11 +40,11 @@ class ShipController extends Controller
         try{
         $ship=new Ship;
         $ship->name=$request->name;
-        $ship->country = $request->country;
-        $ship->weight = $request->weight;
-        $ship->type = $request->type;
+        // $ship->country = $request->country;
+        // $ship->weight = $request->weight;
+        // $ship->type = $request->type;
         $ship->category = $request->category;
-        $ship->status = $request->status;
+        // $ship->status = $request->status;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
@@ -82,6 +82,7 @@ class ShipController extends Controller
      */
     public function edit($id)
     {
+        $ship = Ship::findOrFail(encryptor('decrypt', $id));
        return view('backend.ship.edit', compact('ship'));
     }
 
@@ -91,12 +92,13 @@ class ShipController extends Controller
     public function update(UpdateRequest $request, $id)
     {
       try{
+         $ship = Ship::findOrFail(encryptor('decrypt', $id));
         $ship->name=$request->name;
-        $ship->country = $request->country;
-        $ship->weight = $request->weight;
-        $ship->type = $request->type;
+        // $ship->country = $request->country;
+        // $ship->weight = $request->weight;
+        // $ship->type = $request->type;
         $ship->category = $request->category;
-        $ship->status = $request->status;
+        // $ship->status = $request->status;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();

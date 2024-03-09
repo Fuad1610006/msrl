@@ -27,11 +27,11 @@
                         <tr>
                             <th>SL</th>
                             <th>Name</th>
-                            <th>Country</th>
+                            {{-- <th>Country</th>
                             <th>Weight</th>
-                            <th>Type</th>
+                            <th>Type</th> --}}
                             <th>Category</th>
-                            <th>Status</th>
+                            {{-- <th>Status</th> --}}
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -41,11 +41,17 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->name}}</td>
-                            <td>{{$s->country}}</td>
+                            {{-- <td>{{$s->country}}</td>
                             <td>{{$s->weight}}</td>
-                            <td>{{$s->type}}</td>
-                            <td>{{$s->category}}</td>
-                            <td>{{$s->status}}</td>
+                            <td>{{$s->type}}</td> --}}
+                            <td> @if($s->category == 1)
+                                    Corporate
+                                @elseif($s->category == 2)
+                                    Project
+                                @else
+                                    Unknown
+                                @endif</td>
+                            {{-- <td>{{$s->status}}</td> --}}
                             <td>
                                <img width="50px" src="{{asset('uploads/ship/'.$s->image)}}" alt="Ship">
                             </td>

@@ -5,11 +5,11 @@
 <div class="row h-100">
     <div class="col-lg-5 col-12">
         <div id="auth-left">
-            <div class="auth-logo">
+            {{-- <div class="auth-logo">
                 <a href="index.html"><img src="{{asset('assets/images/logo/logo.svg')}}" alt="Logo"></a>
-            </div>
+            </div> --}}
             <h1 class="auth-title">Sign Up</h1>
-            <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
+            {{-- <p class="auth-subtitle mb-5">Input your data to register to our website.</p> --}}
             @if(Session::has('response'))
                 {!!Session::get('response')['message']!!}
             @endif
@@ -67,10 +67,10 @@
                         </small>
                     @endif
                 </div>
-                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-1">Sign Up</button>
             </form>
-            <div class="text-center mt-5 text-lg fs-4">
-                <p class='text-gray-600'>Already have an account? <a href="#" class="font-bold">Log
+            <div class="text-center mt-2 text-lg fs-4">
+                <p class='text-gray-600'>Already have an account? <a href="{{route('login')}}" class="font-bold">Log
                         in</a>.</p>
             </div>
         </div>

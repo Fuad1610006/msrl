@@ -39,7 +39,7 @@
 
                 <?php
                     $menu_lnk=array(
-                                'Home'					=>'/msrl/home',
+                                'Home'					=>'/',
                                 'Blank'					=>'#',
                                 'Who we are' 		    =>'about',
                                 'Sister Concern' 		=>'sister',

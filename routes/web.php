@@ -64,8 +64,8 @@ Route::get('overview', [home::class, 'overview'])->name('overview');
 Route::get('/yard', [home::class, 'moderation'])->name('yard');
 Route::get('gallery', [ship::class, 'gallery'])->name('gallery');
 Route::get('gallery/filter/{category}', [ship::class, 'filter'])->name('frontend.gallery.filter');
-Route::get('/home', [home::class, 'index'])->name('home');
-Route::get('/', [home::class, 'index'])->name('msrl');
+// Route::get('/home', [home::class, 'index'])->name('home');
+Route::get('/', [home::class, 'index'])->name('home');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');

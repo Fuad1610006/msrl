@@ -34,7 +34,7 @@
                                         <span class="text-danger"> {{ $errors->first('name') }}</span>
                                      @endif
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="country">Country <i class="text-danger">*</i></label>
                                     <input type="text" class="form-control" id="country" name="country" value="{{ old('country')}}" placeholder="Enter Country" required>
                                      @if($errors->has('country'))
@@ -47,22 +47,22 @@
                                      @if($errors->has('weight'))
                                         <span class="text-danger"> {{ $errors->first('weight') }}</span>
                                      @endif
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" id="image" class="form-control" name="image">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="type">Type</label>
                                     <select class="form-control" id="type" name="type">
                                         <option>Select One</option>
                                          <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>General Ship</option>
                                          <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>Bulk Carrier</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
+                                </div> --}}
+                                {{-- <div class="form-group">
                                     <label for="status">Status</label>
                                     <select class="form-control" id="status" name="status">
                                         <option>Select One</option>
@@ -70,7 +70,7 @@
                                         <option value="Ongoing"{{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
                                         <option value="Pending"{{ old('status') == 'Pending' ? 'selected' : '' }}>Pending</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="category">Category</label>
                                     <select class="form-control" id="category" name="category">

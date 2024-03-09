@@ -14,6 +14,9 @@
 
       <nav class="navbar navbar-expand-sm bg-white navbar-white dektop-nav">
         <div class="container p-0">
+          @php
+            $menus=App\Models\FrontMenu::where('parent_id',0)->orderBy('rank')->get();
+          @endphp
            @foreach($menus as $menu)
           <ul class="navbar-nav ms-auto">
 
@@ -21,11 +24,11 @@
               <a class="nav-link" href="{{ $menu->url }}">{{ $menu->name }}"</a>
             </li>--}}
             <li class="nav-item">
-              <a class="nav-link" href="{{ $menu->href }}">{{ $menu->name }}</a>
+              <a class="nav-link" href="{{ $menu->href=="#"?'javascript:void(0)':url($menu->href) }}">{{ $menu->name }}</a>
               @if($menu->hasChildren())
               <ul class="sub-nav">
                 @foreach($menu->children as $child)
-                <li><a href="{{ $child->href }}">{{ $child->name }}</a></li>
+                <li><a href="{{ url($child->href) }}">{{ $child->name }}</a></li>
                 @endforeach
               </ul>
               @endif

@@ -15,6 +15,18 @@
         width: 0 !important;
         height: 0 !important;
     }
+
+    .ck.ck-reset, .ck.ck-reset_all, .ck.ck-reset_all * {
+    display: none;
+    }
+    .ck .ck-icon, .ck-reset_all-excluded, .ck-icon_inherit-color *{
+    display: none;
+    }
+    .custom-page-img img{
+        vertical-align: middle !important;
+        width: 100% !important;
+        height: auto !important;
+    }
 </style>
 
 <section class="about-support d-sm-none">
@@ -56,9 +68,11 @@
                         <ul class="sideber-nav flex-culumn fontend-sidebar-nav p-0">
                         @php 
                             $curl=request()->path();
-                            $rows=DB::select("SELECT * from front_menus where parent_id = (select parent_id from front_menus where href='$curl' limit 1) and status =1 order by rank");
+                            $rows=DB::select("select parent_id from front_menus where href='$curl' limit 1");
+                            if($rows && $rows[0]->parent_id !=0 ):
+                                $findsub=DB::select("SELECT * from front_menus where parent_id = ".$rows[0]->parent_id." and status =1 order by rank");
                         @endphp
-                            @forelse($rows as $r)
+                            @forelse($findsub as $r)
                                 @if($r->href)
                                     <li class="nav-item"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{url($r->href)}}">{{$r->name}}</a></li>
                                 @else
@@ -66,6 +80,7 @@
                                 @endif
                             @empty
                             @endforelse
+                        @php endif; @endphp
                         </ul>
 
                     </div>
