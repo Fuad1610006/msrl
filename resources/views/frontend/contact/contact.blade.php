@@ -19,14 +19,14 @@
               <p>Connect with us</p>
               <div class="mb-4">
                 <i class="fas fa-map-marker-alt pe-2"></i>
-                <span >North Khulshi, Chittagong, Bangladesh</span>
+                <span >{{ $info->location }}</span>
               </div>
               <div class="mb-4">
                 <i class="fas fa-envelope pe-2"></i>
-                <span> info@admin.com </span>
+                <span>{{ $info->email_address }}</span>
               </div>
               <div class="mb-4">
-                <i class="fas fa-phone pe-2"></i> <span> +880123456789</span>
+                <i class="fas fa-phone pe-2"></i> <span>{{ $info->contact_no }}</span>
               </div>
             </div>
           </div>
