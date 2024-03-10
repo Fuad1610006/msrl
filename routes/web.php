@@ -68,7 +68,7 @@ Route::get('gallery/filter/{category}', [ship::class, 'filter'])->name('frontend
 Route::get('/', [home::class, 'index'])->name('home');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
-    // Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
+    Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
     Route::get('change_password', [user::class,'index'])->name('change_password');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
