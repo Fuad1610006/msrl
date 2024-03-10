@@ -41,7 +41,8 @@
                     $menu_lnk=array(
                                 'Home'					=>'/',
                                 'Blank'					=>'#',
-                                'Who we are' 		    =>'about',
+                                'Who we are'			=>'#',
+                                'About Us' 		        =>'about',
                                 'Sister Concern' 		=>'sister',
                                 'Yard' 	                =>'yard',
                                 'Industry ' 	        =>'overview',
@@ -49,7 +50,7 @@
                                 'Our Team' 		        =>'management',
                                 'Gallery' 		        =>'gallery',
                                 'Contact Us' 			=>'contact',
-                                'Chairman' 			    =>'chairman',
+                                'Chairman Message' 	    =>'chairman',
                                 );
                 ?>
 

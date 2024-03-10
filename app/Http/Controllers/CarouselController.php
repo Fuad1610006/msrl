@@ -48,11 +48,11 @@ class CarouselController extends Controller
         if( $carousel->save()){
              $this->notice::success('Successfully saved');
              return redirect()->route('carousel.index');
-       
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
@@ -75,7 +75,7 @@ class CarouselController extends Controller
     public function edit( $id)
     {
         $carousel = Carousel::findOrFail(encryptor('decrypt', $id));
-        return view('backend.carousel.edit');
+        return view('backend.carousel.edit',compact('carousel'));
     }
 
     /**
@@ -95,13 +95,13 @@ class CarouselController extends Controller
                 $carousel->image = $imageName;
             }
         if( $carousel->save()){
-            $this->notice::success('Successfully saved');
+            $this->notice::success('Successfully Updated');
             return redirect()->route('carousel.index');
-    
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);

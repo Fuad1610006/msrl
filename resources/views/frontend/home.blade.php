@@ -16,8 +16,8 @@
                         </p>
                     </div>
                     <div class="d-flex justify-content-between me-auto">
-                        <a href="#" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
-                        <a href="#" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
+                        <a href="{{route('about')}}" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
+                        <a href="{{route('trackRecord')}}" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
                     </div>
                 </div>
             </div>
@@ -30,12 +30,12 @@
                         <p class="slider-one-heading mb-0">Welcome To</p>
                         <h2 class="slider-two-heading text-uppercase">Mahinur Ship Recycling Ltd.</h2>
                         <p class="py-3 slider-text">
-                            Mahinur Ship Recycling Limited (here in after referred as “MSRL” or the company) was incorporated on 02.10.2016 vide Registration No. CH-11851/2016 asa Private Limited Company under the Companies Act (Act XVIII) of 1994. The company is also engaged in importing and dismantling of scrap vessel.
+                           {{$item->short_description}}
                         </p>
                     </div>
                     <div class="d-flex justify-content-between me-auto">
-                        <a href="#" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
-                        <a href="#" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
+                        <a href="{{route('about')}}" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
+                        <a href="{{route('trackRecord')}}" class="btn btn-green m-1 border rounded-pill px-4">Project</a>
                     </div>
                 </div>
             </div>
@@ -58,11 +58,10 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 col-lg-6 chairman-image">
-              <img
-                src="{{ asset('uploads/chairman/' . $chairman->image) }}"
-                alt="Chairman"
-                class="img-fluid"
-              />
+                @if($chairman && $chairman->image)
+                <img src="{{ asset('uploads/chairman/' . $chairman->image) }}" alt="Chairman" class="img-fluid" />
+            @endif
+
               <!-- designation -->
               <div class="designation text-white p-2 mt-5 w-75">
                 <h5 class="pb-2">Mr. S M Nurun Nabi</h5>
@@ -75,7 +74,9 @@
               <div>
                 <h2 class="chairman-title">Chairman Message</h2>
                 <p class="chairman-text mb-4">
+                    @if($chairman && $chairman->image)
                   {!!$chairman->chairman_text !!}
+                  @endif
                 </p>
                 <a href="{{route('chairman')}}" class="unknown-btn"> &lt; Read More &gt; </a>
               </div>
@@ -85,7 +86,7 @@
       </div>
       <!-- Chairman end -->
     </div>
- 
+
 
     <!-- counter and Chairman end -->
     <!-- Buyers Start -->
@@ -102,11 +103,11 @@
                     <h4>Image Gallery</h4>
                 </a>
             </div>
-            <div id="project-galary-btn" class="col-sm-6 image-catary d-flex align-items-center justify-content-end">
+            {{-- <div id="project-galary-btn" class="col-sm-6 image-catary d-flex align-items-center justify-content-end">
                 <a href="#">All</a>
                 <a href="#">Corporate</a>
                 <a href="#">Project</a>
-            </div>
+            </div> --}}
         </div>
         <!-- galary image -->
         <div class="row galary-img">

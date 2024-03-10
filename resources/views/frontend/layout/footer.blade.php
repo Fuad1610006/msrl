@@ -64,31 +64,31 @@
         <div class="col-sm-12 col-md-4 mb-3">
         <h3>Who we are</h3>
         <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Mission</a></li>
-            <li><a href="#">Vision</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="{{route('about')}}">About Us</a></li>
+            <li><a href="{{route('about')}}">Mission</a></li>
+            <li><a href="{{route('about')}}">Vision</a></li>
+            <li><a href="{{route('about')}}">History</a></li>
             <li><a href="#">Achievement</a></li>
         </ul>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
-        <h3>Other links</h3>
+        <h3>Other Pages</h3>
         <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
+            <li><a href="{{route('gallery')}}">Gallary</a></li>
+            <li><a href="{{route('overview')}}">Industry</a></li>
+            <li><a href="{{route('management')}}">Our Team</a></li>
+            <li><a href="{{route('sister')}}">Sister Concern</a></li>
+            <li><a href="{{route('contact')}}">Contact Us</a></li>
         </ul>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
-        <h3>Projects</h3>
+        <h3>Portfolio</h3>
         <ul>
-            <li><a href="#">Project 1</a></li>
-            <li><a href="#">Project 2</a></li>
-            <li><a href="#">Project 3</a></li>
-            <li><a href="#">Project 4</a></li>
-            <li><a href="#">Project 5</a></li>
+            <li><a href="{{route('about')}}">About Us</a></li>
+            <li><a href="{{route('chairman')}}">Chairman Message</a></li>
+            <li><a href="{{route('contact')}}">Contact Us</a></li>
+            {{-- <li><a href="#">Project 4</a></li>
+            <li><a href="#">Project 5</a></li> --}}
         </ul>
         </div>
     </div>

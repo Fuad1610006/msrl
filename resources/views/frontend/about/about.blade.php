@@ -89,10 +89,10 @@
     </section>
     <!-- history end -->
     <!-- Buyers Start -->
- 
+
    @include('frontend.our-buyers.buyer')
- 
- 
+
+
     <!-- Buyers end -->
     <!-- main text -->
     <section class="container">

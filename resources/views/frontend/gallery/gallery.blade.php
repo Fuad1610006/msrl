@@ -17,11 +17,11 @@
                 <h6 class="brand-text-color">[{{ $ships->count() }} Results]</h6>
             </a>
         </div>
-        <div id="project-galary-btn" class="col-sm-6 image-catary d-flex align-items-center justify-content-end">
+        {{-- <div id="project-galary-btn" class="col-sm-6 image-catary d-flex align-items-center justify-content-end">
             <a href="{{ route('frontend.gallery.filter', ['category' => 'all']) }}">All</a>
             <a href="{{ route('frontend.gallery.filter', ['category' => 'corporate']) }}">Corporate</a>
             <a href="{{ route('frontend.gallery.filter', ['category' => 'project']) }}">Project</a>
-        </div>
+        </div> --}}
     </div>
     <!-- galary image -->
     <div class="row galary-img">

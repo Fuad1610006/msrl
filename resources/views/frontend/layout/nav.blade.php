@@ -70,13 +70,13 @@
           <div class="row">
             <div class="col">
               <div class="mt-3 ms-5 ps-5 d-flex" id="project-head">
-                <a href="#" class="me-3 fw-medium text-nowrap"
+                <a href="{{route('trackRecord')}}" class="me-3 fw-medium text-nowrap"
                   >Upcoming Project</a
                 >
-                <a href="#" class="me-3 fw-medium text-nowrap"
+                <a href="{{route('trackRecord')}}" class="me-3 fw-medium text-nowrap"
                   >Recent Project</a
                 >
-                <a href="#" class="me-3 fw-medium text-nowrap"
+                <a href="{{route('trackRecord')}}" class="me-3 fw-medium text-nowrap"
                   >Completed Project</a
                 >
               </div>

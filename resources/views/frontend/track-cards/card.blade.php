@@ -12,7 +12,7 @@
               <p class="counter-text brand-text-color mt-2">
                 {{$card->short_description}}
               </p>
-              <a href="#" class="project-btn cursor-point">Project</a>
+              <a href="{{route('trackRecord')}}" class="project-btn cursor-point">Project</a>
             </div>
             <div class="col-sm-5" id="counter-mobile">
               <div class="row">
