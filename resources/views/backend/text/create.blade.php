@@ -29,14 +29,23 @@
                             <div class="col-12 mb-4">
                             <label for="about_text">About Text</label>
                             <textarea name="about_text" cols="30" rows="8" id="about_text" class="form-control">{{old('about_text')}}</textarea>
+                            @if($errors->has('about_text'))
+                                <span class="text-danger"> {{ $errors->first('about_text') }}</span>
+                            @endif
                         </div>
                          <div class="col-12 mb-4">
                             <label for="sister_text">Sister Text</label>
                             <textarea name="sister_text" cols="30" rows="8" id="sister_text" class="form-control">{{old('sister_text')}}</textarea>
+                            @if($errors->has('sister_text'))
+                               <span class="text-danger"> {{ $errors->first('sister_text') }}</span>
+                            @endif
                          </div>
                          <div class="col-12">
                             <label for="sister_concern_text">Sister Concern Text</label>
                             <textarea name="sister_concern_text" id="sister_concern_text" cols="30" rows="8">{{old('sister_concern_text')}}</textarea>
+                            @if($errors->has('sister_concern_text'))
+                                <span class="text-danger"> {{ $errors->first('sister_concern_text') }}</span>
+                            @endif
                          </div>
                         <div class="col-md-6 mt-2 ms-2">
                             <button type="submit" class="btn btn-primary">Submit</button>
