@@ -23,7 +23,7 @@
                     <h4 class="card-title">Moderation Page</h4>
                 </div>--}}
                 <div class="card-body">
-                    <form action="{{ route('moderation.update', encryptor('encrypt',$moderation->id)) }}" method="POST">
+                    <form action="{{ route('text.update', encryptor('encrypt',$data->id)) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
