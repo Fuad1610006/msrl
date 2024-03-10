@@ -116,7 +116,7 @@ class CarouselController extends Controller
      */
     public function destroy( $id)
     {
-         $carousel= Carousel::findOrFail(encryptor('decrypt', $id));
+        $carousel= Carousel::findOrFail(encryptor('decrypt', $id));
         if($carousel->delete()){
               $this->notice::warning('Deleted Permanently!');
               return redirect()->back();

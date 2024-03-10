@@ -1,4 +1,4 @@
-<section class="subcribe-bg py-3 subcribe" id="subcribe">
+{{-- <section class="subcribe-bg py-3 subcribe" id="subcribe">
       <div class="container">
         <div
           class="row mx-auto d-flex align-items-center justify-content-between"
@@ -18,7 +18,7 @@
           <div class="col-md-2"></div>
         </div>
       </div>
-</section>
+</section> --}}
 
 <footer class="footer-bg footer text-white" id="footer-mobile">
     <!-- Mega footer -->

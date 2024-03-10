@@ -97,7 +97,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('sisterC', sisterC::class);
     Route::resource('project', project::class);
 
-    Route::get('contacts', [contact::class, 'index'])->name('contacts');
+    Route::get('contact', [contact::class, 'index'])->name('contactList');
 
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');

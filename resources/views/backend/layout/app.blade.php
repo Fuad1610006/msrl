@@ -183,25 +183,33 @@
             </li>
                 </ul>
             </li>
-             {{--<li
-                class="sidebar-item  ">
-                <a href="{{route('carousel.index')}}" class='sidebar-link'>
-                    <i class="bi bi-house-fill"></i>
-                    <span>Home Page</span>
-                </a>
 
-            </li>--}}
             <li
-                class="sidebar-item  ">
-                <a href="{{route('ship-info.index')}}" class='sidebar-link'>
-                   <i class="bi bi-clipboard-minus"></i>
-                    <span>Ship</span>
+            class="sidebar-item  has-sub">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-collection-fill"></i>
+                <span>Project</span>
+            </a>
+            <ul class="submenu ">
+
+            <li
+                class="submenu-item  ">
+                <a href="{{route('project.index')}}" >
+                File Upload
                 </a>
+            </li>
+            <li
+                class="submenu-item  ">
+                <a href="{{route('ship-info.index')}}" class='sidebar-link'>
+                Image Upload
+                </a>
+            </li>
+            </ul>
             </li>
 
             <li
                 class="sidebar-item  ">
-                <a href="{{route('contacts')}}" class='sidebar-link'>
+                <a href="{{route('contactList')}}" class='sidebar-link'>
                     <i class="bi bi-telephone"></i>
                     <span>Contacts</span>
                 </a>

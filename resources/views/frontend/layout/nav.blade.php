@@ -101,12 +101,14 @@
       </div>
       <!-- Logo -->
       <div class="logo">
-        <img
-          src="{{ asset('uploads/companyInfo/' . $info->image) }}"
-          alt="Logo"
-          width="100px"
-          class="img-fluid"
-        />
+        <a href="{{route('home')}}">
+             <img
+            src="{{ asset('uploads/companyInfo/' . $info->image) }}"
+            alt="Logo"
+            width="100px"
+            class="img-fluid"
+          />
+        </a>
       </div>
 </header>
 
@@ -114,7 +116,7 @@
       <div class="container py-1">
         <div class="row">
           <div class="col">
-            <a href=""
+            <a href="{{route('home')}}"
               ><img
                 {{-- src="{{asset('asset/images/Mask group.png')}}" --}}
                 src="{{ asset('uploads/companyInfo/' . $info->image) }}"

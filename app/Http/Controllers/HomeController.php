@@ -22,6 +22,7 @@ use App\Models\TopManagement;
 use App\Models\MidManagement;
 use App\Models\YardManagement;
 use App\Models\Carousel;
+use App\Models\Project;
 use App\Models\FrontMenu;
 use App\Models\SisterConcern;
 use Exception;
@@ -83,10 +84,11 @@ class HomeController extends Controller
 
     public function trackRecord()
     {
+        $projects= Project::all();
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $card= TrackRecord::first();
-        return view('frontend.track-record.track', compact('card','info','sister'));
+        return view('frontend.track-record.track', compact('card','info','sister','projects'));
     }
 
      public function overview()

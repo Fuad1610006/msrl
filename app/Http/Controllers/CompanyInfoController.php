@@ -6,6 +6,7 @@ use App\Models\CompanyInfo;
 use Illuminate\Http\Request;
 use App\Http\Requests\Company\AddNewRequest;
 use App\Http\Requests\Company\UpdateRequest;
+use Exception;
 
 class CompanyInfoController extends Controller
 {
