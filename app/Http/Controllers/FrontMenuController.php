@@ -20,7 +20,7 @@ class FrontMenuController extends Controller
     {
         $menus=FrontMenu::all();
         $pages=Page::all();
-        return view('backend.frontmenu.index',compact('menus','pages'));
+        return view('backend.frontMenu.index',compact('menus','pages'));
     }
 
     /**
