@@ -252,8 +252,8 @@
 
 <script src="https://cdn.tiny.cloud/1/ceyb8meqlrqis0sgk1xe964n5su0k26wvyrj80i1g9swpx2q/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
 @stack('scripts')
 </body>

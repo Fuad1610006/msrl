@@ -26,6 +26,7 @@ use App\Http\Controllers\CompanyInfoController as company;
 use App\Http\Controllers\HistoryController as history;
 use App\Http\Controllers\FrontMenuController as frontMenu;
 use App\Http\Controllers\TextController as text;
+use App\Http\Controllers\ProjectController as project;
 use App\Http\Controllers\SisterController as sisterC;
 use App\Http\Controllers\PageController as page;
 use App\Http\Controllers\HomeController as home;
@@ -94,6 +95,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('page', page::class);
     Route::resource('text', text::class);
     Route::resource('sisterC', sisterC::class);
+    Route::resource('project', project::class);
 
     Route::get('contacts', [contact::class, 'index'])->name('contacts');
 

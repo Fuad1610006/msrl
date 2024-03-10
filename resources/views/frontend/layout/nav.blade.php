@@ -116,7 +116,8 @@
           <div class="col">
             <a href=""
               ><img
-                src="{{asset('asset/images/Mask group.png')}}"
+                {{-- src="{{asset('asset/images/Mask group.png')}}" --}}
+                src="{{ asset('uploads/companyInfo/' . $info->image) }}"
                 alt="Logo"
                 width="100px"
                 class="img-fluid"
@@ -135,8 +136,32 @@
           </div>
         </div>
       </div>
+
+      <!-- Mobile Offcanvas Navigation -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header d-flex justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <ul class="navbar-nav ms-2 mt-2 text-center mobile-nav-view">
+            @foreach($menus as $menu)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ $menu->href == "#" ? 'javascript:void(0)' : url($menu->href) }}">{{ $menu->name }}</a>
+                    @if($menu->hasChildren())
+                        <ul class="sub-nav">
+                            @foreach($menu->children as $child)
+                                <li><a href="{{ url($child->href) }}">{{ $child->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </li>
+            @endforeach
+            <li class="nav-item">
+                <a class="nav-link border m-3 bg-light" href="{{route('gallery')}}">Our All Project</a>
+            </li>
+        </ul>
+    </div>
       <!-- mobile offnav  -->
-      <div
+      {{-- <div
         class="offcanvas offcanvas-start"
         data-bs-scroll="true"
         data-bs-backdrop="false"
@@ -197,5 +222,5 @@
             >
           </li>
         </ul>
-      </div>
+      </div> --}}
 </section>
