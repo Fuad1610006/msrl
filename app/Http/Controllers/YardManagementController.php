@@ -6,7 +6,8 @@ use App\Models\Management;
 use App\Models\TopManagement;
 use App\Models\MidManagement;
 use App\Models\YardManagement;
-use App\Http\Requests\YardManagementRequest;
+use App\Http\Requests\YardManagement\AddNewRequest;
+use App\Http\Requests\YardManagement\UpdateRequest;
 use Illuminate\Http\Request;
 use Exception;
 use Toastr;
@@ -39,7 +40,7 @@ class YardManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(YardManagementRequest $request)
+    public function store(AddNewRequest $request)
     {
        try{
         $data=new YardManagement;
@@ -51,13 +52,13 @@ class YardManagementController extends Controller
                 $request->image->move(public_path('uploads/yardManagement'), $imageName);
                 $data->image = $imageName;
             }
-         
+
         if( $data->save()){
              $this->notice::success('Successfully saved');
              return redirect()->route('yard.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -86,7 +87,7 @@ class YardManagementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(YardManagementRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
         $data=YardManagement::findOrFail(encryptor('decrypt', $id));
@@ -98,13 +99,13 @@ class YardManagementController extends Controller
                 $request->image->move(public_path('uploads/yardManagement'), $imageName);
                 $data->image = $imageName;
             }
-         
+
         if( $data->save()){
-             $this->notice::success('Successfully saved');
+             $this->notice::success('Successfully updated');
              return redirect()->route('yard.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);

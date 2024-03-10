@@ -28,7 +28,7 @@
                         @method('PUT')
                         <div class="row">
                             <div class="col-12">
-                                <textarea name="chairman_text" cols="30" rows="8" id="chairman_text" class="form-control">{{ old('chairman_text', $info->chairman_text)}}</textarea>
+                                <textarea name="chairman_text" cols="30" rows="8" id="chairman_text" class="form-control">{{ old('chairman_text', $data->chairman_text)}}</textarea>
                                 @if($errors->has('chairman_text'))
                                     <span class="text-danger"> {{ $errors->first('chairman_text') }}</span>
                                 @endif

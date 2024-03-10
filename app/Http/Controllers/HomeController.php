@@ -64,10 +64,10 @@ class HomeController extends Controller
         $sis=Sister::first();
         $buyerLogos= BuyerLogo::all();
         $card = TrackRecord::first();
-        $sisLogo= SisterLogo::all();
+        $sisC= SisterConcern::all();
         $info = CompanyInfo::first();
-        $sister = SisterConcern::all();
-        return view('frontend.sister-concern.sister', compact('info','sister','sisLogo','card','buyerLogos','sis','text'));
+        $sister = SisterLogo::all();
+        return view('frontend.sister-concern.sister', compact('info','sister','sisC','card','buyerLogos','sis','text'));
     }
 
     public function management()

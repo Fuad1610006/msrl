@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SisterLogo;
 use Illuminate\Http\Request;
-use App\Http\Requests\SisterLogoRequest;
+use App\Http\Requests\SisterLogo\AddNewRequest;
+use App\Http\Requests\SisterLogo\UpdateRequest;
 use Exception;
 use Toastr;
 
@@ -31,7 +32,7 @@ class SisterLogoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SisterLogoRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $data=new SisterLogo;
@@ -47,7 +48,7 @@ class SisterLogoController extends Controller
              return redirect()->route('sister-logo.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -76,7 +77,7 @@ class SisterLogoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SisterLogoRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
           $data = SisterLogo::findOrFail(encryptor('decrypt', $id));
@@ -93,7 +94,7 @@ class SisterLogoController extends Controller
              return redirect()->route('sister-logo.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);

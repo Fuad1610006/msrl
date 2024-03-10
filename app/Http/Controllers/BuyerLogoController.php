@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BuyerLogo;
 use Illuminate\Http\Request;
-use App\Http\Requests\BuyerLogoRequest;
+use App\Http\Requests\BuyerLogo\AddNewRequest;
+use App\Http\Requests\BuyerLogo\UpdateRequest;
 use Exception;
 use Toastr;
 
@@ -31,7 +32,7 @@ class BuyerLogoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BuyerLogoRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $data=new BuyerLogo;
@@ -47,7 +48,7 @@ class BuyerLogoController extends Controller
              return redirect()->route('buyer-logo.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -77,8 +78,8 @@ class BuyerLogoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BuyerLogoRequest $request,  $id)
-    { 
+    public function update(UpdateRequest $request,  $id)
+    {
         try{
           $data = BuyerLogo::findOrFail(encryptor('decrypt', $id));
           $data->buyer_name = $request->buyer_name;
@@ -91,11 +92,11 @@ class BuyerLogoController extends Controller
         if( $data->save()){
              $this->notice::success('Successfully saved');
              return redirect()->route('buyer-logo.index');
-       
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mission;
 use Illuminate\Http\Request;
-use App\Http\Requests\MissionRequest;
+use App\Http\Requests\Mission\AddNewRequest;
+use App\Http\Requests\Mission\UpdateRequest;
 use Exception;
 
 class MissionController extends Controller
@@ -30,7 +31,7 @@ class MissionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MissionRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
             $data=new Mission;
@@ -77,7 +78,7 @@ class MissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(MissionRequest $request, Mission $id)
+    public function update(UpdateRequest $request, Mission $id)
     {
         try{
             $data=Mission::findOrFail(encryptor('decrypt', $id));

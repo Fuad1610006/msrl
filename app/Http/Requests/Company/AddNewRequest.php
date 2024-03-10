@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Company;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MissionRequest extends FormRequest
+class AddNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,10 @@ class MissionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'mission_text' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'location' => 'required|string',
+            'email_address' => 'required|string',
+            'contact_no' => 'required|string',
         ];
     }
 }

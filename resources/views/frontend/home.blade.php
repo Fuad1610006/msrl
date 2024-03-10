@@ -54,38 +54,43 @@
     <!-- slider end -->
    @include('frontend.track-cards.card')
     <!-- chairman start -->
-    <div class="chairman brand-bg">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-lg-6 chairman-image">
-                @if($chairman && $chairman->image)
-                <img src="{{ asset('uploads/chairman/' . $chairman->image) }}" alt="Chairman" class="img-fluid" />
-            @endif
-
-              <!-- designation -->
-              <div class="designation text-white p-2 mt-5 w-75">
-                <h5 class="pb-2">Mr. S M Nurun Nabi</h5>
-                <p>Chairman</p>
-              </div>
-            </div>
-            <div
-              class="col-md-12 col-lg-6 d-flex align-items-center mt-3 pb-4"
-            >
-              <div>
-                <h2 class="chairman-title">Chairman Message</h2>
-                <p class="chairman-text mb-4">
+    <section class="brand-bg">
+        <div class="chairman">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-lg-6 chairman-image">
                     @if($chairman && $chairman->image)
-                  {!!$chairman->chairman_text !!}
-                  @endif
-                </p>
-                <a href="{{route('chairman')}}" class="unknown-btn"> &lt; Read More &gt; </a>
+                    <img src="{{ asset('uploads/chairman/' . $chairman->image) }}" alt="Chairman" class="img-fluid" />
+                @endif
+
+                  <!-- designation -->
+                  <div class="designation text-white p-2 mt-5 w-75">
+                    <h5 class="pb-2">Mr. S M Nurun Nabi</h5>
+                    <p>Chairman</p>
+                  </div>
+                </div>
+                <div
+                  class="col-md-12 col-lg-6 d-flex align-items-center mt-3 pb-4"
+                >
+                  <div>
+                    <h2 class="chairman-title">Chairman Message</h2>
+                    <p class="chairman-text mb-4">
+                        @if($chairman && $chairman->chairman_text)
+                          <!-- Displaying only first few lines of chairman's text -->
+                          {!! \Illuminate\Support\Str::limit($chairman->chairman_text, 366, '...') !!}
+                      {{-- {!!$chairman->chairman_text !!} --}}
+                      @endif
+                    </p>
+                    <a href="{{route('chairman')}}" class="unknown-btn"> &lt; Read More &gt; </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Chairman end -->
         </div>
-      </div>
-      <!-- Chairman end -->
-    </div>
+    </section>
+
 
 
     <!-- counter and Chairman end -->

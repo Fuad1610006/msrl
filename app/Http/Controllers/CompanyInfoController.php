@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CompanyInfo;
 use Illuminate\Http\Request;
-use App\Http\Requests\CompanyRequest;
+use App\Http\Requests\Company\AddNewRequest;
+use App\Http\Requests\Company\UpdateRequest;
 
 class CompanyInfoController extends Controller
 {
@@ -29,7 +30,7 @@ class CompanyInfoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CompanyRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $info=new CompanyInfo;
@@ -47,7 +48,7 @@ class CompanyInfoController extends Controller
              return redirect()->route('info.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -76,21 +77,21 @@ class CompanyInfoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
        try {
         $info = CompanyInfo::findOrFail(encryptor('decrypt', $id));
         $info->location = $request->location;
         $info->contact_no = $request->contact_no;
         $info->email_address = $request->email_address;
-        
+
         if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
                 $request->image->move(public_path('uploads/companyInfo'), $imageName);
                 $info->image = $imageName;
             }
-        
+
         if ($info->save()) {
             $this->notice::success('Successfully saved');
             return redirect()->route('info.index');

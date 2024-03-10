@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Company;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class CompanyRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'location' => 'required|string',
             'email_address' => 'required|string',
-            'contact_no' => 'required|string', 
+            'contact_no' => 'required|string',
         ];
     }
 }

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Chairman;
 use Illuminate\Http\Request;
-use App\Http\Requests\ChairmanRequest;
+use App\Http\Requests\Chairman\AddNewRequest;
+use App\Http\Requests\Chairman\UpdateRequest;
 use Exception;
 
 class ChairmanController extends Controller
@@ -30,7 +31,7 @@ class ChairmanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ChairmanRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
             $data=new Chairman;
@@ -77,7 +78,7 @@ class ChairmanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ChairmanRequest $request, Chairman $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
             $data=Chairman::findOrFail(encryptor('decrypt', $id));

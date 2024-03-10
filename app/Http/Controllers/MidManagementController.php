@@ -6,7 +6,8 @@ use App\Models\Management;
 use App\Models\TopManagement;
 use App\Models\MidManagement;
 use App\Models\YardManagement;
-use App\Http\Requests\MidManagementRequest;
+use App\Http\Requests\MidManagement\AddNewRequest;
+use App\Http\Requests\MidManagement\UpdateRequest;
 use Illuminate\Http\Request;
 use Exception;
 use Toastr;
@@ -39,7 +40,7 @@ class MidManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MidManagementRequest $request)
+    public function store(AddNewRequest $request)
     {
        try{
         $data=new MidManagement;
@@ -51,13 +52,13 @@ class MidManagementController extends Controller
                 $request->image->move(public_path('uploads/midManagement'), $imageName);
                 $data->image = $imageName;
             }
-         
+
         if( $data->save()){
              $this->notice::success('Successfully saved');
              return redirect()->route('mid.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
@@ -86,7 +87,7 @@ class MidManagementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(MidManagementRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
         $data=MidManagement::findOrFail(encryptor('decrypt', $id));
@@ -98,13 +99,13 @@ class MidManagementController extends Controller
                 $request->image->move(public_path('uploads/midManagement'), $imageName);
                 $data->image = $imageName;
             }
-         
+
         if( $data->save()){
              $this->notice::success('Successfully saved');
              return redirect()->route('mid.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);

@@ -12,7 +12,7 @@
         <p>
         {!!$about->about_us_text!!}
         </p>
-        <a href="#" class="btn btn-green m-1 border rounded-pill px-4"
+        <a href="{{route('about')}}" class="btn btn-green m-1 border rounded-pill px-4"
           >Read More</a
         >
       </div>

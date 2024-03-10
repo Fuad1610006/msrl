@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Mission;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BuyerLogoRequest extends FormRequest
+class AddNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class BuyerLogoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'buyer_name' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'mission_text' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

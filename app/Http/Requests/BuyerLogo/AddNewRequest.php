@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\BuyerLogo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CarouselRequest extends FormRequest
+class AddNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,8 @@ class CarouselRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'about_link' => 'required|string',
-            // 'project_link' => 'required|string',
-            'short_description' => 'required|string',
+            'buyer_name' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

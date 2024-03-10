@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\History;
 use Illuminate\Http\Request;
-use App\Http\Requests\HistoryRequest;
+use App\Http\Requests\History\AddNewRequest;
+use App\Http\Requests\History\UpdateRequest;
 use Exception;
 use Toastr;
 
@@ -31,7 +32,7 @@ class HistoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(HistoryRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $data=new History;
@@ -45,16 +46,16 @@ class HistoryController extends Controller
         if( $data->save()){
              $this->notice::success('Successfully Saved');
              return redirect()->route('history.index');
-       
+
         }else{
             $this->notice::error('Please try again!');
             return redirect()->back()->withInput();
-           
+
         }
         }catch(Exception $e){
             dd($e);
             $this->notice::error('Please try again');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
     }
 
@@ -78,7 +79,7 @@ class HistoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(HistoryRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
         $data= History::findOrFail(encryptor('decrypt',$id));
@@ -94,12 +95,12 @@ class HistoryController extends Controller
              return redirect()->route('history.index');
         }else{
             $this->notice::error('Please try again!');
-            return redirect()->back()->withInput();  
+            return redirect()->back()->withInput();
         }
         }catch(Exception $e){
             dd($e);
              $this->notice::error('Please try again');
-            return redirect()->back()->withInput(); 
+            return redirect()->back()->withInput();
         }
     }
 

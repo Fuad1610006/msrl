@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Carousel;
 use Illuminate\Http\Request;
-use App\Http\Requests\CarouselRequest;
+use App\Http\Requests\Carousel\AddNewRequest;
+use App\Http\Requests\Carousel\UpdateRequest;
 use Exception;
 use Toastr;
 
@@ -31,7 +32,7 @@ class CarouselController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CarouselRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $carousel=new Carousel;
@@ -81,7 +82,7 @@ class CarouselController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CarouselRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
             $carousel= Carousel::findOrFail(encryptor('decrypt', $id));

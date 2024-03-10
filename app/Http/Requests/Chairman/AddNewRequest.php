@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Chairman;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HistoryRequest extends FormRequest
+class AddNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class HistoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-          'history_text' => 'required|string', 
-          'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'chairman_text' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

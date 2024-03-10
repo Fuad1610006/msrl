@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\SisterLogo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ChairmanRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class ChairmanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chairman_text' => 'required|string',
+            'company_name' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }

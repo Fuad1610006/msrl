@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\MidManagement;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisterLogoRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,8 @@ class SisterLogoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_name' => 'required|string',
+            'name' => 'required|string|max:255',
+            'designation' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }

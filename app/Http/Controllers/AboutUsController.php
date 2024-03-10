@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
-use App\Http\Requests\AboutUsRequest;
+use App\Http\Requests\AboutUs\AddNewRequest;
+use App\Http\Requests\AboutUs\UpdateRequest;
 use Exception;
 use Toastr;
 
@@ -32,7 +33,7 @@ class AboutUsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AboutUsRequest $request)
+    public function store(AddNewRequest $request)
     {
         try{
         $data=new AboutUs;
@@ -79,7 +80,7 @@ class AboutUsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AboutUsRequest $request,  $id)
+    public function update(UpdateRequest $request,  $id)
     {
         try{
         $data = AboutUs::findOrFail(encryptor('decrypt', $id));
