@@ -23,7 +23,7 @@
                     <h4 class="card-title">Carousel</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('buyer-logo.update', encryptor('encrypt',$data->id)) }}" method="POST">
+                    <form action="{{ route('buyer-logo.update', encryptor('encrypt',$data->id)) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
