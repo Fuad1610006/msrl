@@ -15,7 +15,7 @@
             <p>
               {!! $sis->about_us !!}
             </p>
-            <a href="#" class="btn btn-green m-1 border rounded-pill px-4"
+            <a href="{{route('sister')}}" class="btn btn-green m-1 border rounded-pill px-4"
               >Read More</a
             >
           </div>
