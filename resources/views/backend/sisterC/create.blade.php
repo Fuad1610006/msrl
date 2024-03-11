@@ -55,7 +55,7 @@
 @endsection
 @push('scripts')
  <!-- Place the first <script> tag in your HTML's <head> -->
-<script src="https://cdn.tiny.cloud/1/ceyb8meqlrqis0sgk1xe964n5su0k26wvyrj80i1g9swpx2q/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{{asset('assets/tinymc.js')}}"></script>
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>

@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/shared/iconly.css')}}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <style>
+        .tox.tox-silver-sink.tox-tinymce-aux {display:none;}
+    </style>
     @stack('styles')
 </head>
 

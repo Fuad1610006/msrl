@@ -42,7 +42,7 @@
                                 <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <form id="form{{$s->id}}" action="{{route('track-records.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                <form id="form{{$s->id}}" action="{{route('track-record.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>
