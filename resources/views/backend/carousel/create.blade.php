@@ -34,22 +34,7 @@
                                         <span class="text-danger"> {{ $errors->first('short_description') }}</span>
                                      @endif
                                 </div>
-                                {{--<div class="form-group">
-                                    <label for="about_link">About Link<i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="about_link" name="about_link" value="{{ old('about_link')}}" placeholder="Enter Link" required>
-                                     @if($errors->has('about_link'))
-                                        <span class="text-danger"> {{ $errors->first('about_link') }}</span>
-                                     @endif
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="project_link">Project Link <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="project_link" name="project_link" value="{{ old('project_link')}}" placeholder="Enter Link" required>
-                                     @if($errors->has('project_link'))
-                                        <span class="text-danger"> {{ $errors->first('project_link') }}</span>
-                                     @endif
-                                </div>--}}
-
+                                
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <input type="file" id="image" class="form-control" name="image">

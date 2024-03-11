@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ship;
-use App\Models\FrontMenu;
-use App\Models\CompanyInfo;
-use App\Models\SisterLogo;
 use Illuminate\Http\Request;
 use App\Http\Requests\Ship\AddNewRequest;
 use App\Http\Requests\Ship\UpdateRequest;
@@ -93,11 +90,11 @@ class ShipController extends Controller
     {
       try{
          $ship = Ship::findOrFail(encryptor('decrypt', $id));
-        $ship->name=$request->name;
+         $ship->name=$request->name;
         // $ship->country = $request->country;
         // $ship->weight = $request->weight;
         // $ship->type = $request->type;
-        $ship->category = $request->category;
+         $ship->category = $request->category;
         // $ship->status = $request->status;
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .

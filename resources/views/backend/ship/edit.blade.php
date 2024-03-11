@@ -23,7 +23,7 @@
                     <h4 class="card-title">Ship Info</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('ship-info.update', encryptor('encrypt',$ship->id)) }}" method="POST">
+                    <form action="{{ route('ship-info.update', encryptor('encrypt',$ship->id)) }}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -35,20 +35,7 @@
                                         <span class="text-danger"> {{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="form-group">
-                                    <label for="country">Country <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="country" name="country" value="{{ old('country', $ship->country) }}" placeholder="Enter Country" required>
-                                    @if($errors->has('country'))
-                                        <span class="text-danger"> {{ $errors->first('country') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="weight">Weight <i class="text-danger">*</i></label>
-                                    <input type="text" class="form-control" id="weight" name="weight" value="{{ old('weight', $ship->weight) }}" placeholder="Enter Weight" required>
-                                    @if($errors->has('weight'))
-                                        <span class="text-danger"> {{ $errors->first('weight') }}</span>
-                                    @endif
-                                </div> --}}
+                              
 
                                 <div class="form-group">
                                     <label for="image">Image</label>
@@ -58,25 +45,11 @@
                                         <input type="hidden" name="old_image" value="{{ $ship->image }}">
                                     @endif
                                 </div>
+                                   @if($errors->has('image'))
+                                        <span class="text-danger"> {{ $errors->first('image') }}</span>
+                                    @endif
                             </div>
                             <div class="col-md-6">
-                                {{-- <div class="form-group">
-                                    <label for="type">Type</label>
-                                    <select class="form-control" id="type" name="type">
-                                        <option>Select One</option>
-                                        <option value="1" {{ old('type', $ship->type) == '1' ? 'selected' : '' }}>General Ship</option>
-                                        <option value="2" {{ old('type', $ship->type) == '2' ? 'selected' : '' }}>Bulk Carrier</option>
-                                    </select>
-                                </div> --}}
-                                {{-- <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option>Select One</option>
-                                        <option value="Completed" {{ old('status', $ship->status) == 'Completed' ? 'selected' : '' }}>Completed</option>
-                                        <option value="Ongoing"{{ old('status', $ship->status) == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                        <option value="Pending"{{ old('status', $ship->status) == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                    </select>
-                                </div> --}}
                                 <div class="form-group">
                                     <label for="category">category</label>
                                     <select class="form-control" id="category" name="category">
