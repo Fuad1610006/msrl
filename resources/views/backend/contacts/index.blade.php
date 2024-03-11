@@ -27,7 +27,7 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Message</th>
-                            <th>Action</th>
+                            {{-- <th>Action</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,7 @@
                             <td>{{$s->email}}</td>
                             <td>{{$s->phone}}</td>
                             <td>{{$s->message}}</td>
-                           <td class="white-space-nowrap">
+                           {{-- <td class="white-space-nowrap">
                                 <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
@@ -46,9 +46,9 @@
                                     @csrf
                                     @method('delete')
                                 </form>
-                            </td>
+                            </td> --}}
                              @empty
-                             <td colspan="8" class="text-center">No Data Found</td>
+                             <td colspan="5" class="text-center">No Data Found</td>
                         </tr>
                          @endforelse
                     </tbody>
