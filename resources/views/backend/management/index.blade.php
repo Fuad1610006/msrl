@@ -50,13 +50,13 @@
                                             <a href="{{route('team.edit',encryptor('encrypt',$d->id))}}">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
-                                            <a href="javascript:void()" onclick="$('#form{{$d->id}}').submit()">
+                                            {{-- <a href="javascript:void()" onclick="$('#form{{$d->id}}').submit()">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                             <form id="form{{$d->id}}" action="{{route('team.destroy',encryptor('encrypt',$d->id))}}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                            </form>
+                                            </form> --}}
                                         </td>
                                  @empty
                                 <td colspan="8" class="text-center">No Data Found</td>

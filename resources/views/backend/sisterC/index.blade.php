@@ -46,13 +46,13 @@
                                 <a href="{{route('sisterC.edit',encryptor('encrypt',$m->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a href="javascript:void()" onclick="$('#form{{$m->id}}').submit()">
+                                {{-- <a href="javascript:void()" onclick="$('#form{{$m->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <form id="form{{$m->id}}" action="{{route('sisterC.destroy',encryptor('encrypt',$m->id))}}" method="post">
                                     @csrf
                                     @method('delete')
-                                </form>
+                                </form> --}}
                             </td>
                              @empty
                              <td colspan="6" class="text-center">No Data Found</td>

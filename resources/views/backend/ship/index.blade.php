@@ -59,13 +59,13 @@
                                 <a href="{{route('ship-info.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                                {{-- <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <form id="form{{$s->id}}" action="{{route('ship-info.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
-                                </form>
+                                </form> --}}
                             </td>
                              @empty
                              <td colspan="8" class="text-center">No Data Found</td>

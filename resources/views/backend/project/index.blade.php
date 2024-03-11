@@ -57,13 +57,13 @@
                                 <a href="{{route('project.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                                {{-- <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <form id="form{{$s->id}}" action="{{route('project.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
-                                </form>
+                                </form> --}}
                             </td>
                              @empty
                              <td colspan="5" class="text-center">No Data Found</td>
