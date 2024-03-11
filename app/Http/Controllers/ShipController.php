@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SisterLogo;
+use App\Models\CompanyInfo;
 use App\Models\Ship;
 use Illuminate\Http\Request;
 use App\Http\Requests\Ship\AddNewRequest;
@@ -137,11 +139,10 @@ class ShipController extends Controller
      */
     public function gallery()
     {
-        $menus = FrontMenu::orderBy('rank')->get();
         $info = CompanyInfo::first();
         $sister= SisterLogo::all();
         $ships = Ship::paginate(10); // Paginate the ships with 10 items per page
-        return view('frontend.gallery.gallery', compact('ships','menus', 'info','sister'));
+        return view('frontend.gallery.gallery', compact('ships','info','sister'));
     }
 
     /**

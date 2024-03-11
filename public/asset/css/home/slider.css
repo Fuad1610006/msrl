@@ -30,7 +30,9 @@
   padding: 20px;
   color: #fff;
 }
-
+.carousel-item img {
+    height: 523px !important;
+}
 .carousel-indicators {
   position: absolute;
   right: auto !important;
