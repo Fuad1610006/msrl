@@ -26,7 +26,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#SL</th>
                                     <th scope="col">Title 1</th>
                                     <th scope="col">Title 2</th>
                                     <th scope="col">Title 3</th>
