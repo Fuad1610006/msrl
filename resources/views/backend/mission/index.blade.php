@@ -18,9 +18,9 @@
     </div>
     <section class="section">
         <div class="card">
-            <div class="card-header">
+            {{-- <div class="card-header">
                 <a href="{{ route('mission.create') }}" class="btn btn-primary mb-3">Add New</a>
-            </div>
+            </div> --}}
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>

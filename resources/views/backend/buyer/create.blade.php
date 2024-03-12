@@ -19,9 +19,9 @@
     <div class="page-content">
         <section class="section">
             <div class="card">
-                <div class="card-header">
+                {{-- <div class="card-header">
                     <h4 class="card-title">Carousel</h4>
-                </div>
+                </div> --}}
                 <div class="card-body">
                     <form action="{{ route('buyer-logo.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf

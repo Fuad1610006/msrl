@@ -9,7 +9,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Industry</li>
                     </ol>
                 </nav>
@@ -18,9 +18,9 @@
     </div>
     <section class="section">
         <div class="card">
-            <div class="card-header">
+            {{-- <div class="card-header">
                 <a href="{{ route('industry.create') }}" class="btn btn-primary mb-3">Add New</a>
-            </div>
+            </div> --}}
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>

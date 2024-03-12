@@ -9,7 +9,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Ship</li>
                     </ol>
                 </nav>
@@ -27,11 +27,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Name</th>
-                            {{-- <th>Country</th>
-                            <th>Weight</th>
-                            <th>Type</th> --}}
                             <th>Category</th>
-                            {{-- <th>Status</th> --}}
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -41,9 +37,6 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->name}}</td>
-                            {{-- <td>{{$s->country}}</td>
-                            <td>{{$s->weight}}</td>
-                            <td>{{$s->type}}</td> --}}
                             <td> @if($s->category == 1)
                                     Corporate
                                 @elseif($s->category == 2)
@@ -51,7 +44,6 @@
                                 @else
                                     Unknown
                                 @endif</td>
-                            {{-- <td>{{$s->status}}</td> --}}
                             <td>
                                <img width="50px" src="{{asset('uploads/ship/'.$s->image)}}" alt="Ship">
                             </td>
@@ -59,13 +51,13 @@
                                 <a href="{{route('ship-info.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                {{-- <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <form id="form{{$s->id}}" action="{{route('ship-info.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
-                                </form> --}}
+                                </form>
                             </td>
                              @empty
                              <td colspan="8" class="text-center">No Data Found</td>

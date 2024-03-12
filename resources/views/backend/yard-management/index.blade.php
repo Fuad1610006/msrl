@@ -9,7 +9,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Management</li>
                     </ol>
                 </nav>
@@ -55,7 +55,7 @@
                                             </form> --}}
                                         </td>
                                  @empty
-                                <td colspan="6" class="text-center">No Data Found</td>
+                                <td colspan="5" class="text-center">No Data Found</td>
                                     </tr>
                                 @endforelse
                             </tbody>
