@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Career;
 use App\Models\AboutUs;
 use App\Models\Sister;
 use App\Models\Page;
@@ -84,7 +85,7 @@ class HomeController extends Controller
 
     public function trackRecord()
     {
-        $projects= Project::all();
+        $projects= Project::paginate(15);
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         $card= TrackRecord::first();
@@ -133,6 +134,13 @@ class HomeController extends Controller
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         return view('frontend.contact.contact', compact('info','sister'));
+    }
+
+     public function career()
+    {   
+        $sister= SisterLogo::all();
+        $info = CompanyInfo::first();
+        return view('frontend.career.career', compact('info','sister'));
     }
 
 }

@@ -37,7 +37,7 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->buyer_name}}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/buyerLogo/'.$s->image)}}" alt="carousel">
+                               <img width="60px" src="{{asset('uploads/buyerLogo/'.$s->image)}}" alt="carousel">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('buyer-logo.edit',encryptor('encrypt',$s->id))}}">

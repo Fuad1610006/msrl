@@ -37,7 +37,7 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$s->chairman_text!!}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/chairman/'.$s->image)}}" alt="Chairman">
+                               <img width="65px" src="{{asset('uploads/chairman/'.$s->image)}}" alt="Chairman">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('chairman.edit',encryptor('encrypt',$s->id))}}">

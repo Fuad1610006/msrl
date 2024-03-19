@@ -27,6 +27,12 @@
         @endif
       </div>
       @endforeach
+
+      <!-- Pagination Links -->
+        <div class="d-flex justify-content-center">
+            {{ $projects->links() }}
+        </div>
+        
     </div>
 </section>
 

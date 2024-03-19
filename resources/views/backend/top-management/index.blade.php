@@ -40,7 +40,7 @@
                                         <td>{{ $d->name }}</td>
                                         <td>{{ $d->designation }}</td>
                                          <td>
-                                            <img width="50px" src="{{asset('uploads/topManagement/'.$d->image)}}" alt="Management">
+                                            <img width="60px" src="{{asset('uploads/topManagement/'.$d->image)}}" alt="Management">
                                         </td>
                                          <td class="white-space-nowrap">
                                             <a href="{{route('top.edit',encryptor('encrypt',$d->id))}}">

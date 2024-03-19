@@ -29,6 +29,7 @@ use App\Http\Controllers\TextController as text;
 use App\Http\Controllers\ProjectController as project;
 use App\Http\Controllers\SisterController as sisterC;
 use App\Http\Controllers\PageController as page;
+use App\Http\Controllers\CareerController as career;
 use App\Http\Controllers\HomeController as home;
 
 /*
@@ -54,6 +55,8 @@ Route::get('front_menu/mss', [frontMenu::class, 'mss'])->name('front_menu.mss');
 Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('front_menu.detroy');
 Route::get('/page/{slug}', [home::class,'page'])->name('front.page');
 
+Route::get('career', [home::class, 'career'])->name('career');
+Route::post('career/store', [career::class, 'store'])->name('career.store');
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');
 Route::get('contact', [home::class, 'contact'])->name('contact');
 Route::get('sister', [home::class, 'sister'])->name('sister');
@@ -98,6 +101,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('project', project::class);
 
     Route::get('contact', [contact::class, 'index'])->name('contactList');
+    Route::get('applicants', [career::class, 'index'])->name('applicants');
 
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');

@@ -37,7 +37,7 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->history_text!!}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/history/'.$m->image)}}" alt="Mission">
+                               <img width="70px" src="{{asset('uploads/history/'.$m->image)}}" alt="Mission">
                             </td>
                             <td class="white-space-nowrap">
                                 <a href="{{route('history.edit',encryptor('encrypt',$m->id))}}">

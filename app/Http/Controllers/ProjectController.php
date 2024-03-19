@@ -40,12 +40,6 @@ class ProjectController extends Controller
         $project->category = $request->category;
 
         // Handle file upload
-        // if ($request->hasFile('file')) {
-        //     $file = $request->file('file');
-        //     $fileName = time() . '_' . $file->getClientOriginalName();
-        //     $filePath = $file->storeAs('uploads/files', $fileName, 'public');
-        //     $project->file = $filePath;
-        // }
         if ($request->hasFile('file')) {
             $fileName = rand(111, 999) . time() . '.' .
                 $request->file->extension();

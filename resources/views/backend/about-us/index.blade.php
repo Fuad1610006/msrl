@@ -37,7 +37,7 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{!!$m->about_us_text!!}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/aboutUs/'.$m->image)}}" alt="About">
+                               <img width="70px" src="{{asset('uploads/aboutUs/'.$m->image)}}" alt="About">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('about-us.edit',encryptor('encrypt',$m->id))}}">

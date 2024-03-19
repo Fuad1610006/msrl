@@ -37,7 +37,7 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->company_name}}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/sisterLogo/'.$s->image)}}" alt="carousel">
+                               <img width="60px" src="{{asset('uploads/sisterLogo/'.$s->image)}}" alt="carousel">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('sister-logo.edit',encryptor('encrypt',$s->id))}}">

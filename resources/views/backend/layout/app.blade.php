@@ -217,6 +217,13 @@
                     <span>Contacts</span>
                 </a>
             </li>
+              <li
+                class="sidebar-item  ">
+                <a href="{{route('applicants')}}" class='sidebar-link'>
+                    <i class="bi bi-people-fill"></i>
+                    <span>Applicants</span>
+                </a>
+            </li>
              <li
                 class="sidebar-item  ">
                 <a href="{{route('logOut')}}" class='sidebar-link'>

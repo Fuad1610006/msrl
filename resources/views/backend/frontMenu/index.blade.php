@@ -50,6 +50,7 @@
                                 'Our Team' 		        =>'management',
                                 'Gallery' 		        =>'gallery',
                                 'Contact Us' 			=>'contact',
+                                'Career' 			    =>'career',
                                 'Chairman Message' 	    =>'chairman',
                                 );
                 ?>

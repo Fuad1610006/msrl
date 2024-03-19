@@ -26,8 +26,6 @@
                     <thead>
                         <tr>
                             <th>SL</th>
-                            {{--<th>About Link</th>
-                            <th>Project Link</th>--}}
                             <th>Description</th>
                             <th>Image</th>
                             <th>Action</th>
@@ -37,11 +35,9 @@
                         @forelse ($carousel as $s)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                           {{-- <td>{{$s->about_link}}</td>
-                            <td>{{$s->project_link}}</td>--}}
                             <td>{{$s->short_description}}</td>
                             <td>
-                               <img width="50px" src="{{asset('uploads/carousel/'.$s->image)}}" alt="carousel">
+                               <img width="100px" src="{{asset('uploads/carousel/'.$s->image)}}" alt="carousel">
                             </td>
                            <td class="white-space-nowrap">
                                 <a href="{{route('carousel.edit',encryptor('encrypt',$s->id))}}">
