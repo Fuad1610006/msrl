@@ -9,7 +9,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Career</li>
                     </ol>
                 </nav>
@@ -18,45 +18,40 @@
     </div>
     <section class="section">
         <div class="card">
+            <div class="card-header">
+                <a href="{{ route('circular.create') }}" class="btn btn-primary mb-3">Add New</a>
+            </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Contact No</th>
-                            <th>Cover Letter</th>
-                            <th>CV</th>
-                            {{-- <th>Action</th> --}}
+                            <th>Position</th>
+                            <th>Content</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($data as $s)
+                        @forelse ($circular as $m)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{{$s->full_name}}</td>
-                            <td>{{$s->email}}</td>
-                            <td>{{$s->phone}}</td>
-                            <td>{{$s->cover_letter}}</td>
-                            <td>
-                                @if($s->file)
-                                    <a href="{{ asset('uploads/career/'. $s->file) }}" target="_blank">Download</a>
-                                @else
-                                    No File Uploaded
-                                @endif
-                            </td>
-                           {{-- <td class="white-space-nowrap">
-                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                            <td>{{$m->position}}</td>
+                            <td>{!!$m->circular!!}</td>
+                           
+                           <td class="white-space-nowrap">
+                                <a href="{{route('circular.edit',encryptor('encrypt',$m->id))}}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                {{-- <a href="javascript:void()" onclick="$('#form{{$m->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <form id="form{{$s->id}}" action="{{route('career.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                <form id="form{{$m->id}}" action="{{route('circular.destroy',encryptor('encrypt',$m->id))}}" method="post">
                                     @csrf
                                     @method('delete')
-                                </form>
-                            </td> --}}
+                                </form> --}}
+                            </td>
                              @empty
-                             <td colspan="6" class="text-center">No Data Found</td>
+                             <td colspan="4" class="text-center">No Data Found</td>
                         </tr>
                          @endforelse
                     </tbody>

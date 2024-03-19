@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Circular;
 use App\Models\Career;
 use App\Models\AboutUs;
 use App\Models\Sister;
@@ -138,9 +139,18 @@ class HomeController extends Controller
 
      public function career()
     {   
+        $circular= Circular::all();
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
-        return view('frontend.career.career', compact('info','sister'));
+        return view('frontend.career.career', compact('info','sister','circular'));
+    }
+
+      public function applyJob()
+    {   
+        $circular= Circular::first();
+        $sister= SisterLogo::all();
+        $info = CompanyInfo::first();
+        return view('frontend.career.apply', compact('info','sister','circular'));
     }
 
 }

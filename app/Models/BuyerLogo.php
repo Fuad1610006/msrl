@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class BuyerLogo extends Model
 {
     use HasFactory;
-
-    // public function setting()
-    // {
-    //     return $this->belongsTo(Setting::class);
-    // }
 }

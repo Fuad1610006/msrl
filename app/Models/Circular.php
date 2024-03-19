@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Career extends Model
+class Circular extends Model
 {
     use HasFactory;
 
-    // public function circular()
+    // public function career()
     // {
-    //     return $this->hasOne(Circular::class);
+    //     return $this->belongsTo(Career::class);
     // }
 }

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('careers', function (Blueprint $table) {
+        Schema::create('circulars', function (Blueprint $table) {
             $table->id();
-            $table->string('file')->nullable();
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->text('cover_letter');
+            $table->string('position')->nullable();
+            $table->text('circular')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('careers');
+        Schema::dropIfExists('circulars');
     }
 };

@@ -2,78 +2,40 @@
 @section('content')
 @include('frontend.layout.nav')
 <section class="conact-page-top">
-      <div class="overlay">
+    <div class="overlay">
         <div class="container pt-5 d-flex align-items-end">
-          <p><span>C</span>areer</p>
+            <p><span>C</span>areer</p>
         </div>
-      </div>
-    </section>
-    <!-- page top View end -->
-    <!-- Contact Page Body start -->
-    <section class="container my-4 brand-text-color">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 contact-form p-4">
-          <p>Personal Information</p>
-          <div>
-            <form method="POST" action="{{route('career.store')}}">
-              @csrf
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Full Name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  name="full_name"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  name="email"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Contact Number</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  name="phone"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"
-                  >Cover Letter</label
-                >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  name="message"
-                ></textarea>
-              </div>
-              <div class="form-group mb-3">
-                  <label for="file">Upload CV (PDF)</label>
-                  <input type="file" id="file" class="form-control" name="file" accept=".pdf" required>
-                  @if($errors->has('file'))
-                      <span class="text-danger"> {{ $errors->first('file') }}</span>
-                  @endif
-              </div>
-               <button type="submit" class="btn btn-green m-1 border rounded-pill px-4">Submit</button>
-            </form>
-          </div>
+    </div>
+</section>
+<!-- page top View end -->
+<!-- Contact Page Body start -->
+<section class="container my-4 brand-text-color">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Current Opening</h3>
+            <p>If you think you might fit one of the job descriptions below, go ahead and apply, we’d love to get to know you! You can also send an email to info@msrlbob.com</p>
         </div>
-      </div>
-    </section>
+    </div>
+    <div class="row">
+        @if(count($circular) > 0)
+        @foreach($circular as $d)
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{$d->position}}</h5>
+                    <p class="card-text">We are hiring. Be a part of our dynamic team.</p>
+                    <a href="{{route('jobApply', ['id' =>encryptor('encrypt',$d->id)])}}" class="btn btn-green">View Details</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @else
+        <div class="col-12 text-center">
+            <p>No recent openings</p>
+        </div>
+        @endif
+    </div>
+</section>
 @include('frontend.layout.footer')
 @endsection('content')

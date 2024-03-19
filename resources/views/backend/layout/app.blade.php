@@ -210,6 +210,29 @@
             </ul>
             </li>
 
+             <li
+            class="sidebar-item  has-sub">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-collection-fill"></i>
+                <span>Career</span>
+            </a>
+            <ul class="submenu ">
+
+            <li
+                class="submenu-item  ">
+                <a href="{{route('circular.index')}}" >
+                 Circular
+                </a>
+            </li>
+            <li
+                class="submenu-item  ">
+                <a href="{{route('applicants')}}" class='sidebar-link'>
+                 Applicants
+                </a>
+            </li>
+            </ul>
+            </li>
+
             <li
                 class="sidebar-item  ">
                 <a href="{{route('contactList')}}" class='sidebar-link'>
@@ -217,13 +240,7 @@
                     <span>Contacts</span>
                 </a>
             </li>
-              <li
-                class="sidebar-item  ">
-                <a href="{{route('applicants')}}" class='sidebar-link'>
-                    <i class="bi bi-people-fill"></i>
-                    <span>Applicants</span>
-                </a>
-            </li>
+              
              <li
                 class="sidebar-item  ">
                 <a href="{{route('logOut')}}" class='sidebar-link'>

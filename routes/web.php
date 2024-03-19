@@ -30,6 +30,7 @@ use App\Http\Controllers\ProjectController as project;
 use App\Http\Controllers\SisterController as sisterC;
 use App\Http\Controllers\PageController as page;
 use App\Http\Controllers\CareerController as career;
+use App\Http\Controllers\CircularController as circular;
 use App\Http\Controllers\HomeController as home;
 
 /*
@@ -56,6 +57,7 @@ Route::get('front_menu/delete/{id}', [frontMenu::class, 'destroy'])->name('front
 Route::get('/page/{slug}', [home::class,'page'])->name('front.page');
 
 Route::get('career', [home::class, 'career'])->name('career');
+Route::get('job-apply/{id}', [home::class, 'applyJob'])->name('jobApply');
 Route::post('career/store', [career::class, 'store'])->name('career.store');
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');
 Route::get('contact', [home::class, 'contact'])->name('contact');
@@ -99,6 +101,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('text', text::class);
     Route::resource('sisterC', sisterC::class);
     Route::resource('project', project::class);
+    Route::resource('circular', circular::class);
 
     Route::get('contact', [contact::class, 'index'])->name('contactList');
     Route::get('applicants', [career::class, 'index'])->name('applicants');

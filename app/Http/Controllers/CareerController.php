@@ -17,14 +17,6 @@ class CareerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -35,7 +27,7 @@ class CareerController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|string|max:50',
             'phone' => 'required|string|max:50',
-            'message' => 'required|string',
+            'cover_letter' => 'required|string',
             'file' => 'required|mimes:pdf|max:5120',
             // Add validation rules for other fields
         ]);
@@ -45,7 +37,7 @@ class CareerController extends Controller
         $data->full_name = $request->full_name;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->message = $request->message;
+        $data->cover_letter = $request->cover_letter;
           if ($request->hasFile('file')) {
             $fileName = rand(111, 999) . time() . '.' .
                 $request->file->extension();
@@ -58,14 +50,7 @@ class CareerController extends Controller
         return redirect()->back()->with('success', 'Application submitted successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Career $career)
-    {
-        //
-    }
-
+   
     /**
      * Show the form for editing the specified resource.
      */
@@ -93,4 +78,5 @@ class CareerController extends Controller
               return redirect()->back();
         }
     }
+
 }
