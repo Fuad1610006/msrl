@@ -19,7 +19,7 @@
         <div class="col-sm-12 col-md-6 contact-form p-4">
           <p>Personal Information</p>
           <div>
-            <form method="POST" action="{{route('career.store')}}">
+            <form method="POST" action="{{route('career.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label"
