@@ -8,6 +8,7 @@ use App\Models\Career;
 use App\Models\AboutUs;
 use App\Models\Sister;
 use App\Models\Page;
+use App\Models\Video;
 use App\Models\Ship;
 use App\Models\Text;
 use App\Models\Mission;
@@ -145,12 +146,20 @@ class HomeController extends Controller
         return view('frontend.career.career', compact('info','sister','circular'));
     }
 
-      public function applyJob()
+      public function applyJob($id)
     {   
-        $circular= Circular::first();
+        $circular= Circular::findOrFail(encryptor('decrypt', $id));
         $sister= SisterLogo::all();
         $info = CompanyInfo::first();
         return view('frontend.career.apply', compact('info','sister','circular'));
+    }
+
+     public function video()
+    {
+        $info = CompanyInfo::first();
+        $sister= SisterLogo::all();
+        $videos = Video::paginate(15); 
+        return view('frontend.gallery.video', compact('videos','info','sister'));
     }
 
 }

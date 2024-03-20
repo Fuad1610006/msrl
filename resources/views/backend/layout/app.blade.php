@@ -207,6 +207,12 @@
                 Image Upload
                 </a>
             </li>
+            <li
+                class="submenu-item  ">
+                <a href="{{route('video.index')}}" class='sidebar-link'>
+                Video Upload
+                </a>
+            </li>
             </ul>
             </li>
 

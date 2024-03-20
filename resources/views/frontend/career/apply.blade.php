@@ -21,6 +21,20 @@
           <div>
             <form method="POST" action="{{route('career.store')}}" enctype="multipart/form-data">
               @csrf
+              <input type="hidden" name="circular_id" value="{{ $circular->id }}">
+               <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Position</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  name="position"
+                  value={{ $circular->position}}
+                  readonly
+                  />
+              </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label"
                   >Full Name</label

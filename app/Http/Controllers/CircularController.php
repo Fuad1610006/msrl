@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Circular;
 use Illuminate\Http\Request;
+use App\Http\Requests\CircularRequest;
 
 class CircularController extends Controller
 {
@@ -28,13 +29,13 @@ class CircularController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CircularRequest $request)
     {
         try{
         $circular=new Circular;
         $circular->position=$request->position;
         $circular->circular=$request->circular;
-        if( $data->save()){
+        if( $circular->save()){
              $this->notice::success('Successfully Updated');
              return redirect()->route('circular.index');
        
@@ -70,7 +71,7 @@ class CircularController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $id)
+    public function update(CircularRequest $request,  $id)
     {
         try{
         $circular=Circular::findOrFail(encryptor('decrypt', $id));;

@@ -38,6 +38,7 @@ class CareerController extends Controller
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->cover_letter = $request->cover_letter;
+        $data->circular_id = $request->circular_id; 
           if ($request->hasFile('file')) {
             $fileName = rand(111, 999) . time() . '.' .
                 $request->file->extension();

@@ -23,6 +23,7 @@
                     <thead>
                         <tr>
                             <th>SL</th>
+                            <th>Position</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Contact No</th>
@@ -35,6 +36,7 @@
                         @forelse ($data as $s)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
+                            <td>{{ optional($s->circular)->position }}</td>
                             <td>{{$s->full_name}}</td>
                             <td>{{$s->email}}</td>
                             <td>{{$s->phone}}</td>

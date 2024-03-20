@@ -4,13 +4,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Ship</h3>
+                <h3>Video</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ship</li>
+                        <li class="breadcrumb-item active" aria-current="page">Video</li>
                     </ol>
                 </nav>
             </div>
@@ -19,7 +19,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('ship-info.create') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{ route('video.create') }}" class="btn btn-primary mb-3">Add New</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -27,40 +27,30 @@
                         <tr>
                             <th>SL</th>
                             <th>Name</th>
-                            <th>Category</th>
-                            <th>Image</th>
+                            <th>Video ID</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($ship as $s)
+                        @forelse ($video as $s)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->name}}</td>
-                            <td> @if($s->category == 1)
-                                    Corporate
-                                @elseif($s->category == 2)
-                                    Project
-                                @else
-                                    Unknown
-                                @endif</td>
-                            <td>
-                               <img width="100px" src="{{asset('uploads/ship/'.$s->image)}}" alt="Ship">
-                            </td>
+                            <td>{{$s->video_id}}</td>
                            <td class="white-space-nowrap">
-                                <a href="{{route('ship-info.edit',encryptor('encrypt',$s->id))}}">
+                                <a href="{{route('video.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                                 <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <form id="form{{$s->id}}" action="{{route('ship-info.destroy',encryptor('encrypt',$s->id))}}" method="post">
+                                <form id="form{{$s->id}}" action="{{route('video.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>
                             </td>
                              @empty
-                             <td colspan="5" class="text-center">No Data Found</td>
+                             <td colspan="4" class="text-center">No Data Found</td>
                         </tr>
                          @endforelse
                     </tbody>

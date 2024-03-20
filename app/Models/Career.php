@@ -9,8 +9,8 @@ class Career extends Model
 {
     use HasFactory;
 
-    // public function circular()
-    // {
-    //     return $this->hasOne(Circular::class);
-    // }
+    public function circular()
+    {
+        return $this->belongsTo(Circular::class);
+    }
 }

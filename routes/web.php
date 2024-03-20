@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController as dashboard;
 use App\Http\Controllers\PermissionController as permission;
 use App\Http\Controllers\ModerationController as moderation;
 use App\Http\Controllers\ContactController as contact;
+use App\Http\Controllers\VideoController as video;
 use App\Http\Controllers\ShipController as ship;
 use App\Http\Controllers\AboutUsController as aboutUs;
 use App\Http\Controllers\MissionController as mission;
@@ -68,6 +69,7 @@ Route::get('chairman', [home::class, 'chairman'])->name('chairman');
 Route::get('trackRecord', [home::class, 'trackRecord'])->name('trackRecord');
 Route::get('overview', [home::class, 'overview'])->name('overview');
 Route::get('/yard', [home::class, 'moderation'])->name('yard');
+Route::get('videos', [home::class, 'video'])->name('videos');
 Route::get('gallery', [ship::class, 'gallery'])->name('gallery');
 Route::get('gallery/filter/{category}', [ship::class, 'filter'])->name('frontend.gallery.filter');
 // Route::get('/home', [home::class, 'index'])->name('home');
@@ -102,6 +104,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('sisterC', sisterC::class);
     Route::resource('project', project::class);
     Route::resource('circular', circular::class);
+    Route::resource('video', video::class);
 
     Route::get('contact', [contact::class, 'index'])->name('contactList');
     Route::get('applicants', [career::class, 'index'])->name('applicants');
