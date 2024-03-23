@@ -61,7 +61,6 @@ Route::get('career', [home::class, 'career'])->name('career');
 Route::get('job-apply/{id}', [home::class, 'applyJob'])->name('jobApply');
 Route::post('career/store', [career::class, 'store'])->name('career.store');
 Route::post('contact/store', [contact::class, 'store'])->name('contact.store');
-Route::delete('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 Route::get('contact', [home::class, 'contact'])->name('contact');
 Route::get('sister', [home::class, 'sister'])->name('sister');
 Route::get('management', [home::class, 'management'])->name('management');
@@ -106,7 +105,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('project', project::class);
     Route::resource('circular', circular::class);
     Route::resource('video', video::class);
-
+    
+    Route::delete('contact/{id}', [contact::class, 'destroy'])->name('contact.destroy');
     Route::get('contact', [contact::class, 'index'])->name('contactList');
     Route::get('applicants', [career::class, 'index'])->name('applicants');
 
