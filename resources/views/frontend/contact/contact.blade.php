@@ -32,16 +32,7 @@
           </div>
 
           <div class="ratio ratio-16x9">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22761.971551991017!2d91.79998021180442!3d22.360108883587724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8f2cb4ce22d%3A0x7fc7dd4029e3698b!2z4KaW4KeB4Kay4Ka24KeAIOCmn-CmvuCmieCmqCDgprjgp4fgpqjgp43gpp_gpr7gprA!5e0!3m2!1sbn!2sbd!4v1708959458631!5m2!1sbn!2sbd"
-              width="550"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="shadow rounded"
-            ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4385.459715996908!2d91.73612399598518!3d22.4396617519138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd168fbee0c69%3A0x2280c4be5e337a43!2sMahinur%20Ship%20Recycling%20Limited!5e0!3m2!1sen!2sbd!4v1711100406979!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="col-sm-12 col-md-6 contact-form p-4">

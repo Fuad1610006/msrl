@@ -22,7 +22,7 @@ class CircularRequest extends FormRequest
     public function rules(): array
     {
         return [
-             'position' => 'required|string|max:255',
+             'position' => 'required|string|max:300',
              'circular' => 'required|string',
         ];
     }

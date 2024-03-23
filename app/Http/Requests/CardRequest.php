@@ -22,15 +22,15 @@ class CardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title_1' => 'required|string',
-            'title_2' => 'required|string',
-            'title_3' => 'required|string',
-            'title_4' => 'required|string',
-            'number_1' => 'required|string',
-            'number_2' => 'required|string',
-            'number_3' => 'required|string',
-            'number_4' => 'required|string',
-            'short_description' => 'required|string',
+            'title_1' => 'required|string|max:300',
+            'title_2' => 'required|string|max:300',
+            'title_3' => 'required|string|max:300',
+            'title_4' => 'required|string|max:300',
+            'number_1' => 'required|string|max:300',
+            'number_2' => 'required|string|max:300',
+            'number_3' => 'required|string|max:300',
+            'number_4' => 'required|string|max:300',
+            'short_description' => 'required|string|max:600',
         ];
     }
 }

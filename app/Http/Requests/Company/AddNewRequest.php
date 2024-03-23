@@ -23,9 +23,9 @@ class AddNewRequest extends FormRequest
     {
         return [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'location' => 'required|string',
-            'email_address' => 'required|string',
-            'contact_no' => 'required|string',
+            'location' => 'required|string|max:300',
+            'email_address' => 'required|string|max:60',
+            'contact_no' => 'required|string|max:40',
         ];
     }
 }
