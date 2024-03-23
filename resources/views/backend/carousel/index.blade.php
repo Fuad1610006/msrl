@@ -27,6 +27,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Description</th>
+                            <th>Slogan</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -36,6 +37,7 @@
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$s->short_description}}</td>
+                            <td>{{$s?->slogan}}</td>
                             <td>
                                <img width="100px" src="{{asset('uploads/carousel/'.$s->image)}}" alt="carousel">
                             </td>

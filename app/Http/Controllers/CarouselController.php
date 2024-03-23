@@ -39,6 +39,7 @@ class CarouselController extends Controller
         // $carousel->about_link = $request->about_link;
         // $carousel->project_link = $request->project_link;
         $carousel->short_description = $request->short_description;
+        $carousel->slogan = $request->slogan;
 
          if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
@@ -89,6 +90,8 @@ class CarouselController extends Controller
             // $carousel->about_link = $request->about_link;
             // $carousel->project_link = $request->project_link;
             $carousel->short_description = $request->short_description;
+            $carousel->slogan = $request->slogan;
+            
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' .
                     $request->image->extension();
