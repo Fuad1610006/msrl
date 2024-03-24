@@ -43,11 +43,11 @@
                              <td class="white-space-nowrap">
                                 <div class="btn-group" role="group">
                                     <a href="{{route('sister-logo.edit',encryptor('encrypt',$s->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
-                                    <form action="{{ route('sister-logo.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    {{-- <form action="{{ route('sister-logo.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </td>
                              @empty
