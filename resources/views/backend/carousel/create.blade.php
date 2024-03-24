@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="slogan">Slogan</label>
-                                    <input type="text" id="slogan" class="form-control" name="slogan" value="{{ old('slogan')}}" placeholder="Enter Slogan">
+                                    <input type="text" id="slogan" class="form-control" name="slogan" value="{{ old('slogan')}}" placeholder="Enter Slogan" required>
                                     @if($errors->has('slogan'))
                                         <span class="text-danger"> {{ $errors->first('slogan') }}</span>
                                     @endif

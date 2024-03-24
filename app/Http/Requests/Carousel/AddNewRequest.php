@@ -24,7 +24,7 @@ class AddNewRequest extends FormRequest
         return [
              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
              'short_description' => 'nullable|string',
-             'slogan' => 'nullable|string|max:300',
+             'slogan' => 'required|string|max:300',
         ];
     }
 }
