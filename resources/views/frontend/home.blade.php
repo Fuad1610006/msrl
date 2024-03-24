@@ -22,16 +22,19 @@
                 </div>
             </div>
             @else
-            @foreach($carousel as $key => $item)
+           @foreach($carousel as $key => $item)
             <div class="carousel-item {{ $key == 0 ? 'active' : '' }} h-100">
                 <img src="{{ asset('uploads/carousel/' . $item->image) }}" class="d-block h-100" alt="Carousel Image" />
                 <div class="carousel-caption">
                     <div class="text-start">
                         <p class="slider-one-heading mb-0">Welcome To</p>
                         <h2 class="slider-two-heading text-uppercase">Mahinur Ship Recycling Ltd.</h2>
-                        <p class="py-3 slider-text">
-                           {{$item->short_description}}
-                        </p>
+                        @if($item->slogan && $item->short_description)
+                            <h5 class="animate__animated animate__bounce">{{$item->slogan}}</h5>
+                            <p class="py-3 slider-text">{{$item->short_description}}</p>
+                        @else
+                            <p class="slider-text animate__animated animate__bounce">{{$item->slogan ?: $item->short_description}}</p>
+                        @endif
                     </div>
                     <div class="d-flex justify-content-between me-auto">
                         <a href="{{route('about')}}" class="btn btn-white m-1 border rounded-pill px-4">About Us</a>
@@ -39,7 +42,8 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+        @endforeach
+
             @endif
         </div>
 
@@ -132,3 +136,9 @@
 
 @include('frontend.layout.footer')
 @endsection('content')
+@push('styles')
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />  
+@endpush

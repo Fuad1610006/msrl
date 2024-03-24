@@ -56,6 +56,11 @@
                                     <td>{{ $m->published == 1?"Show":"Hide" }}</td>
                                     <td class="white-space-nowrap">
                                         <a class="btn btn-warning" href="{{route('page.edit',encryptor('encrypt',$m->id))}}">Edit</a>
+                                         {{-- <form action="{{ route('page.destroy',encryptor('encrypt',$m->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form> --}}
                                     </td>
                                 </tr>
                                 @empty

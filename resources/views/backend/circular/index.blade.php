@@ -37,18 +37,15 @@
                             <td>{{ ++$loop->index }}</td>
                             <td>{{$m->position}}</td>
                             <td>{!!$m->circular!!}</td>
-                           
-                           <td class="white-space-nowrap">
-                                <a href="{{route('circular.edit',encryptor('encrypt',$m->id))}}">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                {{-- <a href="javascript:void()" onclick="$('#form{{$m->id}}').submit()">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                                <form id="form{{$m->id}}" action="{{route('circular.destroy',encryptor('encrypt',$m->id))}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                </form> --}}
+                            <td class="white-space-nowrap">
+                                <div class="btn-group" role="group">
+                                    <a href="{{route('circular.edit',encryptor('encrypt',$m->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
+                                    <form action="{{ route('circular.destroy',encryptor('encrypt',$m->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                              @empty
                              <td colspan="4" class="text-center">No Data Found</td>

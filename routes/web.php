@@ -106,6 +106,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('circular', circular::class);
     Route::resource('video', video::class);
     
+    Route::delete('applicants/{id}', [career::class, 'destroy'])->name('applicants.destroy');
     Route::delete('contact/{id}', [contact::class, 'destroy'])->name('contact.destroy');
     Route::get('contact', [contact::class, 'index'])->name('contactList');
     Route::get('applicants', [career::class, 'index'])->name('applicants');

@@ -43,16 +43,14 @@
                                             <img width="60px" src="{{asset('uploads/midManagement/'.$d->image)}}" alt="Management">
                                         </td>
                                         <td class="white-space-nowrap">
-                                            <a href="{{route('mid.edit',encryptor('encrypt',$d->id))}}">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
-                                            <a href="javascript:void()" onclick="$('#form{{$d->id}}').submit()">
-                                                <i class="bi bi-trash"></i>
-                                            </a>
-                                            <form id="form{{$d->id}}" action="{{route('mid.destroy',encryptor('encrypt',$d->id))}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                            </form>
+                                            <div class="btn-group" role="group">
+                                                <a href="{{route('mid.edit',encryptor('encrypt',$d->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
+                                                <form action="{{ route('mid.destroy',encryptor('encrypt',$d->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
                                         </td>
                                  @empty
                                 <td colspan="6" class="text-center">No Data Found</td>

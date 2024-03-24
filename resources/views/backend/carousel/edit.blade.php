@@ -30,7 +30,7 @@
                              <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="slogan">Slogan</label>
-                                    <input type="text" id="sloagn" class="form-control" name="slogan" value="{{ old('slogan', $carousel->slogan)}}" placeholder="Enter Slogan" required>
+                                    <input type="text" id="sloagn" class="form-control" name="slogan" value="{{ old('slogan', $carousel->slogan)}}" placeholder="Enter Slogan">
                                     @if($errors->has('slogan'))
                                         <span class="text-danger"> {{ $errors->first('slogan') }}</span>
                                     @endif

@@ -42,17 +42,16 @@
                                          <td>
                                             <img width="60px" src="{{asset('uploads/topManagement/'.$d->image)}}" alt="Management">
                                         </td>
-                                         <td class="white-space-nowrap">
-                                            <a href="{{route('top.edit',encryptor('encrypt',$d->id))}}">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
-                                            <a href="javascript:void()" onclick="$('#form{{$d->id}}').submit()">
-                                                <i class="bi bi-trash"></i>
-                                            </a>
-                                            <form id="form{{$d->id}}" action="{{route('top.destroy',encryptor('encrypt',$d->id))}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                            </form>
+                                        
+                                        <td class="white-space-nowrap">
+                                            <div class="btn-group" role="group">
+                                                <a href="{{route('top.edit',encryptor('encrypt',$d->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
+                                                <form action="{{ route('top.destroy',encryptor('encrypt',$d->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
                                         </td>
                                  @empty
                                 <td colspan="5" class="text-center">No Data Found</td>

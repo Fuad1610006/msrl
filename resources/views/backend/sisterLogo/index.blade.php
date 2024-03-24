@@ -39,17 +39,16 @@
                             <td>
                                <img width="60px" src="{{asset('uploads/sisterLogo/'.$s->image)}}" alt="carousel">
                             </td>
-                           <td class="white-space-nowrap">
-                                <a href="{{route('sister-logo.edit',encryptor('encrypt',$s->id))}}">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                {{-- <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                                <form id="form{{$s->id}}" action="{{route('sister-logo.destroy',encryptor('encrypt',$s->id))}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                </form> --}}
+                           
+                             <td class="white-space-nowrap">
+                                <div class="btn-group" role="group">
+                                    <a href="{{route('sister-logo.edit',encryptor('encrypt',$s->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
+                                    <form action="{{ route('sister-logo.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                              @empty
                              <td colspan="4" class="text-center">No Data Found</td>

@@ -41,20 +41,36 @@
                             <td>
                                <img width="100px" src="{{asset('uploads/carousel/'.$s->image)}}" alt="carousel">
                             </td>
-                           <td class="white-space-nowrap">
-                                <a href="{{route('carousel.edit',encryptor('encrypt',$s->id))}}">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
+                           {{-- <td class="white-space-nowrap">
+                                <a href="{{route('carousel.edit',encryptor('encrypt',$s->id))}}" class="btn btn-warning">Edit</a> --}}
+                                    {{-- <i class="bi bi-pencil-square"></i> --}}
+                                
+                                {{-- <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <form id="form{{$s->id}}" action="{{route('carousel.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
+                                </form> --}}
+                                {{-- <form action="{{ route('carousel.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+                            </td> --}}
+                            <td class="white-space-nowrap">
+                                <div class="btn-group" role="group">
+                                    <a href="{{route('carousel.edit',encryptor('encrypt',$s->id))}}" class="btn btn-warning me-2 mb-2">Edit</a>
+                                    <form action="{{ route('carousel.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
+
                              @empty
-                             <td colspan="6" class="text-center">No Data Found</td>
+                             <td colspan="5" class="text-center">No Data Found</td>
                         </tr>
                          @endforelse
                     </tbody>

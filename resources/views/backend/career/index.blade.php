@@ -48,15 +48,11 @@
                                     No File Uploaded
                                 @endif
                             </td>
-                           {{-- <td class="white-space-nowrap">
-                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                                <form id="form{{$s->id}}" action="{{route('career.destroy',encryptor('encrypt',$s->id))}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                </form>
-                            </td> --}}
+                             {{-- <form action="{{ route('applicants.destroy',encryptor('encrypt',$s->id)) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn btn-danger">Delete</button>
+                                </form> --}}
                              @empty
                              <td colspan="7" class="text-center">No Data Found</td>
                         </tr>
