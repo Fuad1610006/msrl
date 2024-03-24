@@ -30,10 +30,10 @@
                         <p class="slider-one-heading mb-0">Welcome To</p>
                         <h2 class="slider-two-heading text-uppercase">Mahinur Ship Recycling Ltd.</h2>
                         @if($item->slogan && $item->short_description)
-                            <h5 class="animate__animated animate__bounce">{{$item->slogan}}</h5>
+                            <h5 class="animate__animated animate__bounceInRight">{{$item->slogan}}</h5>
                             <p class="py-3 slider-text">{{$item->short_description}}</p>
                         @else
-                            <p class="slider-text animate__animated animate__bounce">{{$item->slogan ?: $item->short_description}}</p>
+                            <p class="slider-text animate__animated animate__bounceInRight">{{$item->slogan ?: $item->short_description}}</p>
                         @endif
                     </div>
                     <div class="d-flex justify-content-between me-auto">
