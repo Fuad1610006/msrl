@@ -87,8 +87,7 @@
             <li><a href="{{route('about')}}">About Us</a></li>
             <li><a href="{{route('chairman')}}">Chairman Message</a></li>
             <li><a href="{{route('contact')}}">Contact Us</a></li>
-            {{-- <li><a href="#">Project 4</a></li>
-            <li><a href="#">Project 5</a></li> --}}
+            <li><a href="https://webmail.msrlbob.com">Web Mail</a></li>
         </ul>
         </div>
     </div>
